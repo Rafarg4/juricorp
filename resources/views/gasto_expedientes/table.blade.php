@@ -16,7 +16,7 @@
                 <td>{{ $gastoExpediente->concepto }}</td>
             <td>{{ $gastoExpediente->monto }}</td>
             <td>{{ $gastoExpediente->fecha }}</td>
-            <td>{{ $gastoExpediente->id_expediente }}</td>
+            <td>{{ $gastoExpediente->expediente->numero }}</td>
             <td>{{ $gastoExpediente->archivo }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['gastoExpedientes.destroy', $gastoExpediente->id], 'method' => 'delete']) !!}

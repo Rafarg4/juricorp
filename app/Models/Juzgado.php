@@ -56,5 +56,8 @@ class Juzgado extends Model
         'secretario' => 'required'
     ];
 
-    
+     public function expediente (){
+     return $this-> hasMany('App\Models\Epediente');
+
+    }
 }

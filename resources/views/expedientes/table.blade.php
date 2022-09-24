@@ -16,8 +16,8 @@
                 <td>{{ $expediente->numero }}</td>
             <td>{{ $expediente->anho }}</td>
             <td>{{ $expediente->caratula }}</td>
-            <td>{{ $expediente->id_circunscripcion }}</td>
-            <td>{{ $expediente->id_juzgado }}</td>
+            <td>{{ $expediente->circunscripcion->nombre }}</td>
+            <td>{{ $expediente->juzgado->nombre}}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['expedientes.destroy', $expediente->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

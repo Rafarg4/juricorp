@@ -64,5 +64,8 @@ class Gasto_expediente extends Model
         'archivo' => 'required'
     ];
 
-    
+     public function expediente (){
+        return $this-> belongsTo('App\Models\Expediente','id_expediente');
+    } 
+     
 }

@@ -51,6 +51,8 @@ class Circunscripcion extends Model
         'nombre' => 'required',
         'departamento' => 'required'
     ];
+    public function expediente (){
+    return $this-> hasMany('App\Models\Epediente');
 
-    
+    }
 }
