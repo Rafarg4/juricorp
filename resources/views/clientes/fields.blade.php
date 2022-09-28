@@ -112,8 +112,8 @@
 
 <!-- Numero Casa Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('numero_casa', 'Numero Casa:') !!}
-    {!! Form::text('numero_casa', null, ['class' => 'form-control']) !!}
+    {!! Form::label('numero_casa_laboral', 'Numero Casa:') !!}
+    {!! Form::text('numero_casa_laboral', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Telefono Fijo Field -->

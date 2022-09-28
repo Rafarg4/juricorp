@@ -16,7 +16,7 @@
 
 <!-- Anho Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('anho', 'Anho:') !!}
+    {!! Form::label('anho', 'Año:') !!}
     {!! Form::text('anho', null, ['class' => 'form-control','id'=>'anho']) !!}
 </div>
 
@@ -50,7 +50,51 @@
     {!! Form::select('id_juzgado', $juzgados, null, ['multiple','class' => 'form-control custom-select']) !!}
 </div>
 <!-- Id Juzgado Field -->
-<div class="form-group col-sm-6">
+
+<div class="form-group col-sm-12">
     {!! Form::label('id_clientes', 'Cliente:') !!}
+<div class="input-group">
+   
     {!! Form::select('id_clientes', $clientes, null, ['multiple','class' => 'form-control custom-select']) !!}
-</div>
+  <div class="input-group-append">
+    <button class="btn btn-primary" type="button" id="agregar"><i class="fa fas-solid fa-plus"></i></button>
+     <button class="btn btn-success" type="button" id="agregar_nuevo"><i class="fa fas-solid fa-user-plus"></i></button>
+  </div>
+</div></div>
+
+<div class="form-group col-sm-12">
+        <table class="table table-bordered table-hover dataTable dtr-inline" id="tabla">
+
+            <thead>
+                <tr>
+                    <th>Campo 1</th>
+                    <th>Campo 2</th>
+                    <th>Campo 3</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td id="valor1">Valor 1</td>
+                <td id="valor2">Valor 2</td>
+                <td id="valor3 ">Valor 3</td>
+                <td style="text-align: center;"> <button class="btn btn-danger" type="button"><i class="fa fas-solid fa-trash"></i></button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+$("#agregar").click(function() {
+        insert
+
+
+
+
+});
+</script>

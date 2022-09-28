@@ -64,7 +64,7 @@ class Cliente extends Model
         'ci_coyuge',
         'empresa_otro',
         'direccion',
-        'numero_casa',
+        'numero_casa_laboral',
         'telefono_fijo',
         'telefono_laboral',
         'email_laboral'
@@ -111,8 +111,8 @@ class Cliente extends Model
         'fecha_nacimiento' => 'required',
         'nacionalidad' => 'required',
         'distrito_origen' => 'required',
-        'domicilio_particular' => 'requried',
-        'numero_casa' => 'requried',
+        'domicilio_particular' => 'required',
+        'numero_casa' => 'required',
         'barrio' => 'required',
         'ciudad' => 'required',
         'numero_telefono' => 'required',
@@ -122,9 +122,9 @@ class Cliente extends Model
         'ci_coyuge' => 'required',
         'empresa_otro' => 'required',
         'direccion' => 'required',
-        'numero_casa' => 'requierd',
+        'numero_casa_laboral' => 'required',
         'telefono_fijo' => 'required',
-        'telefono_laboral' => 'requried',
+        'telefono_laboral' => 'required',
         'email_laboral' => 'required'
     ];
 
