@@ -7,20 +7,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Circunscripcion
+ * Class Pago_expedinte
  * @package App\Models
- * @version September 23, 2022, 2:37 am UTC
+ * @version September 25, 2022, 12:26 am UTC
  *
- * @property string $nombre
- * @property string $departamento
+ * @property integer $id_cliente
+ * @property integer $id_expediente
  */
-class Circunscripcion extends Model
+class Pago_expedinte extends Model
 {
     use SoftDeletes;
 
     use HasFactory;
 
-    public $table = 'circunscripcions';
+    public $table = 'pago_expedintes';
     
 
     protected $dates = ['deleted_at'];
@@ -28,8 +28,8 @@ class Circunscripcion extends Model
 
 
     public $fillable = [
-        'nombre',
-        'departamento'
+        'id_cliente',
+        'id_expediente'
     ];
 
     /**
@@ -38,8 +38,8 @@ class Circunscripcion extends Model
      * @var array
      */
     protected $casts = [
-        'nombre' => 'string',
-        'departamento' => 'string'
+        'id_cliente' => 'integer',
+        'id_expediente' => 'integer'
     ];
 
     /**
@@ -48,11 +48,9 @@ class Circunscripcion extends Model
      * @var array
      */
     public static $rules = [
-        'nombre' => 'required',
-        'departamento' => 'required'
+        'id_cliente' => 'requried',
+        'id_expediente' => 'required'
     ];
-    public function expediente (){
-     return $this->belongsToMany(Expediente::class,'circunscripcion_juzgados','id','id');
 
-    }
+    
 }

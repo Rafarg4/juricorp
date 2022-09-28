@@ -52,3 +52,21 @@
 </li>
 
 
+<li class="nav-item">
+    <a href="{{ route('pagoExpedintes.index') }}"
+       class="nav-link {{ Request::is('pagoExpedintes*') ? 'active' : '' }}">
+       <i class="fa fas-solid fa-money-bill"></i>
+        <p>Pago Expedintes</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('expedienteDetalles.index') }}"
+       class="nav-link {{ Request::is('expedienteDetalles*') ? 'active' : '' }}">
+       <i class="fa fas-regular fa-file-code"></i>
+        <p>Expediente Detalles</p>
+    </a>
+</li>
+
+

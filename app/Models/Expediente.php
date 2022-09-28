@@ -64,14 +64,18 @@ class Expediente extends Model
         'id_juzgado' => 'required'
     ];
 
-     public function juzgado (){
-        return $this-> belongsTo('App\Models\Juzgado','id_juzgado');
-    }
-    public function circunscripcion (){
-        return $this-> belongsTo('App\Models\Circunscripcion','id_circunscripcion');
-    }
+
     public function gasto_expediente (){
      return $this-> hasMany('App\Models\Gasto_expediente');
 
     }
+    public function juzgado (){
+     return $this->belongsToMany(Juzgado::class,'circunscripcion_juzgados','id','id');
+
+    }
+    public function circunscripcion (){
+     return $this->belongsToMany(Circunscripcion::class,'circunscripcion_juzgados','id','id');
+
+    }
+    
 }

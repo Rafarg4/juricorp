@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ config('app.name') }}</title>
+     <!-- Latest compiled and minified CSS -->
     <link rel="icon" type="image/png" src="/98.png" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-
+   
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
@@ -34,6 +35,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
           integrity="sha512-aEe/ZxePawj0+G2R+AaIxgrQuKT68I28qh+wgLrcAJOz3rxCP+TwrK5SPN+E5I+1IQjNtcfvb96HDagwrKRdBw=="
           crossorigin="anonymous"/>
+
 
     @stack('third_party_stylesheets')
 
@@ -146,6 +148,9 @@
 
 <script>
     $(function () {
+    $('select').selectpicker();
+});
+    $(function () {
         bsCustomFileInput.init();
     });
 
@@ -153,7 +158,11 @@
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
     });
 </script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>    
 @stack('third_party_scripts')
 
 @stack('page_scripts')

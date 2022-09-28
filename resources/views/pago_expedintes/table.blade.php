@@ -1,31 +1,25 @@
 <div class="table-responsive">
-    <table class="table" id="expedientes-table">
+    <table class="table" id="pagoExpedintes-table">
         <thead>
         <tr>
-            <th>Numero</th>
-        <th>Anho</th>
-        <th>Caratula</th>
-        <th>Id Circunscripcion</th>
-        <th>Id Juzgado</th>
+            <th>Id Cliente</th>
+        <th>Id Expediente</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($expedientes as $expediente)
+        @foreach($pagoExpedintes as $pagoExpedinte)
             <tr>
-                <td>{{ $expediente->numero }}</td>
-            <td>{{ $expediente->anho }}</td>
-            <td>{{ $expediente->caratula }}</td>
-            <td>{{ $expediente->id_circunscripcion }}</td>
-            <td>{{ $expediente->id_juzgado}}</td>
+                <td>{{ $pagoExpedinte->id_cliente }}</td>
+            <td>{{ $pagoExpedinte->id_expediente }}</td>
                 <td width="120">
-                    {!! Form::open(['route' => ['expedientes.destroy', $expediente->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['pagoExpedintes.destroy', $pagoExpedinte->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('expedientes.show', [$expediente->id]) }}"
+                        <a href="{{ route('pagoExpedintes.show', [$pagoExpedinte->id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-eye"></i>
                         </a>
-                        <a href="{{ route('expedientes.edit', [$expediente->id]) }}"
+                        <a href="{{ route('pagoExpedintes.edit', [$pagoExpedinte->id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>

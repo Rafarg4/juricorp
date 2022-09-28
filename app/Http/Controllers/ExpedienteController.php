@@ -9,8 +9,10 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
- use App\Models\Circunscripcion;
-  use App\Models\Juzgado;
+use App\Models\Circunscripcion;
+use App\Models\Juzgado;
+use App\Models\Expediente;
+use App\Models\Cliente;
 
 class ExpedienteController extends AppBaseController
 {
@@ -47,7 +49,8 @@ class ExpedienteController extends AppBaseController
        
           $circunscripcions = Circunscripcion::pluck('nombre','id');
           $juzgados = Juzgado::pluck('nombre','id');
-          return view('expedientes.create',compact('circunscripcions','juzgados'));
+          $clientes = Cliente::pluck('nombre','id');
+          return view('expedientes.create',compact('circunscripcions','juzgados','clientes'));
     }
 
     /**
@@ -59,10 +62,9 @@ class ExpedienteController extends AppBaseController
      */
     public function store(CreateExpedienteRequest $request)
     {
-        $input = $request->all();
-
-        $expediente = $this->expedienteRepository->create($input);
-
+        $input = Expediente::create($request->all());
+        $input->juzgado()->sync($request->juzgado);
+        $input->circunscripcion()->sync($request->circunscripcion);
         Flash::success('Expediente saved successfully.');
 
         return redirect(route('expedientes.index'));
@@ -160,4 +162,5 @@ class ExpedienteController extends AppBaseController
 
         return redirect(route('expedientes.index'));
     }
+
 }

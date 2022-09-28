@@ -57,7 +57,7 @@ class Juzgado extends Model
     ];
 
      public function expediente (){
-     return $this-> hasMany('App\Models\Epediente');
+     return $this->belongsToMany(Expediente::class,'circunscripcion_juzgados','id','id');
 
     }
 }
