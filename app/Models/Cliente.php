@@ -127,6 +127,9 @@ class Cliente extends Model
         'telefono_laboral' => 'required',
         'email_laboral' => 'required'
     ];
+public function expedientes (){
+     return $this->belongsToMany(Expediente::class);
 
+    }
     
 }

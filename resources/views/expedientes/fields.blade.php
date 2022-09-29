@@ -41,7 +41,7 @@
 <!-- Id Juzgado Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_circunscripcion[]', 'Id circu:') !!}
-    {!! Form::select('id_circunscripcion', $juzgados, null, ['multiple','class' => 'form-control custom-select']) !!}
+    {!! Form::select('id_circunscripcion', $circunscripcions, null, ['multiple','class' => 'form-control custom-select']) !!}
 </div>
 
 <!-- Id Juzgado Field -->
@@ -52,10 +52,10 @@
 <!-- Id Juzgado Field -->
 
 <div class="form-group col-sm-12">
-    {!! Form::label('id_clientes', 'Cliente:') !!}
+    {!! Form::label('clientes[]', 'Cliente:') !!}
 <div class="input-group">
-   
-    {!! Form::select('id_clientes', $clientes, null, ['multiple','class' => 'form-control custom-select']) !!}
+    {!! Form::select('clientes[]', $clientes, null, ['array','multiple','class' => 'form-control custom-select']) !!}
+ 
   <div class="input-group-append">
     <button class="btn btn-primary" type="button" id="agregar"><i class="fa fas-solid fa-plus"></i></button>
      <button class="btn btn-success" type="button" id="agregar_nuevo"><i class="fa fas-solid fa-user-plus"></i></button>

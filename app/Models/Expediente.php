@@ -63,18 +63,14 @@ class Expediente extends Model
         'id_circunscripcion' => 'required',
         'id_juzgado' => 'required'
     ];
-
+ 
 
     public function gasto_expediente (){
      return $this-> hasMany('App\Models\Gasto_expediente');
 
     }
-    public function juzgado (){
-     return $this->belongsToMany(Juzgado::class,'circunscripcion_juzgados','id','id');
-
-    }
-    public function circunscripcion (){
-     return $this->belongsToMany(Circunscripcion::class,'circunscripcion_juzgados','id','id');
+    public function clientes (){
+     return $this->belongsToMany(Cliente::class);
 
     }
     

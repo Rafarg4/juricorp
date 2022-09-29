@@ -7,6 +7,7 @@
         <th>Caratula</th>
         <th>Id Circunscripcion</th>
         <th>Id Juzgado</th>
+        <th>Id Cliente</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -18,6 +19,7 @@
             <td>{{ $expediente->caratula }}</td>
             <td>{{ $expediente->id_circunscripcion }}</td>
             <td>{{ $expediente->id_juzgado}}</td>
+              <td>{{ $expediente->id_cliente}}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['expedientes.destroy', $expediente->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

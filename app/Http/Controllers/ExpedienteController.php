@@ -34,9 +34,10 @@ class ExpedienteController extends AppBaseController
     public function index(Request $request)
     {
         $expedientes = $this->expedienteRepository->all();
+        $cliente_expediente = Expediente::with('clientes')->get();
 
-        return view('expedientes.index')
-            ->with('expedientes', $expedientes);
+        return view('expedientes.index',compact('expedientes','cliente_expediente'));
+            
     }
 
     /**
@@ -63,8 +64,7 @@ class ExpedienteController extends AppBaseController
     public function store(CreateExpedienteRequest $request)
     {
         $input = Expediente::create($request->all());
-        $input->juzgado()->sync($request->juzgado);
-        $input->circunscripcion()->sync($request->circunscripcion);
+        $input->clientes()->sync($request->input('clientes',[]));
         Flash::success('Expediente saved successfully.');
 
         return redirect(route('expedientes.index'));

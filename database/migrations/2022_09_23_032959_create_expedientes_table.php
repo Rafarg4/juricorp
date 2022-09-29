@@ -20,10 +20,12 @@ class CreateExpedientesTable extends Migration
             $table->text('anho');
             $table->text('caratula');
             $table->unsignedBigInteger('id_juzgado');
+          
             $table->unsignedBigInteger('id_circunscripcion');
             $table->timestamps();
             $table->softDeletes();
            $table->foreign('id_juzgado')->references('id')->on('juzgados');
+         
             $table->foreign('id_circunscripcion')->references('id')->on('circunscripcions');
         });
     }
