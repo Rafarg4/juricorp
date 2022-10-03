@@ -3,35 +3,37 @@
         <thead>
         <tr>
             <th>Numero</th>
-        <th>Anho</th>
+        <th>Año</th>
         <th>Caratula</th>
-        <th>Id Circunscripcion</th>
-        <th>Id Juzgado</th>
-        <th>Id Cliente</th>
-            <th colspan="3">Action</th>
+        <th>Circunscripcion</th>
+        <th>Juzgado</th>
+        <th>Cliente</th>
+            <th>Accion</th>
         </tr>
         </thead>
         <tbody>
         @foreach($expedientes as $expediente)
             <tr>
-                <td>{{ $expediente->numero }}</td>
+            <td>{{ $expediente->numero }}</td>
             <td>{{ $expediente->anho }}</td>
             <td>{{ $expediente->caratula }}</td>
-            <td>{{ $expediente->id_circunscripcion }}</td>
-            <td>{{ $expediente->id_juzgado}}</td>
-              <td>{{ $expediente->id_cliente}}</td>
-                <td width="120">
+            <td>{{ $expediente->circunscripcion->nombre }}</td>
+            <td>{{ $expediente->juzgado->nombre}}</td>
+           <td> @foreach($expediente->clientes as $expediente)
+            {{ $expediente->nombre}}
+            @endforeach </td>
+                 <td width="120">
                     {!! Form::open(['route' => ['expedientes.destroy', $expediente->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         <a href="{{ route('expedientes.show', [$expediente->id]) }}"
                            class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i>
+                           <button type="button" class="btn btn-primary"> <i class="nav-icon fas fa-book"></i></button>
                         </a>
                         <a href="{{ route('expedientes.edit', [$expediente->id]) }}"
                            class='btn btn-default btn-xs'>
-                            <i class="far fa-edit"></i>
+                           <button type="button" class="btn btn-warning"> <i class="far fa-edit"></i></button>
                         </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>

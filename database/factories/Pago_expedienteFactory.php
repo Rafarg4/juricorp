@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Pago_expedinte;
+use App\Models\Pago_expediente;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class Pago_expedinteFactory extends Factory
+class Pago_expedienteFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Pago_expedinte::class;
+    protected $model = Pago_expediente::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +22,10 @@ class Pago_expedinteFactory extends Factory
     public function definition()
     {
         return [
-            'id_cliente' => $this->faker->randomDigitNotNull,
-        'id_expediente' => $this->faker->randomDigitNotNull,
+            'concepto' => $this->faker->text,
+        'monto' => $this->faker->text,
+        'fecha' => $this->faker->text,
+        'expediente_id' => $this->faker->randomDigitNotNull,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

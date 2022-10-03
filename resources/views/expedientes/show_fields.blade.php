@@ -18,16 +18,21 @@
 
 <!-- Id Circunscripcion Field -->
 <div class="col-sm-12">
-    {!! Form::label('id_circunscripcion', 'Id Circunscripcion:') !!}
-    <p>{{ $expediente->id_circunscripcion }}</p>
+    {!! Form::label('id_circunscripcion', 'Circunscripcion:') !!}
+    <p>{{ $expediente->circunscripcion->nombre }}</p>
 </div>
 
 <!-- Id Juzgado Field -->
 <div class="col-sm-12">
-    {!! Form::label('id_juzgado', 'Id Juzgado:') !!}
-    <p>{{ $expediente->id_juzgado }}</p>
+    {!! Form::label('id_juzgado', 'Juzgado:') !!}
+    <p>{{ $expediente->juzgado->nombre }}</p>
 </div>
-
+<div class="col-sm-12">
+    {!! Form::label('clientes', 'Cliente:') !!}
+    <p>@foreach($expediente->clientes as $expediente)
+            {{ $expediente->nombre}}
+            @endforeach</p>
+</div>
 <!-- Created At Field -->
 <div class="col-sm-12">
     {!! Form::label('created_at', 'Created At:') !!}

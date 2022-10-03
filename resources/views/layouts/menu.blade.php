@@ -1,3 +1,19 @@
+<div class="input-group" data-widget="sidebar-search">
+<input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+<div class="input-group-append">
+<button class="btn btn-sidebar">
+<i class="fas fa-search fa-fw"></i>
+</button>
+</div>
+</div>
+<br>
+<li class="nav-item">
+    <a href="{{ route('home') }}"
+       class="nav-link {{ Request::is('home*') ? 'active' : '' }}">
+       <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p>Dashboard</p>
+    </a>
+</li>
 <li class="nav-item">
     <a href="{{ route('juzgados.index') }}"
        class="nav-link {{ Request::is('juzgados*') ? 'active' : '' }}">
@@ -37,7 +53,7 @@
 <li class="nav-item">
     <a href="{{ route('expedientes.index') }}"
        class="nav-link {{ Request::is('expedientes*') ? 'active' : '' }}">
-       <i class="fa fas-solid fa-folder-open"></i>
+       <i class="fa fas-solid fa-folder"></i>
         <p>Expedientes</p>
     </a>
 </li>
@@ -52,20 +68,12 @@
 </li>
 
 
-<li class="nav-item">
-    <a href="{{ route('pagoExpedintes.index') }}"
-       class="nav-link {{ Request::is('pagoExpedintes*') ? 'active' : '' }}">
-       <i class="fa fas-solid fa-money-bill"></i>
-        <p>Pago Expedintes</p>
-    </a>
-</li>
-
 
 <li class="nav-item">
-    <a href="{{ route('expedienteDetalles.index') }}"
-       class="nav-link {{ Request::is('expedienteDetalles*') ? 'active' : '' }}">
-       <i class="fa fas-regular fa-file-code"></i>
-        <p>Expediente Detalles</p>
+    <a href="{{ route('pagoExpedientes.index') }}"
+       class="nav-link {{ Request::is('pagoExpedientes*') ? 'active' : '' }}">
+       <i class="fa fas-solid fa-credit-card"></i>
+        <p>Pago Expedientes</p>
     </a>
 </li>
 

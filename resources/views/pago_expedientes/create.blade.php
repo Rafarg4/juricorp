@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Create Pago Expedinte</h1>
+                    <h1>Create Pago Expediente</h1>
                 </div>
             </div>
         </div>
@@ -17,19 +17,19 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'pagoExpedintes.store']) !!}
+            {!! Form::open(['route' => 'pagoExpedientes.store']) !!}
 
             <div class="card-body">
 
                 <div class="row">
-                    @include('pago_expedintes.fields')
+                    @include('pago_expedientes.fields')
                 </div>
 
             </div>
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('pagoExpedintes.index') }}" class="btn btn-default">Cancel</a>
+                <a href="{{ route('pagoExpedientes.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
             {!! Form::close() !!}

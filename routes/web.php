@@ -40,10 +40,10 @@ Route::resource('expedientes', App\Http\Controllers\ExpedienteController::class)
 Route::resource('gastoExpedientes', App\Http\Controllers\Gasto_expedienteController::class);
 
 
-Route::resource('pagoExpedintes', App\Http\Controllers\Pago_expedinteController::class);
 
-
-Route::resource('pagoExpedintes', App\Http\Controllers\Pago_expedinteController::class);
 
 
 Route::resource('expedienteDetalles', App\Http\Controllers\Expediente_detalleController::class);
+
+
+Route::resource('pagoExpedientes', App\Http\Controllers\Pago_expedienteController::class);

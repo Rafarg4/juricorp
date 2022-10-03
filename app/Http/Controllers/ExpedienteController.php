@@ -33,10 +33,9 @@ class ExpedienteController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $expedientes = $this->expedienteRepository->all();
-        $cliente_expediente = Expediente::with('clientes')->get();
+        $expedientes = Expediente::with(['clientes'])->get();
 
-        return view('expedientes.index',compact('expedientes','cliente_expediente'));
+        return view('expedientes.index',compact('expedientes'));
             
     }
 
@@ -46,8 +45,7 @@ class ExpedienteController extends AppBaseController
      * @return Response
      */
     public function create()
-    {
-       
+    {   
           $circunscripcions = Circunscripcion::pluck('nombre','id');
           $juzgados = Juzgado::pluck('nombre','id');
           $clientes = Cliente::pluck('nombre','id');
@@ -100,14 +98,16 @@ class ExpedienteController extends AppBaseController
     public function edit($id)
     {
         $expediente = $this->expedienteRepository->find($id);
-
+        $circunscripcions = Circunscripcion::pluck('nombre','id');
+        $juzgados = Juzgado::pluck('nombre','id');
+        $clientes = Cliente::pluck('nombre','id');
         if (empty($expediente)) {
-            Flash::error('Expediente not found');
+            Flash::error('Expediente no encontrado');
 
             return redirect(route('expedientes.index'));
         }
 
-        return view('expedientes.edit')->with('expediente', $expediente);
+        return view('expedientes.edit', compact('expediente','circunscripcions','juzgados','clientes'));
     }
 
     /**
@@ -121,20 +121,19 @@ class ExpedienteController extends AppBaseController
     public function update($id, UpdateExpedienteRequest $request)
     {
         $expediente = $this->expedienteRepository->find($id);
-         $circunscripcions = Circunscripcion::pluck('nombre','id');
-          $juzgados = Juzgado::pluck('nombre','id');
-
+        $expediente->clientes()->sync($request->input('clientes',[]));
         if (empty($expediente)) {
-            Flash::error('Expediente not found');
+            Flash::error('Expediente no encontrado');
 
             return redirect(route('expedientes.index'));
         }
 
         $expediente = $this->expedienteRepository->update($request->all(), $id);
+        $expedientes = Expediente::with(['clientes'])->get();
 
-        Flash::success('Expediente updated successfully.');
+        Flash::success('Expediente actualizado correctamente.');
 
-        return view('expedientes.index',compact('expediente','circunscripcions','juzgados'));
+        return view('expedientes.index',compact('expediente','expedientes'));
     }
 
     /**

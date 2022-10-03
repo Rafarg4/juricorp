@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePagoExpedintesTable extends Migration
+class CreatePagoExpedientesTable extends Migration
 {
 
     /**
@@ -14,16 +14,15 @@ class CreatePagoExpedintesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pago_expedintes', function (Blueprint $table) {
+        Schema::create('pago_expedientes', function (Blueprint $table) {
             $table->id('id');
             $table->text('concepto');
             $table->text('monto');
             $table->text('fecha');
-            $table->unsignedBigInteger('id_expediente');
-            $table->text('archivo');
+             $table->unsignedBigInteger('expediente_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('id_expediente')->references('id')->on('expedientes');
+            $table->foreign('expediente_id')->references('id')->on('expedientes');
         });
     }
 
@@ -34,6 +33,6 @@ class CreatePagoExpedintesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pago_expedintes');
+        Schema::drop('pago_expedientes');
     }
 }

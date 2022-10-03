@@ -2,23 +2,26 @@
 
 namespace App\Repositories;
 
-use App\Models\Pago_expedinte;
+use App\Models\Pago_expediente;
 use App\Repositories\BaseRepository;
 
 /**
- * Class Pago_expedinteRepository
+ * Class Pago_expedienteRepository
  * @package App\Repositories
- * @version September 25, 2022, 12:26 am UTC
+ * @version October 3, 2022, 1:37 am UTC
 */
 
-class Pago_expedinteRepository extends BaseRepository
+class Pago_expedienteRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'id_cliente',
-        'id_expediente'
+        'concepto',
+        'monto',
+        'fecha',
+        'expediente_id',
+        'archivo'
     ];
 
     /**
@@ -36,6 +39,6 @@ class Pago_expedinteRepository extends BaseRepository
      **/
     public function model()
     {
-        return Pago_expedinte::class;
+        return Pago_expediente::class;
     }
 }

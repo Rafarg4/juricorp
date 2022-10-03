@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Pago_expedinte;
+use App\Models\Pago_expediente;
 
-class UpdatePago_expedinteRequest extends FormRequest
+class UpdatePago_expedienteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class UpdatePago_expedinteRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Pago_expedinte::$rules;
+        $rules = Pago_expediente::$rules;
         
         return $rules;
     }

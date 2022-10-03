@@ -60,4 +60,5 @@ class Juzgado extends Model
      return $this->belongsToMany(Expediente::class,'circunscripcion_juzgados','id','id');
 
     }
+    
 }
