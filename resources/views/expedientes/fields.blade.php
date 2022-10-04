@@ -39,7 +39,6 @@
 </div>
 
 
-
 <!-- Id Juzgado Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_circunscripcion[]', 'Circunscripcion:') !!}
@@ -55,9 +54,57 @@
 
 <div class="form-group col-sm-6">
     {!! Form::label('clientes[]', 'Cliente:') !!}
-
+ <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fas-solid fa-plus"></i>
+        </button>
     {!! Form::select('clientes[]', $clientes, null, ['array','multiple','class' => 'form-control custom-select']) !!}
- 
-</div>
 
+</div>
+<!-- Button trigger modal -->
+       
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+           <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <h1>Create Juzgado</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content px-3">
+
+        @include('adminlte-templates::common.errors')
+
+        <div class="card">
+
+            {!! Form::open(['route' => 'juzgados.store']) !!}
+
+            <div class="card-body">
+
+                <div class="row">
+                    @include('juzgados.fields')
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+                   {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+               
+            </div>
+
+            {!! Form::close() !!}
+
+        </div>
+    </div>
+        </div>
+    </div>
      
