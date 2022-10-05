@@ -31,8 +31,17 @@ class JuzgadoController extends AppBaseController
     {
         $juzgados = $this->juzgadoRepository->all();
 
+
+
+            if ($request->input('Content-Type') == 'json') {
+              response()->json($juzgados);
+        
+        } else {
+
         return view('juzgados.index')
             ->with('juzgados', $juzgados);
+
+            }
     }
 
     /**
@@ -61,6 +70,13 @@ class JuzgadoController extends AppBaseController
         Flash::success('Juzgado saved successfully.');
 
         return redirect(route('juzgados.index'));
+    }
+
+     public function crear(Request $request)
+    {
+        $input = $request->all();
+
+        $juzgado = $this->juzgadoRepository->create($input);
     }
 
     /**

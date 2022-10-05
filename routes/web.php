@@ -41,7 +41,7 @@ Route::resource('gastoExpedientes', App\Http\Controllers\Gasto_expedienteControl
 
 
 
-
+Route::post('/juzgados/crear', [App\Http\Controllers\JuzgadoController::class, 'crear']);
 
 Route::resource('expedienteDetalles', App\Http\Controllers\Expediente_detalleController::class);
 
