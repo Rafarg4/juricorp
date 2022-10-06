@@ -47,3 +47,6 @@ Route::resource('expedienteDetalles', App\Http\Controllers\Expediente_detalleCon
 
 
 Route::resource('pagoExpedientes', App\Http\Controllers\Pago_expedienteController::class);
+
+
+Route::resource('users', App\Http\Controllers\UserController::class);

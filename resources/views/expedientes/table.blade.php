@@ -33,7 +33,14 @@
                            class='btn btn-default btn-xs'>
                            <button type="button" class="btn btn-warning"> <i class="far fa-edit"></i></button>
                         </a>
-                        {!! Form::button('<button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro?')"]) !!}
+                        <form method="POST" action="{{ url("expedientes/{$expediente->id}") }}">
+                          @csrf
+                          @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Estas seguro?')"><i class="fa fas-solid fa-trash"></i></button>
+                        </form>
+                         <a href="{{ route('expedientes.show', [$expediente->id]) }}"
+                           class='btn btn-default btn-xs'>
+                           <button type="button" class="btn btn-success"><i class="fa fas-solid fa-credit-card"></i></button>
                     </div>
                     {!! Form::close() !!}
                 </td>

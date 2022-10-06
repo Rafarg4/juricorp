@@ -48,7 +48,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Crear juzgados</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -85,9 +85,6 @@
         <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Close</button>
           {!! Form::submit('Save', ['class' => 'btn btn-primary', 'id' => 'submit']) !!}
            </form>
-      
-   
-     
       </div>
     </div>
   </div>
@@ -99,12 +96,12 @@
         $('#submit').click(function(){
            
             var juez = $('#juez').val();
-            var secretario = $('#juez').val();
-            var nombre = $('#juez').val();
+            var secretario = $('#secretario').val();
+            var nombre = $('#nombre').val();
          
             $.ajax({
                type:'POST',
-               url:'http://localhost:8000/juzgados/crear',
+               url:'/juzgados/crear',
                data:{  "_token": "{{ csrf_token() }}", nombre: nombre, secretario: secretario, juez: juez},
                success:function(data) {
                   $('#exampleModal').modal('hide');
@@ -114,7 +111,7 @@
 
             $.ajax({
                type:'GET',
-               url:'http://localhost:8000/juzgados/',
+               url:'/juzgados/',
                data:{},
                contentType: 'json',
                success : function mediaData(data){
