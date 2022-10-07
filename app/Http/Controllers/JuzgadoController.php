@@ -33,7 +33,7 @@ class JuzgadoController extends AppBaseController
 
 
 
-            if ($request->input('Content-Type') == 'json') {
+        if ($request->input('Content-Type') == 'json') {
               response()->json($juzgados);
         
         } else {

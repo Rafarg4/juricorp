@@ -1,3 +1,16 @@
+
+
+<style>
+    .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
+    background-color: #007bff;
+    color: white;
+}
+.selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove {
+    
+    color: white;
+}
+</style>
+
 @extends('layouts.app')
 
 @section('content')
@@ -91,6 +104,15 @@
 </div>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    
+    $(document).ready(function() {
+    $('#juzgado').select2({theme: 'classic'});
+
+});
+</script>
    <script type="text/javascript">
    
         $('#submit').click(function(){
@@ -109,19 +131,14 @@
             });
 
 
-            $.ajax({
-               type:'GET',
-               url:'/juzgados/',
-               data:{},
-               contentType: 'json',
-               success : function mediaData(data){
-        console.log(data);
-    }
-            });
+            
+            var id = $('#juzgado :last').val();
+            id++;
+            $("#juzgado").append($('<option></option>').attr("value", id).text(nombre));
+
             
             return false;
             });
    
    </script>
-
 

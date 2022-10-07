@@ -48,7 +48,7 @@
 <!-- Id Juzgado Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_juzgado[]', 'Juzgado:') !!}
-    {!! Form::select('id_juzgado', $juzgados, null, ['multiple','class' => 'form-control custom-select','id' => 'juzgado']) !!}
+    {!! Form::select('id_juzgado', $juzgados, null, ['multiple','class' => 'form-control js-example-responsive','id' => 'juzgado']) !!}
 </div>
 <!-- Id Juzgado Field -->
 
