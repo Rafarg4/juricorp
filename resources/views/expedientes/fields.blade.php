@@ -57,7 +57,7 @@
  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fas-solid fa-plus"></i>
         </button>
-    {!! Form::select('clientes[]', $clientes, null, ['array','multiple','class' => 'form-control custom-select']) !!}
+    {!! Form::select('clientes[]', $clientes, null, ['multiple','class' => 'form-control js-example-responsive','id' => 'cliente']) !!}
 
 </div>
 <!-- Button trigger modal -->

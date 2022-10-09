@@ -72,13 +72,6 @@ class JuzgadoController extends AppBaseController
         return redirect(route('juzgados.index'));
     }
 
-     public function crear(Request $request)
-    {
-        $input = $request->all();
-
-        $juzgado = $this->juzgadoRepository->create($input);
-    }
-
     /**
      * Display the specified Juzgado.
      *

@@ -34,7 +34,12 @@ class ClienteController extends AppBaseController
         return view('clientes.index')
             ->with('clientes', $clientes);
     }
+    public function crear(Request $request)
+        {
+            $input = $request->all();
 
+            $clientes = $this->clienteRepository->create($input);
+        }
     /**
      * Show the form for creating a new Cliente.
      *

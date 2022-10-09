@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table" id="expedientes-table">
+    <table class="table" id="table">
         <thead>
         <tr>
             <th>Numero</th>
@@ -8,7 +8,7 @@
         <th>Circunscripcion</th>
         <th>Juzgado</th>
         <th>Cliente</th>
-            <th>Accion</th>
+        <th>Accion</th>
         </tr>
         </thead>
         <tbody>

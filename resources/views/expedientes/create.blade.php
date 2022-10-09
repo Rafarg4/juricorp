@@ -79,7 +79,7 @@
             <div class="card-body">
 
                 <div class="row">
-                    @include('juzgados.fields')
+                    @include('clientes.fields')
                 </div>
 
             </div>
@@ -109,22 +109,39 @@
 <script>
     
     $(document).ready(function() {
-    $('#juzgado').select2({theme: 'classic'});
+    $('#cliente').select2({theme: 'classic'});
 
 });
 </script>
    <script type="text/javascript">
    
         $('#submit').click(function(){
-           
-            var juez = $('#juez').val();
-            var secretario = $('#secretario').val();
             var nombre = $('#nombre').val();
+            var apellido = $('#apellido').val();
+            var ci = $('#ci').val();
+            var fecha_nacimiento = $('#fecha_nacimiento').val();
+            var nacionalidad = $('#nacionalidad').val();
+            var distrito_origen = $('#distrito_origen').val();
+            var domicilio_particular = $('#domicilio_particular').val();
+            var numero_casa = $('#numero_casa').val();
+            var barrio = $('#barrio').val();
+            var ciudad = $('#ciudad').val();
+            var numero_telefono = $('#numero_telefono').val();
+            var email = $('#email').val();
+            var rede_social = $('#rede_social').val();
+            var nombre_apellido_coyuge = $('#nombre_apellido_coyuge').val();
+            var ci_coyuge = $('#ci_coyuge').val();
+            var empresa_otro = $('#empresa_otro').val();
+            var direccion = $('#direccion').val();
+            var numero_casa_laboral = $('#numero_casa_laboral').val();
+            var telefono_fijo = $('#telefono_fijo').val();
+            var telefono_laboral = $('#telefono_laboral').val();
+            var email_laboral = $('#email_laboral').val(); 
          
             $.ajax({
                type:'POST',
-               url:'/juzgados/crear',
-               data:{  "_token": "{{ csrf_token() }}", nombre: nombre, secretario: secretario, juez: juez},
+               url:'/clientes/crear',
+               data:{  "_token": "{{ csrf_token() }}", nombre: nombre, apellido: apellido, ci: ci, fecha_nacimiento: fecha_nacimiento, nacionalidad: nacionalidad, distrito_origen: distrito_origen, domicilio_particular: domicilio_particular, numero_casa: numero_casa, barrio: barrio, ciudad: ciudad, numero_telefono: numero_telefono, email: email, rede_social: rede_social, nombre_apellido_coyuge: nombre_apellido_coyuge, ci_coyuge: ci_coyuge, empresa_otro: empresa_otro, direccion: direccion, numero_casa_laboral: numero_casa_laboral, telefono_fijo: telefono_fijo, telefono_laboral: telefono_laboral, email_laboral: email_laboral},
                success:function(data) {
                   $('#exampleModal').modal('hide');
                }
@@ -134,9 +151,9 @@
             
             var id = $('#juzgado :last').val();
             id++;
-            $("#juzgado").append($('<option></option>').attr("value", id).text(nombre));
+            $("#cliente").append($('<option></option>').attr("value", id).text(nombre));
 
-            
+             
             return false;
             });
    
