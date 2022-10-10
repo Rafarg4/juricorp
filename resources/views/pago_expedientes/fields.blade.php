@@ -26,13 +26,13 @@
     </script>
 @endpush
 
-<!-- Expediente Id Field -->
+
 <div class="form-group col-sm-6">
-    {!! Form::label('expediente_id', ' Nro de expediente:') !!}
-    {!! Form::select('expediente_id', $expediente, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::label('Nro Expediente', 'Nro Expediente:') !!}
+    {!! Form::text('Nro_expediente',  $expediente->numero, ['class' => 'form-control','id'=>'numero', 'disabled']) !!}
+</div>
+<!-- Expediente Id Field -->
+<div class="col-sm-12">
+    {!! Form::hidden('expediente_id',  $expediente->id, ['class' => 'form-control','id'=>'expediente_id']) !!}
 </div>
 <!-- Concepto Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('archivo', 'Archivo:') !!}
-    {!! Form::text('archivo', null, ['class' => 'form-control']) !!}
-</div>

@@ -53,15 +53,21 @@
 <!-- Id Juzgado Field -->
 
 <div class="form-group col-sm-6">
+
     {!! Form::label('clientes[]', 'Cliente:') !!}
- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <div class="input-group">
+    {!! Form::select('clientes[]', $clientes, null, ['multiple','class' => 'form-control js-example-responsive','id' => 'cliente']) !!}
+    <div class="input-group-append">
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fas-solid fa-plus"></i>
         </button>
-    {!! Form::select('clientes[]', $clientes, null, ['multiple','class' => 'form-control js-example-responsive','id' => 'cliente']) !!}
+        </div>
 
+        </div>
 </div>
 <!-- Button trigger modal -->
-       
+
+
 
 
 <!-- Button trigger modal -->

@@ -13,6 +13,8 @@ use App\Models\Circunscripcion;
 use App\Models\Juzgado;
 use App\Models\Expediente;
 use App\Models\Cliente;
+use App\Models\Gasto_expediente;
+use App\Models\Pago_expediente;
 
 class ExpedienteController extends AppBaseController
 {
@@ -78,6 +80,8 @@ class ExpedienteController extends AppBaseController
     public function show($id)
     {
         $expediente = $this->expedienteRepository->find($id);
+        $gastoExpedientes = Gasto_expediente::where('id_expediente',$id)->get();
+        $pagoExpedientes = Pago_expediente::where('expediente_id',$id)->get();;
 
         if (empty($expediente)) {
             Flash::error('Expediente not found');
@@ -85,7 +89,7 @@ class ExpedienteController extends AppBaseController
             return redirect(route('expedientes.index'));
         }
 
-        return view('expedientes.show')->with('expediente', $expediente);
+        return view('expedientes.show')->with('expediente', $expediente)->with('gastoExpedientes', $gastoExpedientes)->with('pagoExpedientes', $pagoExpedientes);
     }
 
     /**
