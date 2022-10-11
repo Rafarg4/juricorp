@@ -58,11 +58,16 @@ class CircunscripcionController extends AppBaseController
 
         $circunscripcion = $this->circunscripcionRepository->create($input);
 
-        Flash::success('Circunscripcion saved successfully.');
+        Flash::success('Circunscripcion saved creado correctamente.');
 
         return redirect(route('circunscripcions.index'));
     }
+     public function crear(Request $request)
+        {
+            $input = $request->all();
 
+            $circunscripcions = $this->circunscripcionRepository->create($input);
+        }
     /**
      * Display the specified Circunscripcion.
      *
@@ -75,7 +80,7 @@ class CircunscripcionController extends AppBaseController
         $circunscripcion = $this->circunscripcionRepository->find($id);
 
         if (empty($circunscripcion)) {
-            Flash::error('Circunscripcion not found');
+            Flash::error('Circunscripcion no encontrado');
 
             return redirect(route('circunscripcions.index'));
         }
@@ -95,7 +100,7 @@ class CircunscripcionController extends AppBaseController
         $circunscripcion = $this->circunscripcionRepository->find($id);
 
         if (empty($circunscripcion)) {
-            Flash::error('Circunscripcion not found');
+            Flash::error('Circunscripcion no encontrado');
 
             return redirect(route('circunscripcions.index'));
         }
@@ -116,14 +121,14 @@ class CircunscripcionController extends AppBaseController
         $circunscripcion = $this->circunscripcionRepository->find($id);
 
         if (empty($circunscripcion)) {
-            Flash::error('Circunscripcion not found');
+            Flash::error('Circunscripcion no encontrado');
 
             return redirect(route('circunscripcions.index'));
         }
 
         $circunscripcion = $this->circunscripcionRepository->update($request->all(), $id);
 
-        Flash::success('Circunscripcion updated successfully.');
+        Flash::success('Circunscripcion actualizado correctamente.');
 
         return redirect(route('circunscripcions.index'));
     }
@@ -142,14 +147,14 @@ class CircunscripcionController extends AppBaseController
         $circunscripcion = $this->circunscripcionRepository->find($id);
 
         if (empty($circunscripcion)) {
-            Flash::error('Circunscripcion not found');
+            Flash::error('Circunscripcion no encontrado');
 
             return redirect(route('circunscripcions.index'));
         }
 
         $this->circunscripcionRepository->delete($id);
 
-        Flash::success('Circunscripcion deleted successfully.');
+        Flash::error('Circunscripcion eliminado correctamente.');
 
         return redirect(route('circunscripcions.index'));
     }

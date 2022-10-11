@@ -9,7 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-
+use App\Models\Circunscripcion;
 class JuzgadoController extends AppBaseController
 {
     /** @var JuzgadoRepository $juzgadoRepository*/
@@ -44,6 +44,12 @@ class JuzgadoController extends AppBaseController
             }
     }
 
+    public function crear(Request $request)
+        {
+            $input = $request->all();
+
+            $juzgados = $this->juzgadoRepository->create($input);
+        }
     /**
      * Show the form for creating a new Juzgado.
      *
@@ -51,7 +57,8 @@ class JuzgadoController extends AppBaseController
      */
     public function create()
     {
-        return view('juzgados.create');
+         $circunscripcions = Circunscripcion::pluck('nombre','id');
+          return view('juzgados.create',compact('circunscripcions'));
     }
 
     /**
@@ -67,7 +74,7 @@ class JuzgadoController extends AppBaseController
 
         $juzgado = $this->juzgadoRepository->create($input);
 
-        Flash::success('Juzgado saved successfully.');
+        Flash::success('Juzgado creado correctamente.');
 
         return redirect(route('juzgados.index'));
     }
@@ -84,7 +91,7 @@ class JuzgadoController extends AppBaseController
         $juzgado = $this->juzgadoRepository->find($id);
 
         if (empty($juzgado)) {
-            Flash::error('Juzgado not found');
+            Flash::error('Juzgado no encontrado');
 
             return redirect(route('juzgados.index'));
         }
@@ -102,14 +109,16 @@ class JuzgadoController extends AppBaseController
     public function edit($id)
     {
         $juzgado = $this->juzgadoRepository->find($id);
+        $circunscripcions = Circunscripcion::pluck('nombre','id');
+
 
         if (empty($juzgado)) {
-            Flash::error('Juzgado not found');
+            Flash::error('Juzgado no encontrado');
 
             return redirect(route('juzgados.index'));
         }
 
-        return view('juzgados.edit')->with('juzgado', $juzgado);
+        return view('juzgados.edit',compact('juzgado','circunscripcions'));
     }
 
     /**
@@ -125,14 +134,14 @@ class JuzgadoController extends AppBaseController
         $juzgado = $this->juzgadoRepository->find($id);
 
         if (empty($juzgado)) {
-            Flash::error('Juzgado not found');
+            Flash::error('Juzgado no encontrado');
 
             return redirect(route('juzgados.index'));
         }
 
         $juzgado = $this->juzgadoRepository->update($request->all(), $id);
 
-        Flash::success('Juzgado updated successfully.');
+        Flash::success('Juzgado actualizado correctamente.');
 
         return redirect(route('juzgados.index'));
     }
@@ -151,14 +160,14 @@ class JuzgadoController extends AppBaseController
         $juzgado = $this->juzgadoRepository->find($id);
 
         if (empty($juzgado)) {
-            Flash::error('Juzgado not found');
+            Flash::error('Juzgado no encontrado');
 
             return redirect(route('juzgados.index'));
         }
 
         $this->juzgadoRepository->delete($id);
 
-        Flash::success('Juzgado deleted successfully.');
+        Flash::error('Juzgado eliminado correctamente.');
 
         return redirect(route('juzgados.index'));
     }

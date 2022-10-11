@@ -33,7 +33,7 @@ class Pago_expediente extends Model
         'concepto',
         'monto',
         'fecha',
-        'expediente_id',
+        'id_expediente',
         'archivo'
     ];
 
@@ -46,7 +46,7 @@ class Pago_expediente extends Model
         'concepto' => 'string',
         'monto' => 'string',
         'fecha' => 'string',
-        'expediente_id' => 'integer',
+        'id_expediente' => 'integer',
         'archivo' => 'string'
     ];
 
@@ -59,7 +59,7 @@ class Pago_expediente extends Model
         'concepto' => 'required',
         'monto' => 'required',
         'fecha' => 'required',
-        'expediente_id' => 'required'
+        'id_expediente' => 'required'
     ];
 
     

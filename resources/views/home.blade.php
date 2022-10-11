@@ -49,7 +49,7 @@
 
 <div class="col-lg-3 col-6">
 
-<div class="small-box bg-secondary">
+<div class="small-box bg-danger">
 <div class="inner">
 <h3>65</h3>
 <p>Expedientes</p>
@@ -60,35 +60,5 @@
 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 </div>
 </div>
-
-
-
-<div class="col-lg-3 col-6">
-
-<div class="small-box bg-danger">
-<div class="inner">
-<h3>65</h3>
-<p>Gastos de Expediente</p>
-</div>
-<div class="icon">
-<i class="fa fas-solid fa-money-bill"></i>
-</div>
-<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-</div>
-</div>
-<div class="col-lg-3 col-6">
-
-<div class="small-box bg-primary">
-<div class="inner">
-<h3>65</h3>
-<p>Pagos expediente</p>
-</div>
-<div class="icon">
-<i class="fa fas-solid fa-credit-card"></i>
-</div>
-<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-</div>
-</div>
-
 
 @endsection

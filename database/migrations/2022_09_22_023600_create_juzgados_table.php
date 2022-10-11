@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCircunscripcionJuzgadosTable extends Migration
+class CreateJuzgadosTable extends Migration
 {
 
     /**
@@ -14,14 +14,15 @@ class CreateCircunscripcionJuzgadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('circunscripcion_juzgados', function (Blueprint $table) {
+        Schema::create('juzgados', function (Blueprint $table) {
             $table->id('id');
-            $table->unsignedBigInteger('id_juzgado');
+            $table->text('nombre');
+            $table->text('juez');
+            $table->text('secretario');
             $table->unsignedBigInteger('id_circunscripcion');
+            $table->foreign('id_circunscripcion')->references('id')->on('circunscripcions');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('id_juzgado')->references('id')->on('juzgados');
-            $table->foreign('id_circunscripcion')->references('id')->on('circunscripcions');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateCircunscripcionJuzgadosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('circunscripcion_juzgados');
+        Schema::drop('juzgados');
     }
 }

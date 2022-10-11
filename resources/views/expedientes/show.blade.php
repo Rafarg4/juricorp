@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Expediente Details</h1>
+                    <h1>Expediente detalles</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"
                        href="{{ route('expedientes.index') }}">
-                        Back
+                        Volver
                     </a>
                 </div>
             </div>
@@ -127,16 +127,17 @@
 <script type="text/javascript">
    
         $('#submit').click(function(){
-            var expediente_id = $('#expediente_id').val();
+            var id_expediente = $('#id_expediente').val();
             var concepto = $('#concepto').val();
             var monto = $('#monto').val();
             var fecha = $('#fecha').val();
+            var archivo = $('#archivo').val();
          
          
             $.ajax({
                type:'POST',
                url:'/pagoExpedientes',
-               data:{  "_token": "{{ csrf_token() }}", concepto: concepto, monto: monto, fecha: fecha, expediente_id: expediente_id},
+               data:{  "_token": "{{ csrf_token() }}", concepto: concepto, monto: monto, fecha: fecha, id_expediente: id_expediente, archivo: archivo},
                success:function(data) {
                   $('#exampleModal').modal('hide');
                }
@@ -151,5 +152,74 @@
 
 
 <!-- MODAL PARA GASTOS-->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Cargar un nuevo pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+   
+  <div class="content px-3">
 
+        @include('adminlte-templates::common.errors')
+
+        <div class="card">
+
+           <form>
+            
+
+            <div class="card-body">
+
+                <div class="row">
+                    @include('gasto_expedientes.fields')
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+              
+               
+            </div>
+
+           
+
+        </div>
+    </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Close</button>
+          {!! Form::submit('Save', ['class' => 'btn btn-primary', 'id' => 'submit1']) !!}
+           </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+   
+        $('#submit1').click(function(){
+            var id_expediente = $('#id_expediente').val();
+            var concepto = $('#concepto').val();
+            var monto = $('#monto').val();
+            var fecha = $('#fecha').val();
+            var archivo = $('#archivo').val();
+         
+         
+            $.ajax({
+               type:'POST',
+               url:'/gastoExpedientes',
+               data:{  "_token": "{{ csrf_token() }}", concepto: concepto, monto: monto, fecha: fecha, id_expediente: id_expediente, archivo: archivo},
+               success:function(data) {
+                  $('#exampleModal1').modal('hide');
+               }
+            });
+
+
+            });
+   
+   </script>
 <!-- MODAL PARA GASTO -->

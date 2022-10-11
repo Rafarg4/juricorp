@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Create Expediente</h1>
+                    <h1>Crear Expediente</h1>
                 </div>
             </div>
         </div>
@@ -42,8 +42,8 @@
             </div>
 
             <div class="card-footer">
-                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('expedientes.index') }}" class="btn btn-default">Cancel</a>
+                 {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('expedientes.index') }}" class="btn btn-default">Cancelar</a>
             </div>
 
             {!! Form::close() !!}
@@ -157,3 +157,151 @@
    
    </script>
 
+<!-- Modal juzgado -->
+<div class="modal fade" id="exampleModalj" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Juzgado</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+   
+  <div class="content px-3">
+
+        @include('adminlte-templates::common.errors')
+
+        <div class="card">
+
+           <form>
+            
+
+            <div class="card-body">
+
+                <div class="row">
+                    @include('juzgados.fields')
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Close</button>
+          {!! Form::submit('Save', ['class' => 'btn btn-primary', 'id' => 'submitj']) !!}
+           </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    
+    $(document).ready(function() {
+    $('#juzgado').select2({theme: 'classic'});
+
+});
+</script>
+   <script type="text/javascript">
+   
+        $('#submitj').click(function(){
+            var nombre = $('#nombre').val();
+            var juez = $('#juez').val();
+            var secretario = $('#secretario').val();
+            var id_circunscripcion = $('#id_circunscripcion').val();
+            $.ajax({
+               type:'POST',
+               url:'/juzgados/crear',
+               data:{  "_token": "{{ csrf_token() }}", nombre: nombre, juez: juez, secretario: secretario, id_circunscripcion: id_circunscripcion},
+               success:function(data) {
+                  $('#exampleModalj').modal('hide');
+               }
+            });
+
+
+            
+            var id = $('#juzgado :last').val();
+            id++;
+            $("#juzgado").append($('<option></option>').attr("value", id).text(nombre));
+
+             
+            return false;
+            });
+   
+   </script>
+   <!-- Modal circunscripcion -->
+<div class="modal fade" id="exampleModalc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Circunscripcion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+   
+  <div class="content px-3">
+
+        @include('adminlte-templates::common.errors')
+
+        <div class="card">
+
+           <form>
+            
+
+            <div class="card-body">
+
+                <div class="row">
+                     @include('circunscripcions.fields')
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Close</button>
+          {!! Form::submit('Save', ['class' => 'btn btn-primary', 'id' => 'submitc']) !!}
+           </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    
+    $(document).ready(function() {
+    $('#circunscripcion').select2({theme: 'classic'});
+
+});
+</script>
+   <script type="text/javascript">
+   
+        $('#submitc').click(function(){
+            var nombre = $('#nombre').val();
+            var departamento = $('#departamento').val();
+            $.ajax({
+               type:'POST',
+               url:'/circunscripcions/crear',
+               data:{  "_token": "{{ csrf_token() }}", nombre: nombre, departamento: departamento},
+               success:function(data) {
+                  $('#exampleModalc').modal('hide');
+               }
+            });
+
+
+            
+            var id = $('#circunscripcion :last').val();
+            id++;
+            $("#circunscripcion").append($('<option></option>').attr("value", id).text(nombre));
+
+             
+            return false;
+            });
+   
+   </script>

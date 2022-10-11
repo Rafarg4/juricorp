@@ -15,3 +15,8 @@
     {!! Form::label('secretario', 'Secretario:') !!}
     {!! Form::text('secretario', null, ['class' => 'form-control']) !!}
 </div>
+<!-- Id Juzgado Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('id_circunscripcion[]', 'Circunscripcion:') !!}
+    {!! Form::select('id_circunscripcion', $circunscripcions, null, ['class' => 'form-control custom-select']) !!}
+</div>

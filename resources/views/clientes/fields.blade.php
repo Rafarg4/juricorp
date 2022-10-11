@@ -18,20 +18,9 @@
 
 <!-- Fecha Nacimiento Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('fecha_nacimiento', 'Fecha Nacimiento:') !!}
-    {!! Form::text('fecha_nacimiento', null, ['class' => 'form-control','id'=>'fecha_nacimiento']) !!}
+    {!! Form::label('fecha_nacimiento', 'Fecha de Nacimiento:') !!}
+    {!! Form::date('fecha_nacimiento', null, ['class' => 'form-control','id'=>'fecha_nacimiento']) !!}
 </div>
-
-@push('page_scripts')
-    <script type="text/javascript">
-        $('#fecha_nacimiento').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            useCurrent: true,
-            sideBySide: true
-        })
-    </script>
-@endpush
-
 <!-- Nacionalidad Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nacionalidad', 'Nacionalidad:') !!}
@@ -52,7 +41,7 @@
 
 <!-- Numero Casa Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('numero_casa', 'Numero Casa:') !!}
+    {!! Form::label('numero_casa', 'Numero de Casa:') !!}
     {!! Form::text('numero_casa', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -70,31 +59,31 @@
 
 <!-- Numero Telefono Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('numero_telefono', 'Numero Telefono:') !!}
+    {!! Form::label('numero_telefono', 'Numero de Telefono:') !!}
     {!! Form::number('numero_telefono', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Email Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('email', 'Email:') !!}
-    {!! Form::text('email', null, ['class' => 'form-control']) !!}
+    {!! Form::email('email', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Rede Social Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('rede_social', 'Rede Social:') !!}
+    {!! Form::label('rede_social', 'Redes Sociales:') !!}
     {!! Form::text('rede_social', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Nombre Apellido Coyuge Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nombre_apellido_coyuge', 'Nombre Apellido Coyuge:') !!}
+    {!! Form::label('nombre_apellido_coyuge', 'Nombre Apellido de Coyuge:') !!}
     {!! Form::text('nombre_apellido_coyuge', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ci Coyuge Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ci_coyuge', 'Ci Coyuge:') !!}
+    {!! Form::label('ci_coyuge', 'Ci de Coyuge:') !!}
     {!! Form::number('ci_coyuge', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -112,7 +101,7 @@
 
 <!-- Numero Casa Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('numero_casa_laboral', 'Numero Casa:') !!}
+    {!! Form::label('numero_casa_laboral', 'Numero  de Casa:') !!}
     {!! Form::text('numero_casa_laboral', null, ['class' => 'form-control']) !!}
 </div>
 

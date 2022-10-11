@@ -5,8 +5,9 @@
             <th>Concepto</th>
         <th>Monto</th>
         <th>Fecha</th>
-        <th>Expediente Id</th>
-            <th colspan="3">Action</th>
+        <th>Nro Expediente</th>
+        <th>Archivo</th>
+            <th>Accion</th>
         </tr>
         </thead>
         <tbody>
@@ -15,7 +16,8 @@
                 <td>{{ $pagoExpediente->concepto }}</td>
             <td>{{ $pagoExpediente->monto }}</td>
             <td>{{ $pagoExpediente->fecha }}</td>
-            <td>{{ $pagoExpediente->expediente_id }}</td>
+            <td>{{ $pagoExpediente->id_expediente }}</td>
+            <td>{{ $pagoExpediente->archivo }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['pagoExpedientes.destroy', $pagoExpediente->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

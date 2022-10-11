@@ -2,7 +2,7 @@
     <table class="table" id="clientes-table">
         <thead>
         <tr>
-            <th>Nombre</th>
+        <th>Nombre</th>
         <th>Apellido</th>
         <th>Ci</th>
         <th>Fecha Nacimiento</th>
@@ -23,7 +23,7 @@
         <th>Telefono Fijo</th>
         <th>Telefono Laboral</th>
         <th>Email Laboral</th>
-            <th colspan="3">Action</th>
+            <th>Accion</th>
         </tr>
         </thead>
         <tbody>
@@ -61,7 +61,7 @@
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>

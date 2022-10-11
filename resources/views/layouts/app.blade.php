@@ -147,9 +147,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
-    $(function () {
-    $('select').selectpicker();
-});
+ 
     $(function () {
         bsCustomFileInput.init();
     });

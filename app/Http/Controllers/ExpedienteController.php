@@ -65,7 +65,7 @@ class ExpedienteController extends AppBaseController
     {
         $input = Expediente::create($request->all());
         $input->clientes()->sync($request->input('clientes',[]));
-        Flash::success('Expediente saved successfully.');
+        Flash::success('Expediente guardado correctamente.');
 
         return redirect(route('expedientes.index'));
     }
@@ -81,10 +81,10 @@ class ExpedienteController extends AppBaseController
     {
         $expediente = $this->expedienteRepository->find($id);
         $gastoExpedientes = Gasto_expediente::where('id_expediente',$id)->get();
-        $pagoExpedientes = Pago_expediente::where('expediente_id',$id)->get();;
+        $pagoExpedientes = Pago_expediente::where('id_expediente',$id)->get();;
 
         if (empty($expediente)) {
-            Flash::error('Expediente not found');
+            Flash::error('Expediente no encontrado');
 
             return redirect(route('expedientes.index'));
         }
@@ -154,14 +154,14 @@ class ExpedienteController extends AppBaseController
         $expediente = $this->expedienteRepository->find($id);
 
         if (empty($expediente)) {
-            Flash::error('Expediente not found');
+            Flash::error('Expediente no encontrado');
 
             return redirect(route('expedientes.index'));
         }
 
         $this->expedienteRepository->delete($id);
 
-        Flash::success('Expediente deleted successfully.');
+        Flash::error('Expediente eliminado correctamente.');
 
         return redirect(route('expedientes.index'));
     }

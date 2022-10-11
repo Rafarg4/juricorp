@@ -8,6 +8,7 @@
         <th>Circunscripcion</th>
         <th>Juzgado</th>
         <th>Cliente</th>
+         <th>Estado</th>
         <th>Accion</th>
         </tr>
         </thead>
@@ -22,6 +23,17 @@
            <td> @foreach($expediente->clientes as $e)
             {{ $e->nombre}}
             @endforeach </td>
+            <td>@switch(true)
+            @case($expediente->estado == 'Activo')
+            <span class="badge badge-primary"> {{ $expediente->estado }} </span>
+            @break
+            @case($expediente->estado == 'Paralizado')
+            <span class="badge badge-warning"> {{ $expediente->estado }} </span>
+            @break
+            @case($expediente->estado == 'Finalizado' )
+            <span class="badge badge-danger"> {{ $expediente->estado }} </span>
+            @break
+            @endswitch</td>
                  <td width="120">
                     {!! Form::open(['route' => ['expedientes.destroy', $expediente->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

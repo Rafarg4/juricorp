@@ -35,7 +35,8 @@ class Expediente extends Model
         'anho',
         'caratula',
         'id_circunscripcion',
-        'id_juzgado'
+        'id_juzgado',
+        'estado'
     ];
 
     /**
@@ -48,7 +49,8 @@ class Expediente extends Model
         'anho' => 'string',
         'caratula' => 'string',
         'id_circunscripcion' => 'integer',
-        'id_juzgado' => 'integer'
+        'id_juzgado' => 'integer',
+         'estado' => 'string'
     ];
 
     /**

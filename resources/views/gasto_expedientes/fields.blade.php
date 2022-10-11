@@ -25,70 +25,20 @@
 <!-- Fecha Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha', 'Fecha:') !!}
-    {!! Form::text('fecha', null, ['class' => 'form-control','id'=>'fecha']) !!}
+    {!! Form::date('fecha', null, ['class' => 'form-control','id'=>'fecha']) !!}
 </div>
-
-@push('page_scripts')
-    <script type="text/javascript">
-        $('#fecha').datetimepicker({
-            format: 'YYYY-MM-DD',
-            useCurrent: true,
-            sideBySide: true
-        })
-    </script>
-@endpush
-
-<!-- Id Expediente Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('id_expediente', 'Id Expediente:') !!}
-    {!! Form::select('id_expediente', $expediente, null, ['class' => 'form-control custom-select']) !!}
-</div>
-
-
 <!-- Archivo Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('archivo', 'Archivo:') !!}
     {!! Form::text('archivo', null, ['class' => 'form-control']) !!}
 </div>
-<div class="form-group col-sm-12">
-        <table class="table table-bordered table-hover dataTable dtr-inline" id="tabla">
 
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>C.i</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td> {!! Form::select('clientes[]', $expediente, null, ['array','multiple','class' => 'form-control custom-select']) !!}</td>
-                <td><input type="text" name="apllido[]" class="form-control"></td>
-                <td><input type="text" name="ci[]" class="form-control"></td>
-                <td><button class="btn btn-success" type="button" id="agregar_nuevo"><i class="fa fas-solid fa-user-plus"></i></button></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $('#agregar_nuevo').on('click',function(){
-        var html='';
-        html+='<tr>'
-       
-        html+='<td><input type="text" name="apellido[]" class="form-control"></td>';
-        html+='<td><input type="text" name="ci[]" class="form-control"></td>';
-        html+='<td><button class="btn btn-danger" type="button" id="eliminar"><i class="fa fas-solid fa-trash"></i></button></td>';
-        html+='</tr>';
-        $('tbody').append(html);
-    })
-
-    });
-        $(document).on('click','#eliminar',function(){
-            $(this).closest('tr').remove();
-
-        });
-
-</script>
+<div class="form-group col-sm-6">
+    {!! Form::label('Nro Expediente', 'Nro Expediente:') !!}
+    {!! Form::text('Nro_expediente',  $expediente->numero, ['class' => 'form-control','id'=>'numero', 'disabled']) !!}
+</div>
+<!-- Expediente Id Field -->
+<div class="col-sm-12">
+    {!! Form::hidden('id_expediente',  $expediente->id, ['class' => 'form-control','id'=>'id_expediente']) !!}
+</div>
+<!-- Concepto Field -->

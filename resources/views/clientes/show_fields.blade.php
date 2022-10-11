@@ -18,7 +18,7 @@
 
 <!-- Fecha Nacimiento Field -->
 <div class="col-sm-12">
-    {!! Form::label('fecha_nacimiento', 'Fecha Nacimiento:') !!}
+    {!! Form::label('fecha_nacimiento', 'Fecha de Nacimiento:') !!}
     <p>{{ $cliente->fecha_nacimiento }}</p>
 </div>
 
@@ -42,7 +42,7 @@
 
 <!-- Numero Casa Field -->
 <div class="col-sm-12">
-    {!! Form::label('numero_casa', 'Numero Casa:') !!}
+    {!! Form::label('numero_casa', 'Numero de Casa:') !!}
     <p>{{ $cliente->numero_casa }}</p>
 </div>
 
@@ -60,7 +60,7 @@
 
 <!-- Numero Telefono Field -->
 <div class="col-sm-12">
-    {!! Form::label('numero_telefono', 'Numero Telefono:') !!}
+    {!! Form::label('numero_telefono', 'Numero de Telefono:') !!}
     <p>{{ $cliente->numero_telefono }}</p>
 </div>
 
@@ -72,19 +72,19 @@
 
 <!-- Rede Social Field -->
 <div class="col-sm-12">
-    {!! Form::label('rede_social', 'Rede Social:') !!}
+    {!! Form::label('rede_social', 'Redes Sociales:') !!}
     <p>{{ $cliente->rede_social }}</p>
 </div>
 
 <!-- Nombre Apellido Coyuge Field -->
 <div class="col-sm-12">
-    {!! Form::label('nombre_apellido_coyuge', 'Nombre Apellido Coyuge:') !!}
+    {!! Form::label('nombre_apellido_coyuge', 'Nombre Apellido de Coyuge:') !!}
     <p>{{ $cliente->nombre_apellido_coyuge }}</p>
 </div>
 
 <!-- Ci Coyuge Field -->
 <div class="col-sm-12">
-    {!! Form::label('ci_coyuge', 'Ci Coyuge:') !!}
+    {!! Form::label('ci_coyuge', 'Ci de Coyuge:') !!}
     <p>{{ $cliente->ci_coyuge }}</p>
 </div>
 
@@ -102,7 +102,7 @@
 
 <!-- Numero Casa Field -->
 <div class="col-sm-12">
-    {!! Form::label('numero_casa', 'Numero Casa:') !!}
+    {!! Form::label('numero_casa', 'Numero  de Casa:') !!}
     <p>{{ $cliente->numero_casa }}</p>
 </div>
 
@@ -126,13 +126,8 @@
 
 <!-- Created At Field -->
 <div class="col-sm-12">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'Creado:') !!}
     <p>{{ $cliente->created_at }}</p>
 </div>
 
-<!-- Updated At Field -->
-<div class="col-sm-12">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{{ $cliente->updated_at }}</p>
-</div>
 

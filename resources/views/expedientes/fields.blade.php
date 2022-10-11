@@ -42,13 +42,29 @@
 <!-- Id Juzgado Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_circunscripcion[]', 'Circunscripcion:') !!}
-    {!! Form::select('id_circunscripcion', $circunscripcions, null, ['multiple','class' => 'form-control custom-select']) !!}
+    <div class="input-group">
+    {!! Form::select('id_circunscripcion', $circunscripcions, null, ['multiple','class' => 'form-control js-example-responsive','id' => 'circunscripcion']) !!}
+ <div class="input-group-append">
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalc">
+            <i class="fa fas-solid fa-plus"></i>
+        </button>
+        </div>
+
+        </div>
 </div>
 
 <!-- Id Juzgado Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_juzgado[]', 'Juzgado:') !!}
+    <div class="input-group">
     {!! Form::select('id_juzgado', $juzgados, null, ['multiple','class' => 'form-control js-example-responsive','id' => 'juzgado']) !!}
+ <div class="input-group-append">
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalj">
+            <i class="fa fas-solid fa-plus"></i>
+        </button>
+        </div>
+
+        </div>
 </div>
 <!-- Id Juzgado Field -->
 
@@ -64,6 +80,10 @@
         </div>
 
         </div>
+</div>
+<div class=" form-group col-sm-6">
+ {!! Form::label('estado', 'Estado:') !!}
+{!! Form::select('estado',array('Activo' => 'Activo', 'Paralizado' => 'Paralizado','Finalizado' => 'Finalizado'),null, ['class' => 'form-control','placeholder'=>'Seleccione'])!!}
 </div>
 <!-- Button trigger modal -->
 

@@ -15,7 +15,7 @@
                 <td>{{ $pagoExpediente->concepto }}</td>
             <td>{{ $pagoExpediente->monto }}</td>
             <td>{{ $pagoExpediente->fecha }}</td>
-            <td>{{ $pagoExpediente->expediente_id }}</td>
+            <td>{{ $pagoExpediente->id_expediente }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['pagoExpedientes.destroy', $pagoExpediente->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

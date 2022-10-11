@@ -30,17 +30,6 @@
         <p>Circunscripcions</p>
     </a>
 </li>
-
-
-<li class="nav-item">
-    <a href="{{ route('circunscripcionJuzgados.index') }}"
-       class="nav-link {{ Request::is('circunscripcionJuzgados*') ? 'active' : '' }}">
-       <i class="fa fas-regular fa-file-code"></i>
-        <p>Circunscripcion Juzgados</p>
-    </a>
-</li>
-
-
 <li class="nav-item">
     <a href="{{ route('clientes.index') }}"
        class="nav-link {{ Request::is('clientes*') ? 'active' : '' }}">
@@ -66,17 +55,6 @@
         <p>Gasto Expedientes</p>
     </a>
 </li>
-
-
-
-<li class="nav-item">
-    <a href="{{ route('pagoExpedientes.index') }}"
-       class="nav-link {{ Request::is('pagoExpedientes*') ? 'active' : '' }}">
-       <i class="fa fas-solid fa-credit-card"></i>
-        <p>Pago Expedientes</p>
-    </a>
-</li>
-
 
 <li class="nav-item">
     <a href="{{ route('users.index') }}"

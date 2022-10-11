@@ -5,7 +5,8 @@
             <th>Nombre</th>
         <th>Juez</th>
         <th>Secretario</th>
-            <th colspan="3">Action</th>
+          <th>Circunscripcion</th>
+            <th>Accion</th>
         </tr>
         </thead>
         <tbody>
@@ -14,6 +15,7 @@
                 <td>{{ $juzgado->nombre }}</td>
             <td>{{ $juzgado->juez }}</td>
             <td>{{ $juzgado->secretario }}</td>
+             <td>{{ $juzgado->id_circunscripcion }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['juzgados.destroy', $juzgado->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -25,7 +27,7 @@
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>

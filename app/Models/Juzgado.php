@@ -31,7 +31,8 @@ class Juzgado extends Model
     public $fillable = [
         'nombre',
         'juez',
-        'secretario'
+        'secretario',
+        'id_circunscripcion'
     ];
 
     /**

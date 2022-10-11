@@ -7,7 +7,7 @@
         <th>Fecha</th>
         <th>Nro de expediente</th>
         <th>Archivo</th>
-            <th colspan="3">Accion</th>
+            <th>Accion</th>
         </tr>
         </thead>
         <tbody>
