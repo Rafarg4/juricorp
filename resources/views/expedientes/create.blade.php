@@ -208,10 +208,10 @@
    <script type="text/javascript">
    
         $('#submitj').click(function(){
-            var nombre = $('#nombre').val();
+            var nombre = $('#nombre-juz').val();
             var juez = $('#juez').val();
             var secretario = $('#secretario').val();
-            var id_circunscripcion = $('#id_circunscripcion').val();
+            var id_circunscripcion = $('#id_circunscripcion :selected').val();
             $.ajax({
                type:'POST',
                url:'/juzgados/crear',
@@ -283,7 +283,7 @@
    <script type="text/javascript">
    
         $('#submitc').click(function(){
-            var nombre = $('#nombre').val();
+            var nombre = $('#nombre-cir').val();
             var departamento = $('#departamento').val();
             $.ajax({
                type:'POST',

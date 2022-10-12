@@ -1,7 +1,7 @@
 <!-- Nombre Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nombre', 'Nombre:') !!}
-    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+    {!! Form::label('nombre-juz', 'Nombre:') !!}
+    {!! Form::text('nombre-juz', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Juez Field -->
@@ -18,5 +18,5 @@
 <!-- Id Juzgado Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_circunscripcion[]', 'Circunscripcion:') !!}
-    {!! Form::select('id_circunscripcion', $circunscripcions, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('id_circunscripcion', $circunscripcions, null, ['class' => 'form-control custom-select','id' => 'id_circunscripcion']) !!}
 </div>
