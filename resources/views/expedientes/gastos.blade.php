@@ -36,5 +36,15 @@
             </tr>
         @endforeach
         </tbody>
+        <tfoot>
+        <tr>
+             <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Suma de Gastos:</b></td>
+                <td><b>{{ $gasto_total }}</b></td>
+    </tr>
+  </tfoot>
     </table>
 </div>

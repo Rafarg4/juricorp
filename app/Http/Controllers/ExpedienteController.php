@@ -82,14 +82,15 @@ class ExpedienteController extends AppBaseController
         $expediente = $this->expedienteRepository->find($id);
         $gastoExpedientes = Gasto_expediente::where('id_expediente',$id)->get();
         $pagoExpedientes = Pago_expediente::where('id_expediente',$id)->get();;
-
+        $pago_total = Pago_expediente::where('id_expediente',$id)->sum('monto'); 
+        $gasto_total = Gasto_expediente::where('id_expediente',$id)->sum('monto');
         if (empty($expediente)) {
             Flash::error('Expediente no encontrado');
 
             return redirect(route('expedientes.index'));
         }
 
-        return view('expedientes.show')->with('expediente', $expediente)->with('gastoExpedientes', $gastoExpedientes)->with('pagoExpedientes', $pagoExpedientes);
+        return view('expedientes.show')->with('expediente', $expediente)->with('gastoExpedientes', $gastoExpedientes)->with('pagoExpedientes', $pagoExpedientes)->with('pago_total', $pago_total)->with('gasto_total', $gasto_total);
     }
 
     /**

@@ -28,10 +28,10 @@
                 </div>
             </div>
             <div class="card-footer clearfix">
-<button type="button" class="btn btn-primary float-left" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>Añadir Pago</button>
 
 
-<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal1"><i class="fas fa-plus"></i>Añadir Gasto</button>
+
+
 </div>
         </div>
     </div>
@@ -44,6 +44,7 @@
                       <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Pagos</h3>
+                                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>Añadir Pago</button>
                             </div>
                              <div class="card-body">
                                 @include('expedientes.pagos')
@@ -55,6 +56,7 @@
                       <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Gastos</h3>
+                                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal1"><i class="fas fa-plus"></i>Añadir Gasto</button>
                             </div>
                              <div class="card-body">
                               @include('expedientes.gastos')
@@ -68,12 +70,8 @@
    
 
 
-@endsection
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+  
 
 
 <!-- MODAL PARA PAGOS -->
@@ -156,7 +154,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel1">Cargar un nuevo pago</h5>
+        <h5 class="modal-title" id="exampleModalLabel1">Cargar un nuevo gasto</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -203,13 +201,12 @@
    
         $('#submit1').click(function(){
             var id_expediente = $('#id_expediente').val();
-            var concepto = $('#concepto').val();
-            var monto = $('#monto').val();
-            var fecha = $('#fecha').val();
-            var archivo = $('#archivo').val();
+            var concepto = $('#concepto_gasto').val();
+            var monto = $('#monto_gasto').val();
+            var fecha = $('#fecha_gasto').val();
+            var archivo = $('#archivo_gasto').val();
          
-         
-            $.ajax({
+                     $.ajax({
                type:'POST',
                url:'/gastoExpedientes',
                data:{  "_token": "{{ csrf_token() }}", concepto: concepto, monto: monto, fecha: fecha, id_expediente: id_expediente, archivo: archivo},
@@ -223,3 +220,4 @@
    
    </script>
 <!-- MODAL PARA GASTO -->
+@endsection

@@ -1,5 +1,5 @@
-<div class="table-responsive">
-    <table class="table" id="clientes-table">
+<div class="table-responsive" style="padding:15px;">
+    <table class="table" id="myTable">
         <thead>
         <tr>
         <th>Nombre</th>

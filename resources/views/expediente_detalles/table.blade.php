@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive" style="padding:15px;">
     <table class="table" id="expedienteDetalles-table">
         <thead>
         <tr>
