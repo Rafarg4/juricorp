@@ -13,11 +13,11 @@
         <tbody>
         @foreach($gastoExpedientes as $gastoExpediente)
             <tr>
-                <td>{{ $gastoExpediente->concepto }}</td>
-            <td>{{ $gastoExpediente->monto }}</td>
-            <td>{{ $gastoExpediente->fecha }}</td>
+                <td>{{ $gastoExpediente->concepto_gasto }}</td>
+            <td>{{ $gastoExpediente->monto_gasto }}</td>
+            <td>{{ $gastoExpediente->fecha_gasto }}</td>
             <td>{{ $gastoExpediente->expediente->numero}}</td>
-            <td>{{ $gastoExpediente->archivo }}</td>
+            <td>{{ $gastoExpediente->archivo_gasto }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['gastoExpedientes.destroy', $gastoExpediente->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -42,7 +42,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><b>Suma de Gastos:</b></td>
+                <td><b>Total de Gastos:</b></td>
                 <td><b>{{ $gasto_total }}</b></td>
     </tr>
   </tfoot>

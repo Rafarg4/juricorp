@@ -48,8 +48,8 @@ class ExpedienteController extends AppBaseController
      */
     public function create()
     {   
-          $circunscripcions = Circunscripcion::pluck('nombre','id');
-          $juzgados = Juzgado::pluck('nombre','id');
+          $circunscripcions = Circunscripcion::pluck('nombrecir','id');
+          $juzgados = Juzgado::pluck('nombrejuz','id');
           $clientes = Cliente::pluck('nombre','id');
           return view('expedientes.create',compact('circunscripcions','juzgados','clientes'));
     }
@@ -83,7 +83,7 @@ class ExpedienteController extends AppBaseController
         $gastoExpedientes = Gasto_expediente::where('id_expediente',$id)->get();
         $pagoExpedientes = Pago_expediente::where('id_expediente',$id)->get();;
         $pago_total = Pago_expediente::where('id_expediente',$id)->sum('monto'); 
-        $gasto_total = Gasto_expediente::where('id_expediente',$id)->sum('monto');
+        $gasto_total = Gasto_expediente::where('id_expediente',$id)->sum('monto_gasto');
         if (empty($expediente)) {
             Flash::error('Expediente no encontrado');
 
@@ -103,8 +103,8 @@ class ExpedienteController extends AppBaseController
     public function edit($id)
     {
         $expediente = $this->expedienteRepository->find($id);
-        $circunscripcions = Circunscripcion::pluck('nombre','id');
-        $juzgados = Juzgado::pluck('nombre','id');
+        $circunscripcions = Circunscripcion::pluck('nombrecir','id');
+        $juzgados = Juzgado::pluck('nombrejuz','id');
         $clientes = Cliente::pluck('nombre','id');
         if (empty($expediente)) {
             Flash::error('Expediente no encontrado');

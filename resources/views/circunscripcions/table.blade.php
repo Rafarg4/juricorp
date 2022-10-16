@@ -1,5 +1,5 @@
-<div class="table-responsive" style="padding:15px;">
-    <table class="table" id="circunscripcions-table">
+        <div class="table-responsive" style="padding:15px;">
+    <table class="table" id="myTable">
         <thead>
         <tr>
             <th>Nombre</th>
@@ -10,7 +10,7 @@
         <tbody>
         @foreach($circunscripcions as $circunscripcion)
             <tr>
-                <td>{{ $circunscripcion->nombre }}</td>
+                <td>{{ $circunscripcion->nombrecir}}</td>
             <td>{{ $circunscripcion->departamento }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['circunscripcions.destroy', $circunscripcion->id], 'method' => 'delete']) !!}

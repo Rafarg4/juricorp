@@ -29,7 +29,7 @@ class Juzgado extends Model
 
 
     public $fillable = [
-        'nombre',
+        'nombrejuz',
         'juez',
         'secretario',
         'id_circunscripcion'
@@ -41,7 +41,7 @@ class Juzgado extends Model
      * @var array
      */
     protected $casts = [
-        'nombre' => 'string',
+        'nombrejuz' => 'string',
         'juez' => 'string',
         'secretario' => 'string'
     ];
@@ -52,7 +52,7 @@ class Juzgado extends Model
      * @var array
      */
     public static $rules = [
-        'nombre' => 'required',
+        'nombrejuz' => 'required',
         'juez' => 'required',
         'secretario' => 'required'
     ];
@@ -61,5 +61,8 @@ class Juzgado extends Model
      return $this->belongsToMany(Expediente::class,'circunscripcion_juzgados','id','id');
 
     }
-    
+     public function cir (){
+     return $this-> belongsTo('App\Models\Circunscripcion','id_circunscripcion');
+
+    }
 }

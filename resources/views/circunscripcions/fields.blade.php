@@ -1,7 +1,7 @@
 <!-- Nombre Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nombre-cir', 'Nombre:') !!}
-    {!! Form::text('nombre-cir', null, ['class' => 'form-control']) !!}
+    {!! Form::label('nombrecir', 'Nombre:') !!}
+    {!! Form::text('nombrecir', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Departamento Field -->

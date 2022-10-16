@@ -1,11 +1,11 @@
-<div class="table-responsive">
-    <table class="table" id="users-table">
+<div class="table-responsive" style="padding:15px;">
+    <table class="table" id="myTable">
         <thead>
         <tr>
-            <th>Name</th>
+            <th>Usuario</th>
         <th>Email</th>
-        <th>Password</th>
-            <th colspan="3">Action</th>
+        <th>Creado</th>
+            <th>Accion</th>
         </tr>
         </thead>
         <tbody>
@@ -13,7 +13,7 @@
             <tr>
                 <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->password }}</td>
+            <td>{{ $user->created_at }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

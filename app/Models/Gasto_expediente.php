@@ -31,11 +31,11 @@ class Gasto_expediente extends Model
 
 
     public $fillable = [
-        'concepto',
-        'monto',
-        'fecha',
+        'concepto_gasto',
+        'monto_gasto',
+        'fecha_gasto',
         'id_expediente',
-        'archivo'
+        'archivo_gasto'
     ];
 
     /**
@@ -44,11 +44,11 @@ class Gasto_expediente extends Model
      * @var array
      */
     protected $casts = [
-        'concepto' => 'string',
-        'monto' => 'string',
-        'fecha' => 'string',
+        'concepto_gasto' => 'string',
+        'monto_gasto' => 'string',
+        'fecha_gasto' => 'string',
         'id_expediente' => 'integer',
-        'archivo' => 'string'
+        'archivo_gasto' => 'string'
     ];
 
     /**
@@ -57,11 +57,11 @@ class Gasto_expediente extends Model
      * @var array
      */
     public static $rules = [
-        'concepto' => 'required',
-        'monto' => 'required',
-        'fecha' => 'required',
+        'concepto_gasto' => 'required',
+        'monto_gasto' => 'required',
+        'fecha_gasto' => 'required',
         'id_expediente' => 'required',
-        'archivo' => 'required'
+        'archivo_gasto' => 'required'
     ];
 
      public function expediente (){

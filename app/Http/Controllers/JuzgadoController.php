@@ -57,7 +57,7 @@ class JuzgadoController extends AppBaseController
      */
     public function create()
     {
-         $circunscripcions = Circunscripcion::pluck('nombre','id');
+         $circunscripcions = Circunscripcion::pluck('nombrecir','id');
           return view('juzgados.create',compact('circunscripcions'));
     }
 
@@ -109,7 +109,7 @@ class JuzgadoController extends AppBaseController
     public function edit($id)
     {
         $juzgado = $this->juzgadoRepository->find($id);
-        $circunscripcions = Circunscripcion::pluck('nombre','id');
+        $circunscripcions = Circunscripcion::pluck('nombrecir','id');
 
 
         if (empty($juzgado)) {

@@ -113,8 +113,8 @@
     </div>
       <div class="modal-footer">
         
-        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Close</button>
-          {!! Form::submit('Save', ['class' => 'btn btn-primary', 'id' => 'submit']) !!}
+        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Cerrar</button>
+          {!! Form::submit('Guardar', ['class' => 'btn btn-primary', 'id' => 'submit']) !!}
            </form>
       </div>
     </div>
@@ -188,8 +188,8 @@
     </div>
       <div class="modal-footer">
         
-        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Close</button>
-          {!! Form::submit('Save', ['class' => 'btn btn-primary', 'id' => 'submit1']) !!}
+        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Cerrar</button>
+          {!! Form::submit('Guardar', ['class' => 'btn btn-primary', 'id' => 'submit1']) !!}
            </form>
       </div>
     </div>
@@ -201,15 +201,15 @@
    
         $('#submit1').click(function(){
             var id_expediente = $('#id_expediente').val();
-            var concepto = $('#concepto_gasto').val();
-            var monto = $('#monto_gasto').val();
-            var fecha = $('#fecha_gasto').val();
-            var archivo = $('#archivo_gasto').val();
+            var concepto_gasto = $('#concepto_gasto').val(); 
+            var monto_gasto = $('#monto_gasto').val();
+            var fecha_gasto = $('#fecha_gasto').val();
+            var archivo_gasto = $('#archivo_gasto').val();
          
                      $.ajax({
                type:'POST',
                url:'/gastoExpedientes',
-               data:{  "_token": "{{ csrf_token() }}", concepto: concepto, monto: monto, fecha: fecha, id_expediente: id_expediente, archivo: archivo},
+               data:{  "_token": "{{ csrf_token() }}", concepto_gasto: concepto_gasto, monto_gasto: monto_gasto, fecha_gasto: fecha_gasto, id_expediente: id_expediente, archivo_gasto: archivo_gasto},
                success:function(data) {
                   $('#exampleModal1').modal('hide');
                }

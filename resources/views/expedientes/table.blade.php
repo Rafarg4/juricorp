@@ -18,8 +18,8 @@
             <td>{{ $expediente->numero }}</td>
             <td>{{ $expediente->anho }}</td>
             <td>{{ $expediente->caratula }}</td>
-            <td>{{ $expediente->circunscripcion->nombre }}</td>
-            <td>{{ $expediente->juzgado->nombre}}</td>
+            <td>{{ $expediente->circunscripcion->nombrecir }}</td>
+            <td>{{ $expediente->juzgado->nombrejuz}}</td>
            <td> @foreach($expediente->clientes as $e)
             {{ $e->nombre}}
             @endforeach </td>

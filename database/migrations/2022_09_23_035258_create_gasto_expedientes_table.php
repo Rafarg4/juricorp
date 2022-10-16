@@ -16,11 +16,11 @@ class CreateGastoExpedientesTable extends Migration
     {
         Schema::create('gasto_expedientes', function (Blueprint $table) {
             $table->id('id');
-            $table->text('concepto');
-            $table->text('monto');
-            $table->text('fecha');
+            $table->text('concepto_gasto');
+            $table->text('monto_gasto');
+            $table->text('fecha_gasto');
              $table->unsignedBigInteger('id_expediente');
-            $table->text('archivo');
+            $table->text('archivo_gasto');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('id_expediente')->references('id')->on('expedientes');

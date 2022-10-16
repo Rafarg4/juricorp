@@ -11,9 +11,6 @@
     {!! Form::label('anho', 'Año:') !!}
     {!! Form::text('anho', null, ['class' => 'form-control','id'=>'anho']) !!}
 </div>
-
-   
-
 <!-- Caratula Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('caratula', 'Caratula:') !!}
@@ -25,7 +22,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('id_circunscripcion[]', 'Circunscripcion:') !!}
     <div class="input-group">
-    {!! Form::select('id_circunscripcion', $circunscripcions, null, ['class' => 'form-control js-example-responsive','id' => 'circunscripcion']) !!}
+    {!! Form::select('id_circunscripcion', $circunscripcions, null, ['class' => 'form-control js-example-responsive','id' => 'circunscripcion','placeholder'=>'Seleccione']) !!}
  <div class="input-group-append">
      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalc">
             <i class="fa fas-solid fa-plus"></i>
@@ -39,7 +36,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('id_juzgado[]', 'Juzgado:') !!}
     <div class="input-group">
-    {!! Form::select('id_juzgado', $juzgados, null, ['class' => 'form-control js-example-responsive','id' => 'juzgado']) !!}
+    {!! Form::select('id_juzgado', $juzgados, null, ['class' => 'form-control js-example-responsive','id' => 'juzgado','placeholder'=>'Seleccione']) !!}
  <div class="input-group-append">
      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalj">
             <i class="fa fas-solid fa-plus"></i>

@@ -92,8 +92,8 @@
     </div>
       <div class="modal-footer">
         
-        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Close</button>
-          {!! Form::submit('Save', ['class' => 'btn btn-primary', 'id' => 'submit']) !!}
+        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Cerrar</button>
+          {!! Form::submit('Guardar', ['class' => 'btn btn-primary', 'id' => 'submit']) !!}
            </form>
       </div>
     </div>
@@ -181,8 +181,8 @@
     </div>
       <div class="modal-footer">
         
-        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Close</button>
-          {!! Form::submit('Save', ['class' => 'btn btn-primary', 'id' => 'submitj']) !!}
+        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Cerrar</button>
+          {!! Form::submit('Guardar', ['class' => 'btn btn-primary', 'id' => 'submitj']) !!}
            </form>
       </div>
     </div>
@@ -192,7 +192,7 @@
    <script type="text/javascript">
    
         $('#submitj').click(function(){
-            var nombre = $('#nombre-juz').val();
+            var nombre = $('#nombrejuz').val();
             var juez = $('#juez').val();
             var secretario = $('#secretario').val();
             var id_circunscripcion = $('#id_circunscripcion :selected').val();
@@ -250,8 +250,8 @@
     </div>
       <div class="modal-footer">
         
-        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Close</button>
-          {!! Form::submit('Save', ['class' => 'btn btn-primary', 'id' => 'submitc']) !!}
+        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Cancelar</button>
+          {!! Form::submit('Guardar', ['class' => 'btn btn-primary', 'id' => 'submitc']) !!}
            </form>
       </div>
     </div>
@@ -261,7 +261,7 @@
    <script type="text/javascript">
    
         $('#submitc').click(function(){
-            var nombre = $('#nombre-cir').val();
+            var nombre = $('#nombrecir').val();
             var departamento = $('#departamento').val();
             $.ajax({
                type:'POST',

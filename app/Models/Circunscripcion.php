@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @package App\Models
  * @version September 23, 2022, 2:37 am UTC
  *
- * @property string $nombre
+ * @property string $nombre-cir
  * @property string $departamento
  */
 class Circunscripcion extends Model
@@ -28,7 +28,7 @@ class Circunscripcion extends Model
 
 
     public $fillable = [
-        'nombre',
+        'nombrecir',
         'departamento'
     ];
 
@@ -38,7 +38,7 @@ class Circunscripcion extends Model
      * @var array
      */
     protected $casts = [
-        'nombre' => 'string',
+        'nombrecir' => 'string',
         'departamento' => 'string'
     ];
 
@@ -48,11 +48,14 @@ class Circunscripcion extends Model
      * @var array
      */
     public static $rules = [
-        'nombre' => 'required',
+        'nombrecir' => 'required',
         'departamento' => 'required'
     ];
     public function expediente (){
      return $this->belongsToMany(Expediente::class,'circunscripcion_juzgados','id','id');
 
+    }
+     public function juz (){
+        return $this-> hasMany('App\Models\Juzgado');
     }
 }

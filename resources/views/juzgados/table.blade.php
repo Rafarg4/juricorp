@@ -1,5 +1,5 @@
 <div class="table-responsive" style="padding:15px;">
-    <table class="table" id="juzgados-table">
+    <table class="table" id="myTable">
         <thead>
         <tr>
             <th>Nombre</th>
@@ -12,10 +12,10 @@
         <tbody>
         @foreach($juzgados as $juzgado)
             <tr>
-                <td>{{ $juzgado->nombre }}</td>
+                <td>{{ $juzgado->nombrejuz }}</td>
             <td>{{ $juzgado->juez }}</td>
             <td>{{ $juzgado->secretario }}</td>
-             <td>{{ $juzgado->id_circunscripcion }}</td>
+             <td>{{ $juzgado->cir->nombrecir }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['juzgados.destroy', $juzgado->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

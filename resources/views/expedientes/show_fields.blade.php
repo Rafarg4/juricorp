@@ -19,13 +19,13 @@
 <!-- Id Circunscripcion Field -->
 <div class="col-sm-3">
     {!! Form::label('id_circunscripcion', 'Circunscripcion:') !!}
-    <p>{{ $expediente->circunscripcion->nombre }}</p>
+    <p>{{ $expediente->circunscripcion->nombrecir }}</p>
 </div>
 
 <!-- Id Juzgado Field -->
 <div class="col-sm-3">
     {!! Form::label('id_juzgado', 'Juzgado:') !!}
-    <p>{{ $expediente->juzgado->nombre }}</p>
+    <p>{{ $expediente->juzgado->nombrejuz }}</p>
 </div>
 <div class="col-sm-3">
     {!! Form::label('estado', 'Estado:') !!}

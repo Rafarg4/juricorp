@@ -42,7 +42,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><b>Suma de Pagos:</b></td>
+                <td><b>Total de Pagos:</b></td>
                 <td><b>{{ $pago_total }}</b></td>
     </tr>
   </tfoot>

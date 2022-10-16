@@ -46,16 +46,6 @@
         <p>Expedientes</p>
     </a>
 </li>
-
-
-<li class="nav-item">
-    <a href="{{ route('gastoExpedientes.index') }}"
-       class="nav-link {{ Request::is('gastoExpedientes*') ? 'active' : '' }}">
-       <i class="fa fas-solid fa-money-bill"></i>
-        <p>Gasto Expedientes</p>
-    </a>
-</li>
-
 <li class="nav-item">
     <a href="{{ route('users.index') }}"
        class="nav-link {{ Request::is('users*') ? 'active' : '' }}">

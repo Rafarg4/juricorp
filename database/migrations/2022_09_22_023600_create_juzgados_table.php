@@ -16,7 +16,7 @@ class CreateJuzgadosTable extends Migration
     {
         Schema::create('juzgados', function (Blueprint $table) {
             $table->id('id');
-            $table->text('nombre');
+            $table->text('nombrejuz');
             $table->text('juez');
             $table->text('secretario');
             $table->unsignedBigInteger('id_circunscripcion');
