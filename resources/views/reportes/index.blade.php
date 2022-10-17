@@ -44,8 +44,8 @@
                 <td>{{ $r->numero }}</td>
             <td>{{ $r->anho }}</td>
             <td>{{ $r->caratula }}</td>
-            <td>{{ $r->id_circunscripcion }}</td>
-            <td>{{ $r->id_juzgado}}</td>
+            <td>{{ $r->nombrecir }}</td>
+            <td>{{ $r->nombrejuz}}</td>
            <td>Nombre de cliente</td>
             <td>@switch(true)
             @case($r->estado == 'Activo')

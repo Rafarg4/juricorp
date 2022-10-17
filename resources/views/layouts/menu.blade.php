@@ -54,18 +54,34 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('reporte.index') }}"
-       class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
-        <i class="fa fas-solid fa-chart-pie"></i>
-        <p>Reportes</p>
-    </a>
+<a href="{{ route('reporte.index') }}" 
+  class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
+<i class="fa fas-solid fa-chart-pie"></i>
+<p>
+      Reportes
+<i class="right fas fa-angle-left"></i>
+</p>
+</a>
+<ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item">
+<a href="pages/charts/chartjs.html" class="nav-link">
+<i class="nav-icon fas fa-table"></i>
+<p>Detalles1</p>
+</a>
 </li>
-
+<li class="nav-item">
+<a href="pages/charts/flot.html" class="nav-link">
+<i class="nav-icon fas fa-table"></i>
+<p>Reporte 2</p>
+</a>
+</li>
+</ul>
 <li class="nav-item">
     <a href="{{ route('audiencias.index') }}"
        class="nav-link {{ Request::is('audiencias*') ? 'active' : '' }}">
         <p>Audiencias</p>
     </a>
 </li>
+
 
 
