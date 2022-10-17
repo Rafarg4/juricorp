@@ -62,12 +62,12 @@
 <i class="right fas fa-angle-left"></i>
 </p>
 </a>
-<ul class="nav nav-treeview" style="display: none;">
+<ul class="nav nav-treeview">
 <li class="nav-item">
 <a href="{{ route('reporte.index') }}" 
   class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
 <i class="nav-icon fas fa-table"></i>
-<p>Detalles1</p>
+<p>Expediente detalle</p>
 </a>
 </li>
 <li class="nav-item">

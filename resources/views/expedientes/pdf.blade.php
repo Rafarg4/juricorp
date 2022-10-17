@@ -19,7 +19,62 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    @include('expedientes.show_fields')
+                  <!-- Numero Field -->
+<div class="col-sm-12">
+    {!! Form::label('numero', 'Numero:') !!}
+    <p>{{ $expediente->numero }}</p>
+</div>
+
+<!-- Anho Field -->
+<div class="col-sm-12">
+    {!! Form::label('anho', 'Año:') !!}
+    <p>{{ $expediente->anho }}</p>
+</div>
+
+<!-- Caratula Field -->
+<div class="col-sm-12">
+    {!! Form::label('caratula', 'Caratula:') !!}
+    <p>{{ $expediente->caratula }}</p>
+</div>
+
+<!-- Id Circunscripcion Field -->
+<div class="col-sm-12">
+    {!! Form::label('id_circunscripcion', 'Circunscripcion:') !!}
+    <p>{{ $expediente->circunscripcion->nombrecir }}</p>
+</div>
+
+<!-- Id Juzgado Field -->
+<div class="col-sm-12">
+    {!! Form::label('id_juzgado', 'Juzgado:') !!}
+    <p>{{ $expediente->juzgado->nombrejuz }}</p>
+</div>
+<div class="col-sm-12">
+    {!! Form::label('estado', 'Estado:') !!}
+    <p>     @switch(true)
+            @case($expediente->estado == 'Activo')
+            <span class="badge badge-primary"> {{ $expediente->estado }} </span>
+            @break
+            @case($expediente->estado == 'Paralizado')
+            <span class="badge badge-warning"> {{ $expediente->estado }} </span>
+            @break
+            @case($expediente->estado == 'Finalizado' )
+            <span class="badge badge-danger"> {{ $expediente->estado }} </span>
+            @break
+            @endswitch</p>
+</div>
+<div class="col-sm-12 ">
+    {!! Form::label('clientes', 'Clientes:', ['class'=>'lb-lg']) !!}
+    <p>@foreach($expediente->clientes as $expediente)
+            {{ $expediente->nombre}}
+            @endforeach</p>
+</div>
+<!-- Created At Field -->
+<div class="col-sm-12">
+    {!! Form::label('created_at', 'Registrado en fecha:') !!}
+    <p>{{ $expediente->created_at }}</p>
+</div>
+
+
 
                 </div>
             </div>
@@ -41,7 +96,7 @@
         <th>Fecha</th>
         <th>Nro de expediente</th>
         <th>Archivo</th>
-            <th>Accion</th>
+           
         </tr>
         </thead>
         <tbody>
@@ -52,21 +107,7 @@
             <td>{{ $gastoExpediente->fecha_gasto }}</td>
             <td>{{ $gastoExpediente->expediente->numero}}</td>
             <td>{{ $gastoExpediente->archivo_gasto }}</td>
-                <td width="120">
-                    {!! Form::open(['route' => ['gastoExpedientes.destroy', $gastoExpediente->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('gastoExpedientes.show', [$gastoExpediente->id]) }}"
-                           class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i>
-                        </a>
-                        <a href="{{ route('gastoExpedientes.edit', [$gastoExpediente->id]) }}"
-                           class='btn btn-default btn-xs'>
-                            <i class="far fa-edit"></i>
-                        </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                    </div>
-                    {!! Form::close() !!}
-                </td>
+                
             </tr>
         @endforeach
         </tbody>
@@ -91,7 +132,6 @@
         <th>Monto</th>
         <th>Fecha</th>
         <th>Expediente Id</th>
-            <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -101,24 +141,20 @@
             <td>{{ $pagoExpediente->monto }}</td>
             <td>{{ $pagoExpediente->fecha }}</td>
             <td>{{ $pagoExpediente->id_expediente }}</td>
-                <td width="120">
-                    {!! Form::open(['route' => ['pagoExpedientes.destroy', $pagoExpediente->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('pagoExpedientes.show', [$pagoExpediente->id]) }}"
-                           class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i>
-                        </a>
-                        <a href="{{ route('pagoExpedientes.edit', [$pagoExpediente->id]) }}"
-                           class='btn btn-default btn-xs'>
-                            <i class="far fa-edit"></i>
-                        </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                    </div>
-                    {!! Form::close() !!}
-                </td>
+                
             </tr>
         @endforeach
         </tbody>
+         <tfoot>
+        <tr>
+             <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Total de Pagos:</b></td>
+                <td><b>{{ $pago_total }}</b></td>
+    </tr>
+  </tfoot>
     </table>
 </div>
 
