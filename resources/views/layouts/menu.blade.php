@@ -54,10 +54,18 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('users.index') }}"
-       class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
+    <a href="{{ route('reporte.index') }}"
+       class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
         <i class="fa fas-solid fa-chart-pie"></i>
         <p>Reportes</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('audiencias.index') }}"
+       class="nav-link {{ Request::is('audiencias*') ? 'active' : '' }}">
+        <p>Audiencias</p>
+    </a>
+</li>
+
 

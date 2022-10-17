@@ -23,10 +23,8 @@
 </div>
 <div class="form-group col-sm-6">
     {!! Form::label('Nro Expediente', 'Nro Expediente:') !!}
-    {!! Form::text('Nro_expediente',  $expediente->numero, ['class' => 'form-control','id'=>'numero', 'disabled']) !!}
+    {!! Form::text('id_expediente',  $expediente->numero, ['class' => 'form-control','disabled']) !!}
 </div>
-<!-- Expediente Id Field -->
 <div class="col-sm-12">
     {!! Form::hidden('id_expediente',  $expediente->id, ['class' => 'form-control','id'=>'id_expediente']) !!}
 </div>
-<!-- Concepto Field -->

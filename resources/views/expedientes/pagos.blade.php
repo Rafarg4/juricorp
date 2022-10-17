@@ -17,7 +17,7 @@
             <td>{{ $pagoExpediente->monto }}</td>
             <td>{{ $pagoExpediente->fecha }}</td>
             <td>{{ $pagoExpediente->id_expediente }}</td>
-            <td>{{ $pagoExpediente->archivo }}</td>
+            <td><img src="{{ asset('archivos'.$pagoExpediente->archivo) }}"></td>
                 <td width="120">
                     {!! Form::open(['route' => ['pagoExpedientes.destroy', $pagoExpediente->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

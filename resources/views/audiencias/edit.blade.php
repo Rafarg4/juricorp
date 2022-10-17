@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Create Pago Expediente</h1>
+                    <h1>Edit Audiencias</h1>
                 </div>
             </div>
         </div>
@@ -17,19 +17,17 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'pagoExpedientes.store', 'enctype' => 'multipart/form-data']) !!}
+            {!! Form::model($audiencias, ['route' => ['audiencias.update', $audiencias->id], 'method' => 'patch']) !!}
 
             <div class="card-body">
-
                 <div class="row">
-                    @include('pago_expedientes.fields')
+                    @include('audiencias.fields')
                 </div>
-
             </div>
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('pagoExpedientes.index') }}" class="btn btn-default">Cancel</a>
+                <a href="{{ route('audiencias.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
             {!! Form::close() !!}

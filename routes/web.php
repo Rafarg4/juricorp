@@ -52,3 +52,11 @@ Route::resource('pagoExpedientes', App\Http\Controllers\Pago_expedienteControlle
 
 
 Route::resource('users', App\Http\Controllers\UserController::class);
+Route::resource('audiencias', App\Http\Controllers\AudienciasController::class);
+
+Route::post('audiencia_crear', [AudienciasController::class, 'audiencia']);	
+
+Route::resource('reporte', App\Http\Controllers\ReporteController::class);	
+
+
+
