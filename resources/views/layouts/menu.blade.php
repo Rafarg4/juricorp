@@ -64,7 +64,8 @@
 </a>
 <ul class="nav nav-treeview" style="display: none;">
 <li class="nav-item">
-<a href="pages/charts/chartjs.html" class="nav-link">
+<a href="{{ route('reporte.index') }}" 
+  class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
 <i class="nav-icon fas fa-table"></i>
 <p>Detalles1</p>
 </a>

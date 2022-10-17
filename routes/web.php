@@ -59,4 +59,3 @@ Route::post('audiencia_crear', [AudienciasController::class, 'audiencia']);
 Route::resource('reporte', App\Http\Controllers\ReporteController::class);	
 
 
-

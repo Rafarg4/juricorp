@@ -41,6 +41,10 @@
                            class='btn btn-default btn-xs'>
                            <button type="button" class="btn btn-primary"> <i class="nav-icon fas fa-book"></i></button>
                         </a>
+                           <a href="{{ route('expedientes.show', [$expediente->id]) }}"
+                           class='btn btn-default btn-xs'>
+                           <button type="button" class="btn btn-primary"> <i class="fa fas-solid fa-file-pdf"></i></button>
+                        </a>
                         <a href="{{ route('expedientes.edit', [$expediente->id]) }}"
                            class='btn btn-default btn-xs'>
                            <button type="button" class="btn btn-warning"> <i class="far fa-edit"></i></button>

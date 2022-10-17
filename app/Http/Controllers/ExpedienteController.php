@@ -8,6 +8,7 @@ use App\Repositories\ExpedienteRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use PDF;
 use Response;
 use App\Models\Circunscripcion;
 use App\Models\Juzgado;
@@ -89,7 +90,8 @@ class ExpedienteController extends AppBaseController
 
             return redirect(route('expedientes.index'));
         }
-
+          $pdf = PDF::loadView('expedientes.pdf', compact('expediente','gastoExpedientes','pagoExpedientes','pago_total','gasto_total'));
+              return $pdf->download('Detalle-expediente.pdf');
         return view('expedientes.show')->with('expediente', $expediente)->with('gastoExpedientes', $gastoExpedientes)->with('pagoExpedientes', $pagoExpedientes)->with('pago_total', $pago_total)->with('gasto_total', $gasto_total);
     }
 
