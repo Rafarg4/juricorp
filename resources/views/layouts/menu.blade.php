@@ -27,7 +27,7 @@
     <a href="{{ route('circunscripcions.index') }}"
        class="nav-link {{ Request::is('circunscripcions*') ? 'active' : '' }}">
        <i class="fa fas-solid fa-list"></i>
-        <p>Circunscripcions</p>
+        <p>Circunscripciones</p>
     </a>
 </li>
 <li class="nav-item">

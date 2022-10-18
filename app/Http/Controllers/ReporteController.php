@@ -9,22 +9,13 @@ class ReporteController extends Controller
 {
     public function index () {
      
-     $reporte1=DB::table('expedientes')
-        ->join('gasto_expedientes','gasto_expedientes.id_expediente','=', 'expedientes.id')
-        ->join('juzgados','juzgados.id','=', 'expedientes.id_juzgado')
-        ->join('circunscripcions','circunscripcions.id','=', 'expedientes.id_circunscripcion')
-        ->select('expedientes.id','gasto_expedientes.id','gasto_expedientes.concepto_gasto','gasto_expedientes.monto_gasto','gasto_expedientes.fecha_gasto','expedientes.numero','expedientes.anho','expedientes.caratula','expedientes.estado','juzgados.nombrejuz','circunscripcions.nombrecir') 
-         ->where('expedientes.deleted_at',null);      
-
-    $reporte=DB::table('expedientes')
-        ->join('pago_expedientes','pago_expedientes.id_expediente','=', 'expedientes.id')
-        ->join('juzgados','juzgados.id','=', 'expedientes.id_juzgado')
-        ->join('circunscripcions','circunscripcions.id','=', 'expedientes.id_circunscripcion')
-        ->select('expedientes.id','pago_expedientes.id','pago_expedientes.concepto','pago_expedientes.monto','pago_expedientes.fecha','expedientes.numero','expedientes.anho','expedientes.caratula','expedientes.estado','juzgados.nombrejuz','circunscripcions.nombrecir')
-        ->union($reporte1)
-        ->where('expedientes.deleted_at',null)
-        ->get();
-        return view('reportes.index') ->with('reporte', $reporte);
+     $reporte=DB::select("select * from 
+(SELECT expedientes.id,numero,anho, caratula,estado,juzgados.nombrejuz,circunscripcions.nombrecir, GROUP_CONCAT(DISTINCT clientes.nombre) as cliente_nombre from expedientes JOIN cliente_expediente on cliente_expediente.expediente_id = expedientes.id join clientes on cliente_expediente.cliente_id = clientes.id join juzgados on juzgados.id = expedientes.id_juzgado join circunscripcions on circunscripcions.id = expedientes.id_circunscripcion group by expedientes.id, expedientes.numero,expedientes.anho,expedientes.caratula,expedientes.estado,juzgados.nombrejuz,circunscripcions.nombrecir) as t join gasto_expedientes on gasto_expedientes.id_expediente = t.id 
+UNION
+select * from 
+(SELECT expedientes.id,numero,anho, caratula,estado,juzgados.nombrejuz,circunscripcions.nombrecir, GROUP_CONCAT(DISTINCT clientes.nombre) as cliente_nombre from expedientes JOIN cliente_expediente on cliente_expediente.expediente_id = expedientes.id join clientes on cliente_expediente.cliente_id = clientes.id join juzgados on juzgados.id = expedientes.id_juzgado join circunscripcions on circunscripcions.id = expedientes.id_circunscripcion  group by expedientes.id, expedientes.numero,expedientes.anho,expedientes.caratula,expedientes.estado,juzgados.nombrejuz,circunscripcions.nombrecir) as f join pago_expedientes on pago_expedientes.id_expediente = f.id  
+ORDER BY `caratula` ASC");
+        return view('reportes.index')->with('reporte', $reporte);
 
 
     }

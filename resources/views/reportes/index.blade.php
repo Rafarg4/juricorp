@@ -23,7 +23,7 @@
         <div class="card">
             <div class="card-body p-0">
                <div class="table-responsive" style="padding:15px;">
-    <table class="table" id="myTable">
+    <table class="table" id="myTable2">
         <thead>
         <tr>
          <th>Numero</th>
@@ -46,7 +46,7 @@
             <td>{{ $r->caratula }}</td>
             <td>{{ $r->nombrecir }}</td>
             <td>{{ $r->nombrejuz}}</td>
-           <td>Nombre de cliente</td>
+           <td>{{ $r->cliente_nombre}}</td>
             <td>@switch(true)
             @case($r->estado == 'Activo')
             <span class="badge badge-primary"> {{ $r->estado }} </span>
@@ -58,9 +58,9 @@
             <span class="badge badge-danger"> {{ $r->estado }} </span>
             @break
             @endswitch</td>
-             <td>{{ $r->concepto }}</td>
-            <td>{{ $r->monto }}</td>
-            <td>{{ $r->fecha }}</td>
+             <td>{{ $r->concepto_gasto }}</td>
+            <td>{{ $r->monto_gasto }}</td>
+            <td>{{ $r->fecha_gasto }}</td>
              
             </tr>
         @endforeach
