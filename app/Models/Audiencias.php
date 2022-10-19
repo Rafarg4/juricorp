@@ -11,9 +11,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @package App\Models
  * @version October 16, 2022, 11:11 pm UTC
  *
- * @property integer $expediente_id
- * @property string $inicio_audiencia
- * @property string $find_audiencia
+ * 
+ * @property date $inicio_audiencia
+ * @property date $fin_audiencia
  * @property string $descripcion_audiencia
  */
 class Audiencias extends Model
@@ -30,7 +30,6 @@ class Audiencias extends Model
 
 
     public $fillable = [
-        'expediente_id',
         'inicio_audiencia',
         'fin_audiencia',
         'descripcion_audiencia'
@@ -42,7 +41,6 @@ class Audiencias extends Model
      * @var array
      */
     protected $casts = [
-        'expediente_id' => 'integer',
         'inicio_audiencia' => 'string',
         'fin_audiencia' => 'string',
         'descripcion_audiencia' => 'string'
@@ -54,7 +52,6 @@ class Audiencias extends Model
      * @var array
      */
     public static $rules = [
-        'expediente_id' => 'required',
         'inicio_audiencia' => 'required',
         'fin_audiencia' => 'required',
         'descripcion_audiencia' => 'required'

@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateAudienciasRequest;
 use App\Repositories\AudienciasRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\Audiencias;
 use Flash;
 use Response;
 
@@ -29,58 +30,66 @@ class AudienciasController extends AppBaseController
      */
     public function index(Request $request)
   {
-        if($request->ajax()) {  
-            $data = Audiencia::whereDate('inicio_audiencia', '>=', $request->start)
-                ->whereDate('fin_audiencia',   '<=', $request->end)
-                ->get(['id', 'descripcion_audiencia', 'inicio_audiencia', 'fin_audiencia']);
-            return response()->json($data);
+
+            $audiencias = Audiencias::all();
+            $events = array();
+        foreach($audiencias as $audiencia) {
+            $events[] = [
+                'id' => $audiencia->id,
+                'title' => $audiencia->descripcion_audiencia,
+                'start' => $audiencia->inicio_audiencia,
+                'end' => $audiencia->fin_audiencia
+            ];
+        }
+            
+            
         
+        return view('audiencias.index', ['events' => $events]);
     }
-        return view('audiencias.index');
+
+    public function store(Request $request)
+    {
+        
+
+        $audiencia = Audiencias::create($request->all());
+         return response()->json([
+            'id' => $audiencia->id,
+            'inicio_audiencia' => $audiencia->inicio_audiencia,
+            'fin_audiencia' => $audiencia->fin_audiencia,
+            'descripcion_audiencia' => $audiencia->descripcion_audiencia
+        ]);
+     
     }
 
    
 
-     public function audiencia(Request $request)
+    
+ public function update(Request $request ,$id)
     {
- 
-        switch ($request->type) {
-           case 'create':
-              $event = Audiencia::create([
-                  'inicio_audiencia' => $request->inicio_audiencia,
-                  'fin_audiencia' => $request->fin_audiencia,
-                  'descripcion_audiencia' => $request->descripcion_audiencia,
-                  'id_expediente' => $request->id_expediente,
-              ]);
- 
-              return response()->json($event);
-             break;
-  
-           case 'edit':
-              $event = Audiencia::find($request->id)->update([
-                  'inicio_audiencia' => $request->inicio_audiencia,
-                  'fin_audiencia' => $request->fin_audiencia,
-                  'descripcion_audiencia' => $request->descripcion_audiencia,
-                  'id_expediente' => $request->id_expediente,
-              ]);
- 
-              return response()->json($event);
-             break;
-  
-           case 'delete':
-              $event = Audiencia::find($request->id)->delete();
-  
-              return response()->json($event);
-             break;
-             
-           default:
-             # ...
-             break;
+        $audiencia = Audiencias::find($id);
+        if(! $audiencia) {
+            return response()->json([
+                'error' => 'Unable to locate the event'
+            ], 404);
         }
+        $audiencia->update([
+            'inicio_audiencia' => $request->inicio_audiencia,
+            'fin_audiencia' => $request->fin_audiencia,
+        ]);
+        return response()->json('Event updated');
     }
-   public function show($id)
+    public function destroy($id)
     {
-      
+        $audiencia = Audiencias::find($id);
+        if(! $audiencia) {
+            return response()->json([
+                'error' => 'Unable to locate the event'
+            ], 404);
+        }
+        $audiencia->delete();
+        return $id;
     }
-
 }
+
+
+   

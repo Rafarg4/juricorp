@@ -52,9 +52,14 @@ Route::resource('pagoExpedientes', App\Http\Controllers\Pago_expedienteControlle
 
 
 Route::resource('users', App\Http\Controllers\UserController::class);
-Route::resource('audiencias', App\Http\Controllers\AudienciasController::class);
 
-Route::post('audiencia_crear', [AudienciasController::class, 'audiencia']);	
+
+Route::get('audiencias', [App\Http\Controllers\AudienciasController::class, 'index'])->name('audiencias.index');
+Route::post('audiencias', [App\Http\Controllers\AudienciasController::class, 'store'])->name('audiencias.store');
+Route::patch('audiencias/update/{id}', [App\Http\Controllers\AudienciasController::class, 'update'])->name('audiencias.update');
+Route::delete('audiencias/destroy/{id}', [App\Http\Controllers\AudienciasController::class, 'destroy'])->name('audiencias.destroy');
+
+Route::post('audiencia_crear', [App\Http\Controllers\AudienciasController::class, 'audiencia']);	
 
 Route::resource('reporte', App\Http\Controllers\ReporteController::class);	
 
