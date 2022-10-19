@@ -61,6 +61,8 @@ class Pago_expediente extends Model
         'fecha' => 'required',
         'id_expediente' => 'required'
     ];
-
+public function expediente (){
+        return $this-> belongsTo('App\Models\Expediente','id_expediente');
+    }
     
 }

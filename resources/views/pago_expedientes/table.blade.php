@@ -5,8 +5,8 @@
             <th>Concepto</th>
         <th>Monto</th>
         <th>Fecha</th>
-        <th>Expediente Id</th>
-            <th colspan="3">Action</th>
+        <th>Expediente</th>
+            <th>Accion</th>
         </tr>
         </thead>
         <tbody>

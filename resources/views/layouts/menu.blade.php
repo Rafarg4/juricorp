@@ -47,6 +47,13 @@
     </a>
 </li>
 <li class="nav-item">
+    <a href="{{ route('audiencias.index') }}"
+       class="nav-link {{ Request::is('audiencias*') ? 'active' : '' }}">
+       <i class="fa fas-solid fa-calendar"></i>        
+       <p>Audiencias</p>
+    </a>
+</li>
+<li class="nav-item">
     <a href="{{ route('users.index') }}"
        class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
         <i class="fa fas-solid fa-user"></i>
@@ -74,17 +81,11 @@
 <a href="{{route('graficos')}}" class="nav-link"
     class="nav-link {{ Request::is('graficos*') ? 'active' : '' }}">
 <i class="fa fas-solid fa-wallet"></i>
-<p>Ingresos
+<p>Graficos
 </p>
 </a>
 </li>
 </ul>
-<li class="nav-item">
-    <a href="{{ route('audiencias.index') }}"
-       class="nav-link {{ Request::is('audiencias*') ? 'active' : '' }}">
-        <p>Audiencias</p>
-    </a>
-</li>
 
 
 

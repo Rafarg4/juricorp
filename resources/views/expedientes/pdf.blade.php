@@ -68,19 +68,8 @@
 <div class="col-sm-3">
     {!! Form::label('created_at', 'Registrado en fecha:') !!}
     <p>{{ $expediente->created_at }}</p>
-</div>
-
-
-
-                </div>
-            </div>
-            <div class="card-footer clearfix">
-
-
-
-
-</div>
-        </div>
+</div>  
+         
     </div>
     <h4>Detalles de gastos</h4>
     <div class="table-responsive">
@@ -127,7 +116,7 @@
             <th>Concepto</th>
         <th>Monto</th>
         <th>Fecha</th>
-        <th>Expediente Id</th>
+        <th>Expediente</th>
         <th>Archivo</th>
         </tr>
         </thead>
@@ -137,7 +126,7 @@
                 <td>{{ $pagoExpediente->concepto }}</td>
             <td>{{ $pagoExpediente->monto }}</td>
             <td>{{ $pagoExpediente->fecha }}</td>
-            <td>{{ $pagoExpediente->id_expediente }}</td>
+            <td>{{ $pagoExpediente->expediente->numero }}</td>
              <td>{{ $pagoExpediente->archivo }}</td>
                 
             </tr>
@@ -155,4 +144,6 @@
   </tfoot>
     </table>
 </div>
-
+</div>
+</div>
+</div>

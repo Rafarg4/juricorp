@@ -78,6 +78,10 @@ class Expediente extends Model
      return $this-> hasMany('App\Models\Gasto_expediente');
 
     }
+    public function pago_expediente (){
+     return $this-> hasMany('App\Models\Pago_expediente');
+
+    }
     public function clientes (){
      return $this->belongsToMany(Cliente::class);
 

@@ -41,8 +41,8 @@
 
 <script type="text/javascript">
     var activo = <?php echo json_encode($activo)?>;
-    var paralizado = <?php echo json_encode($paralizado)?>;
-    var finalizado = <?php echo json_encode($finalizado)?>;
+  var paralizado = <?php echo json_encode($paralizado)?>;
+  var finalizado = <?php echo json_encode($finalizado)?>;
       Highcharts.chart('container', {
     chart: {
         type: 'column'
@@ -51,9 +51,9 @@
         text: 'Estados de expedientes'
     },
     subtitle: {
-        text: 'Source: ' +
+        text: 'Cantidades: ' +
             '<a href="https://www.ssb.no/en/statbank/table/08940/" ' +
-            'target="_blank">SSB</a>'
+            'target="_blank">segun el estado</a>'
     },
     xAxis: {
         categories: [
@@ -67,7 +67,7 @@
     yAxis: {
         title: {
             useHTML: true,
-            text: 'Detalles de estados'
+            text: 'Cantidades de estados'
         }
     },
     tooltip: {
@@ -75,7 +75,7 @@
         pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
             '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
         footerFormat: '</table>',
-        shared: true,
+        shared: false,
         useHTML: true
     },
     plotOptions: {
@@ -86,15 +86,15 @@
     },
     series: [{
         name: 'Activo',
-        data: activo,
+        data: [activo],
 
     }, {
         name: 'Paralizado',
-        data: paralizado
+        data: [paralizado],
 
     }, {
         name: 'Finalizado',
-        data: finalizado
+        data: [finalizado],
 
     
 
