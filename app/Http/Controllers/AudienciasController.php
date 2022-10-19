@@ -63,7 +63,7 @@ class AudienciasController extends AppBaseController
 
    
 
-    
+        
  public function update(Request $request ,$id)
     {
         $audiencia = Audiencias::find($id);

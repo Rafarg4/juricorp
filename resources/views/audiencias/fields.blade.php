@@ -9,10 +9,7 @@
 </div>
 
 <!-- Find Audiencia Field -->
-<div class="form-group col-sm-12">
-    {!! Form::label('fin_audiencia', 'Fin Audiencia:') !!}
-    {!! Form::date('fin_audiencia', null, ['class' => 'form-control']) !!}
-</div>
+
 
 <!-- Descripcion Audiencia Field -->
 <div class="form-group col-sm-12">
