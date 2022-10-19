@@ -43,7 +43,7 @@
                         </a>
                            <a href="{{route('pdf.show', $expediente->id)}}"
                            class='btn btn-default btn-xs'>
-                           <button type="button" class="btn btn-danger"> <i class="fa fas-solid fa-file-pdf"></i></button>
+                           <button type="button" class="btn btn-success"> <i class="fa fas-solid fa-file-pdf"></i></button>
                         </a>
                         <a href="{{ route('expedientes.edit', [$expediente->id]) }}"
                            class='btn btn-default btn-xs'>

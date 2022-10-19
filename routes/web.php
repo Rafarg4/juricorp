@@ -59,3 +59,5 @@ Route::post('audiencia_crear', [AudienciasController::class, 'audiencia']);
 Route::resource('reporte', App\Http\Controllers\ReporteController::class);	
 
 Route::resource('pdf', App\Http\Controllers\PdfController::class);
+
+Route::get('graficos/index', [App\Http\Controllers\GraficoController::class, 'grafico'])->name('graficos');

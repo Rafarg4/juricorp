@@ -54,8 +54,8 @@
     </a>
 </li>
 <li class="nav-item">
-<a href="{{ route('reporte.index') }}" 
-  class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
+<a href="" 
+  class="nav-link">
 <i class="fa fas-solid fa-chart-pie"></i>
 <p>
       Reportes
@@ -66,14 +66,16 @@
 <li class="nav-item">
 <a href="{{ route('reporte.index') }}" 
   class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
-<i class="nav-icon fas fa-table"></i>
-<p>Expediente detalle</p>
+<i class="fa fas-regular fa-money-bill"></i>
+<p>Pagos y gastos</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="pages/charts/flot.html" class="nav-link">
-<i class="nav-icon fas fa-table"></i>
-<p>Reporte 2</p>
+<a href="{{route('graficos')}}" class="nav-link"
+    class="nav-link {{ Request::is('graficos*') ? 'active' : '' }}">
+<i class="fa fas-solid fa-wallet"></i>
+<p>Ingresos
+</p>
 </a>
 </li>
 </ul>
