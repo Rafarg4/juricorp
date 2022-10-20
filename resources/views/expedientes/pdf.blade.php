@@ -1,20 +1,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Expediente detalles</h1>
-                </div>
-                <div class="col-sm-6">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="content px-3">
         <div class="card">
             <div class="card-body">
-                <div class="row">
+                
                   <!-- Numero Field -->
 <div class="col-sm-3">
     {!! Form::label('numero', 'Numero:') !!}
@@ -80,7 +67,7 @@
         <th>Monto</th>
         <th>Fecha</th>
         <th>Nro de expediente</th>
-        <th>Archivo</th>
+       
            
         </tr>
         </thead>
@@ -91,15 +78,13 @@
             <td>{{ $gastoExpediente->monto_gasto }}</td>
             <td>{{ $gastoExpediente->fecha_gasto }}</td>
             <td>{{ $gastoExpediente->expediente->numero}}</td>
-            <td>{{ $gastoExpediente->archivo_gasto }}</td>
+        
                 
             </tr>
         @endforeach
         </tbody>
         <tfoot>
         <tr>
-             <td></td>
-                <td></td>
                 <td></td>
                 <td></td>
                 <td><b>Total de Gastos:</b></td>
@@ -113,11 +98,10 @@
     <table class="table" id="pagoExpedientes-table">
         <thead>
         <tr>
-            <th>Concepto</th>
+        <th>Concepto</th>
         <th>Monto</th>
         <th>Fecha</th>
         <th>Expediente</th>
-        <th>Archivo</th>
         </tr>
         </thead>
         <tbody>
@@ -127,15 +111,12 @@
             <td>{{ $pagoExpediente->monto }}</td>
             <td>{{ $pagoExpediente->fecha }}</td>
             <td>{{ $pagoExpediente->expediente->numero }}</td>
-             <td>{{ $pagoExpediente->archivo }}</td>
-                
+          
             </tr>
         @endforeach
         </tbody>
          <tfoot>
         <tr>
-             <td></td>
-                <td></td>
                 <td></td>
                 <td></td>
                 <td><b>Total de Pagos:</b></td>
@@ -145,5 +126,4 @@
     </table>
 </div>
 </div>
-</div>
-</div>
+
