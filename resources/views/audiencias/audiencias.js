@@ -22,14 +22,7 @@
 
       		//events: baseURL+"/evento/mostrar" ,
 
-      		eventSources:{
-      		 url: baseURL+"/evento/mostrar",
-      		 method: "POST",
-      		 extraParams:{
-      		 	_token: formulario._token.value,
-      		 }
-      		},
-
+ 
       		dateClick:function (info){
 
 				    formulario.reset();

@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *
  * 
  * @property date $inicio_audiencia
- * @property date $fin_audiencia
+ * @property integer $id_juzgado
  * @property string $descripcion_audiencia
  */
 class Audiencias extends Model
@@ -31,7 +31,7 @@ class Audiencias extends Model
 
     public $fillable = [
         'inicio_audiencia',
-        'fin_audiencia',
+        'id_expediente',
         'descripcion_audiencia'
     ];
 
@@ -42,7 +42,7 @@ class Audiencias extends Model
      */
     protected $casts = [
         'inicio_audiencia' => 'string',
-        'fin_audiencia' => 'string',
+        'id_expediente' => 'integer',
         'descripcion_audiencia' => 'string'
     ];
 
@@ -53,7 +53,7 @@ class Audiencias extends Model
      */
     public static $rules = [
         'inicio_audiencia' => 'required',
-        'fin_audiencia' => 'required',
+        'id_expediente' => 'required',
         'descripcion_audiencia' => 'required'
     ];
 

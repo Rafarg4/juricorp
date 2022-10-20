@@ -16,9 +16,10 @@ class CreateAudienciasTable extends Migration
     {
         Schema::create('audiencias', function (Blueprint $table) {
             $table->id('id');
-            $table->date('inicio_audiencia');
-            $table->date('fin_audiencia');
+            $table->dateTime('inicio_audiencia');
             $table->text('descripcion_audiencia');
+            $table->unsignedBigInteger('id_expediente');
+            $table->foreign('id_expediente')->references('id')->on('expedientes');
             $table->timestamps();
             $table->softDeletes();
         });

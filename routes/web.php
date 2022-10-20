@@ -59,6 +59,7 @@ Route::post('audiencias', [App\Http\Controllers\AudienciasController::class, 'st
 Route::patch('audiencias/update/{id}', [App\Http\Controllers\AudienciasController::class, 'update'])->name('audiencias.update');
 Route::delete('audiencias/destroy/{id}', [App\Http\Controllers\AudienciasController::class, 'destroy'])->name('audiencias.destroy');
 
+Route::get('/audiencias/mostrar', [App\Http\Controllers\AudienciasController::class, 'mostrar']);
 Route::post('audiencia_crear', [App\Http\Controllers\AudienciasController::class, 'audiencia']);	
 
 Route::resource('reporte', App\Http\Controllers\ReporteController::class);	
