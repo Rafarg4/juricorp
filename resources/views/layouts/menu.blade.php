@@ -54,6 +54,14 @@
     </a>
 </li>
 <li class="nav-item">
+<a href="{{route('consultas')}}" class="nav-link"
+    class="nav-link {{ Request::is('consultas*') ? 'active' : '' }}">
+<i class="fa fas-solid fa-wallet"></i>
+<p>Consulta audiencias
+</p>
+</a>
+</li>
+<li class="nav-item">
     <a href="{{ route('users.index') }}"
        class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
         <i class="fa fas-solid fa-user"></i>

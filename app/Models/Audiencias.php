@@ -57,5 +57,8 @@ class Audiencias extends Model
         'descripcion_audiencia' => 'required'
     ];
 
-    
+        public function expediente (){
+     return $this-> belongsTo('App\Models\Expediente','id_expediente');
+
+    }
 }
