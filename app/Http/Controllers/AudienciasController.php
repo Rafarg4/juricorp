@@ -34,7 +34,7 @@ class AudienciasController extends AppBaseController
 
             $audiencias = Audiencias::all();
             $events = array();
-            $expedientes = Expediente::pluck('numero','id');
+            $expedientes = Expediente::where('deleted_at',null)->pluck('numero','id');
         foreach($audiencias as $audiencia) {
             $events[] = [
                 'id' => $audiencia->id,
