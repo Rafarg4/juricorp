@@ -16,7 +16,7 @@
         <div class="card">
             <div class="card-body">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 ">
                        <h2 class="h2 text-center mb-5 border-bottom pb-3">Calendario de Audiencia</h2>
                 <div class="col-md-12">
 
@@ -117,7 +117,7 @@
   </div>  
     
 
-<link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+
     <script>
            
             $(document).ready(function() {
@@ -208,6 +208,7 @@
                     var inicio_audiencia = moment(event.start._d).format('YYYY-MM-DD HH:MM:SS');
                     var id_expediente = event.id_expediente;
 
+
                     $('#formularioAudiencias')[0].reset();
                     $('#formularioAudiencias2')[0].reset();
 
@@ -260,6 +261,11 @@
                             },
                         });
                     });
+                     $("#audienciaModal2").on("hidden.bs.modal", function () {
+                        $('#guardarAudiencia2').unbind();
+                     $('#borrarAudiencia').unbind();
+               
+                    });
                     
                 }
                
@@ -268,6 +274,11 @@
             
             $('#audienciaModal').on('hidden.bs.modal', function () {
             calendar.fullCalendar('refetchEvents');
+            });
+             $("#audienciaModal").on("hidden.bs.modal", function () {
+                $('#guardarAudiencia2').unbind();
+                $('#borrarAudiencia').unbind();
+                $('#guardarAudiencia').unbind();
             });
             $('#audienciaModal2').on('hidden.bs.modal', function () {
             calendar.fullCalendar('refetchEvents');
