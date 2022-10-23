@@ -14,7 +14,7 @@
         @foreach($gastoExpedientes as $gastoExpediente)
             <tr>
                 <td>{{ $gastoExpediente->concepto_gasto }}</td>
-            <td>{{ $gastoExpediente->monto_gasto }}</td>
+           <td>{{number_format ($gastoExpediente->monto_gasto) }}</td>
             <td>{{ $gastoExpediente->fecha_gasto }}</td>
             <td>{{ $gastoExpediente->expediente->numero}}</td>
             <td>{{ $gastoExpediente->archivo_gasto }}</td>
@@ -43,7 +43,7 @@
                 <td></td>
                 <td></td>
                 <td><b>Total de Gastos:</b></td>
-                <td><b>{{ $gasto_total }}</b></td>
+                <td><b>{{number_format ($gasto_total) }}</b></td>
     </tr>
   </tfoot>
     </table>

@@ -1,37 +1,38 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <div class="card">
             <div class="card-body">
                 
                   <!-- Numero Field -->
-<div class="col-sm-3">
+<div class="col-sm-6">
     {!! Form::label('numero', 'Numero:') !!}
     <p>{{ $expediente->numero }}</p>
 </div>
 
 <!-- Anho Field -->
-<div class="col-sm-3">
+<div class="col-sm-6">
     {!! Form::label('anho', 'Año:') !!}
     <p>{{ $expediente->anho }}</p>
 </div>
 
 <!-- Caratula Field -->
-<div class="col-sm-3">
+<div class="col-sm-6">
     {!! Form::label('caratula', 'Caratula:') !!}
     <p>{{ $expediente->caratula }}</p>
 </div>
 
 <!-- Id Circunscripcion Field -->
-<div class="col-sm-3">
+<div class="col-sm-6">
     {!! Form::label('id_circunscripcion', 'Circunscripcion:') !!}
     <p>{{ $expediente->circunscripcion->nombrecir }}</p>
 </div>
 
 <!-- Id Juzgado Field -->
-<div class="col-sm-3">
+<div class="col-sm-6">
     {!! Form::label('id_juzgado', 'Juzgado:') !!}
     <p>{{ $expediente->juzgado->nombrejuz }}</p>
 </div>
-<div class="col-sm-3">
+<div class="col-sm-6">
     {!! Form::label('estado', 'Estado:') !!}
     <p>     @switch(true)
             @case($expediente->estado == 'Activo')
@@ -45,14 +46,14 @@
             @break
             @endswitch</p>
 </div>
-<div class="col-sm-3">
+<div class="col-sm-6">
     {!! Form::label('clientes', 'Clientes:', ['class'=>'lb-lg']) !!}
     <p>@foreach($expediente->clientes as $expediente)
             {{ $expediente->nombre}}
             @endforeach</p>
 </div>
 <!-- Created At Field -->
-<div class="col-sm-3">
+<div class="col-sm-6">
     {!! Form::label('created_at', 'Registrado en fecha:') !!}
     <p>{{ $expediente->created_at }}</p>
 </div>  
@@ -75,7 +76,7 @@
         @foreach($gastoExpedientes as $gastoExpediente)
             <tr>
                 <td>{{ $gastoExpediente->concepto_gasto }}</td>
-            <td>{{ $gastoExpediente->monto_gasto }}</td>
+            <td>{{number_format($gastoExpediente->monto_gasto) }}</td>
             <td>{{ $gastoExpediente->fecha_gasto }}</td>
             <td>{{ $gastoExpediente->expediente->numero}}</td>
         
@@ -88,7 +89,7 @@
                 <td></td>
                 <td></td>
                 <td><b>Total de Gastos:</b></td>
-                <td><b>{{ $gasto_total }}</b></td>
+                <td><b>{{number_format ($gasto_total) }}</b></td>
     </tr>
   </tfoot>
     </table>
@@ -108,7 +109,7 @@
         @foreach($pagoExpedientes as $pagoExpediente)
             <tr>
                 <td>{{ $pagoExpediente->concepto }}</td>
-            <td>{{ $pagoExpediente->monto }}</td>
+            <td>{{number_format ($pagoExpediente->monto) }}</td>
             <td>{{ $pagoExpediente->fecha }}</td>
             <td>{{ $pagoExpediente->expediente->numero }}</td>
           
@@ -120,7 +121,7 @@
                 <td></td>
                 <td></td>
                 <td><b>Total de Pagos:</b></td>
-                <td><b>{{ $pago_total }}</b></td>
+                <td><b>{{number_format ($pago_total) }}</b></td>
     </tr>
   </tfoot>
     </table>

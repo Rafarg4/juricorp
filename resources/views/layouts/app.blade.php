@@ -101,12 +101,44 @@ https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 
+<script type="text/javascript">
+    $(document).ready(function () {
+    $('#audiencias-consulta').DataTable({
+          "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            },
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var column = this;
+                    var select = $('<select><option value="">Selecione un expediente</option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+ 
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+ 
+                    column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
 
-
-
-
+                });
+        },
+    });
+});
+  </script>
 
  <script type="text/javascript">
         

@@ -284,6 +284,9 @@
             calendar.fullCalendar('refetchEvents');
             });
             $('.fc-event').css('font-size', '16px');
+            $("#audienciaModal").on("hidden.bs.modal", function () {
+                $('#guardarAudiencia').unbind();
+            });
         });
     </script>
 

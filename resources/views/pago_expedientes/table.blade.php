@@ -13,7 +13,7 @@
         @foreach($pagoExpedientes as $pagoExpediente)
             <tr>
                 <td>{{ $pagoExpediente->concepto }}</td>
-            <td>{{ $pagoExpediente->monto }}</td>
+            <td>{{number_format ($pagoExpediente->monto) }}</td>
             <td>{{ $pagoExpediente->fecha }}</td>
             <td>{{ $pagoExpediente->id_expediente }}</td>
                 <td width="120">
