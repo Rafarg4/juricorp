@@ -14,7 +14,7 @@
         @foreach($pagoExpedientes as $pagoExpediente)
             <tr>
                 <td>{{ $pagoExpediente->concepto }}</td>
-            <td>{{ $pagoExpediente->monto }}</td>
+            <td>{{number_format ($pagoExpediente->monto) }}</td>
             <td>{{ $pagoExpediente->fecha }}</td>
             <td>{{ $pagoExpediente->expediente->numero }}</td>
             <td><img src="{{ asset('archivos'.$pagoExpediente->archivo) }}"></td>
@@ -43,7 +43,7 @@
                 <td></td>
                 <td></td>
                 <td><b>Total de Pagos:</b></td>
-                <td><b>{{ $pago_total }}</b></td>
+                <td><b>{{number_format ($pago_total) }}</b></td>
     </tr>
   </tfoot>
     </table>
