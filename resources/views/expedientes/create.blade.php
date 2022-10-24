@@ -199,7 +199,7 @@
             $.ajax({
                type:'POST',
                url:'/juzgados/crear',
-               data:{  "_token": "{{ csrf_token() }}", nombre: nombre, juez: juez, secretario: secretario, id_circunscripcion: id_circunscripcion},
+               data:{  "_token": "{{ csrf_token() }}", nombrejuz: nombre, juez: juez, secretario: secretario, id_circunscripcion: id_circunscripcion},
                success:function(data) {
                   $('#exampleModalj').modal('hide');
                }
@@ -266,7 +266,7 @@
             $.ajax({
                type:'POST',
                url:'/circunscripcions/crear',
-               data:{  "_token": "{{ csrf_token() }}", nombre: nombre, departamento: departamento},
+               data:{  "_token": "{{ csrf_token() }}", nombrecir: nombre, departamento: departamento},
                success:function(data) {
                   $('#exampleModalc').modal('hide');
                }

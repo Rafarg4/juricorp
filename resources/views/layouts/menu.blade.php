@@ -82,14 +82,14 @@
 <a href="{{ route('reporte.index') }}" 
   class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
 <i class="fa fas-regular fa-money-bill"></i>
-<p>Pagos y gastos</p>
+<p>Pagos y gastos por expediente</p>
 </a>
 </li>
 <li class="nav-item">
 <a href="{{route('graficos')}}" class="nav-link"
     class="nav-link {{ Request::is('graficos*') ? 'active' : '' }}">
 <i class="fa fas-solid fa-wallet"></i>
-<p>Graficos
+<p>Estado Expedientes
 </p>
 </a>
 </li>

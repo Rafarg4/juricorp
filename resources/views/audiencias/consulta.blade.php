@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th>Nro Expediente</th>
-                <th>Descripcion de expediente</th>
+                <th>Caratula</th>
                 <th>Fecha de audiencia</th>
             </tr>
         </thead>
@@ -36,8 +36,7 @@
         <tfoot>
             <tr>
                 <th>Nro Expediente</th>
-                <th>Descripcion de expediente</th>
-                <th>Fecha de audiencia</th>
+                
             </tr>
         </tfoot>
     </table>
