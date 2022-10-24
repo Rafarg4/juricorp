@@ -49,6 +49,9 @@
                            class='btn btn-default btn-xs'>
                            <button type="button" class="btn btn-warning"> <i class="far fa-edit"></i></button>
                         </a>
+                        
+    
+
                         <form method="POST" action="{{ url("expedientes/{$expediente->id}") }}">
                           @csrf
                           @method('DELETE')
