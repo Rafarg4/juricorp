@@ -56,6 +56,9 @@ class Gasto_expedienteController extends AppBaseController
     public function store(CreateGasto_expedienteRequest $request)
     {
         $input = $request->all();
+         if($request->hasFile('archivo_gasto')){
+            $input['archivo_gasto']=$request->file('archivo_gasto')->store('uploads','public');   
+        }
 
         $gastoExpediente = $this->gastoExpedienteRepository->create($input);
 

@@ -19,7 +19,7 @@
 <!-- Fecha Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('archivo', 'Archivo:') !!}
-    {!! Form::text('archivo', null, ['class' => 'form-control','id'=>'archivo']) !!}
+    {!! Form::file('archivo', null, ['class' => 'form-control','id'=>'archivo']) !!}
 </div>
 <div class="form-group col-sm-6">
     {!! Form::label('Nro Expediente', 'Nro Expediente:') !!}

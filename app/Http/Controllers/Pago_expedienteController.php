@@ -55,7 +55,11 @@ class Pago_expedienteController extends AppBaseController
      */
     public function store(CreatePago_expedienteRequest $request)
     {
+
         $input = $request->all();
+        if($request->hasFile('archivo')){
+            $input['archivo']=$request->file('archivo')->store('uploads','public');   
+        }
 
         $pagoExpediente = $this->pagoExpedienteRepository->create($input);
 
@@ -94,6 +98,7 @@ class Pago_expedienteController extends AppBaseController
     public function edit($id)
     {
         $pagoExpediente = $this->pagoExpedienteRepository->find($id);
+        $expediente = Expediente::pluck('numero','id');
 
         if (empty($pagoExpediente)) {
             Flash::error('Pago Expediente not found');
@@ -101,7 +106,7 @@ class Pago_expedienteController extends AppBaseController
             return redirect(route('pagoExpedientes.index'));
         }
 
-        return view('pago_expedientes.edit')->with('pagoExpediente', $pagoExpediente);
+        return view('pago_expedientes.edit',compact('expediente','pagoExpediente'));
     }
 
     /**
