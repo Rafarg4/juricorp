@@ -61,7 +61,10 @@
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>
+                         @can('ver-pago')
+
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro?')"]) !!}
+                       @endcan
                     </div>
                     {!! Form::close() !!}
                 </td>

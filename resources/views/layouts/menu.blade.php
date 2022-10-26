@@ -61,6 +61,8 @@
 </p>
 </a>
 </li>
+ @can('ver-pago')
+
 <li class="nav-item">
     <a href="{{ route('users.index') }}"
        class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
@@ -68,6 +70,7 @@
         <p>Usuarios</p>
     </a>
 </li>
+@endcan
 <li class="nav-item">
 <a href="" 
   class="nav-link">
@@ -78,6 +81,7 @@
 </p>
 </a>
 <ul class="nav nav-treeview">
+     @can('ver-pago')
 <li class="nav-item">
 <a href="{{ route('reporte.index') }}" 
   class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
@@ -85,6 +89,8 @@
 <p>Pagos y gastos por expediente</p>
 </a>
 </li>
+    @endcan
+
 <li class="nav-item">
 <a href="{{route('graficos')}}" class="nav-link"
     class="nav-link {{ Request::is('graficos*') ? 'active' : '' }}">

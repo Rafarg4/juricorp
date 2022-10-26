@@ -41,23 +41,27 @@
                            class='btn btn-default btn-xs'>
                            <button type="button" class="btn btn-primary"> <i class="nav-icon fas fa-book"></i></button>
                         </a>
-                           <a href="{{route('pdf.show', $expediente->id)}}"
+                          @can('ver-pago')
+              <a href="{{route('pdf.show', $expediente->id)}}"
                            class='btn btn-default btn-xs'>
                            <button type="button" class="btn btn-success"> <i class="fa fas-solid fa-file-pdf"></i></button>
                         </a>
+                        @endcan
+             
                         <a href="{{ route('expedientes.edit', [$expediente->id]) }}"
                            class='btn btn-default btn-xs'>
                            <button type="button" class="btn btn-warning"> <i class="far fa-edit"></i></button>
                         </a>
                         
     
-
+                         @can('ver-pago')
                         <form method="POST" action="{{ url("expedientes/{$expediente->id}") }}">
                           @csrf
                           @method('DELETE')
                           <a class="class='btn btn-default btn-xs">
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Estas seguro?')"><i class="fa fas-solid fa-trash"></i></button>
                         </form></a>
+                         @endcan
                     </div>
                     {!! Form::close() !!}
                 </td>

@@ -44,7 +44,7 @@
 </div>
 
 <div class="col-12 col-sm-6 col-md-3">
-<div class="info-box mb-3">
+<div class="info-box">
 <span class="info-box-icon bg-warning elevation-1"><i class="fa fas-solid fa-folder"></i></span>
 <div class="info-box-content">
 <span class="info-box-text">Expedientes</span>
@@ -53,18 +53,20 @@
 
 </div>
 </div>
+@can('ver-pago')
 <div class="col-12 col-sm-6 col-md-3">
 <div class="info-box mb-3">
 <span class="info-box-icon bg-light elevation-1"><i class="fa fas-solid fa-folder"></i></span>
 <div class="info-box-content">
 <span class="info-box-text">Reportes</span>
-<span class="info-box-number"><a href="{{ route('reporte.index') }}" class="small-box-footer">Ir a <i class="fas fa-arrow-circle-right"></i></a></span>
+
+<span class="info-box-number"><a href="{{ route('reporte.index') }}" class="small-box-footer">Ir a <i class="fas fa-arrow-circle-right"></i></a></span> 
 </div>
 
 </div>
 
 </div>
-
+@endcan
 <div class="col-12 col-sm-6 col-md-3">
 <div class="info-box mb-3">
 <span class="info-box-icon bg-primary elevation-1"><i class="fa fas-solid fa-calendar"></i>  </span>
@@ -76,6 +78,9 @@
 </div>
 
 </div>
+
+ 
+@can('ver-pago')
 <div class="col-12 col-sm-6 col-md-3">
 <div class="info-box mb-3">
 <span class="info-box-icon bg-dark elevation-1"><i class="fas fa-users"></i></span>
@@ -87,5 +92,6 @@
 </div>
 
 </div>
+@endcan
 </div>
 @endsection

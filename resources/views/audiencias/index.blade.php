@@ -108,7 +108,9 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+           @can('borrar-audiencia')
           <button type="button" id="borrarAudiencia" class="btn btn-danger">Borrar</button>
+          @endcan
           <button type="button" id="guardarAudiencia2" class="btn btn-primary">Guardar</button>
           
         </div>
@@ -157,7 +159,7 @@
                         var id_expediente =$('#id_expediente').val();
  
                         $.ajax({
-                            url:"audiencias/",
+                            url:"audiencias",
                             type:"POST",
                             dataType:'json',
                             data:{ "_token": "{{ csrf_token() }}", descripcion_audiencia, inicio_audiencia, id_expediente },
