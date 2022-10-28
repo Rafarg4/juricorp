@@ -56,7 +56,7 @@ class Pago_expedienteController extends AppBaseController
     public function store(CreatePago_expedienteRequest $request)
     {
 
-        $input = $request->all();
+       $input = $request->all();
         if($request->hasFile('archivo')){
             $input['archivo']=$request->file('archivo')->store('uploads','public');   
         }

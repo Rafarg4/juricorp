@@ -91,7 +91,8 @@
 
         <div class="card">
 
-           <form>
+           <form id="pago_expediente_modal" enctype="multipart/form-data">
+                @csrf>
             
 
             <div class="card-body">
@@ -123,26 +124,32 @@
 
 
 <script type="text/javascript">
-   
-        $('#submit').click(function(){
-            var id_expediente = $('#id_expediente').val();
-            var concepto = $('#concepto').val();
-            var monto = $('#monto').val();
-            var fecha = $('#fecha').val();
-            var archivo = $('#archivo').val();
-         
-         
-            $.ajax({
-               type:'POST',
-               url:'/pagoExpedientes',
-               data:{  "_token": "{{ csrf_token() }}", concepto: concepto, monto: monto, fecha: fecha, id_expediente: id_expediente, archivo: archivo},
-               success:function(data) {
-                  $('#exampleModal').modal('hide');
-               }
-            });
+     $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+     $('#pago_expediente_modal').submit(function(e) {
+        let formData = new FormData(this);
 
 
-            });
+         $.ajax({
+            type:'POST',
+            url: "/pagoExpedientes",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: (response) => {
+                if (response) {
+                    this.reset();
+                }
+            },
+            error: function(response){
+                $('#file-input-error').text(response.responseJSON.message);
+            }
+       });
+    });
    
    </script>
 <!-- MODAL PARA PAGOS -->

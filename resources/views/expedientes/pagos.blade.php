@@ -14,12 +14,13 @@
         <tbody>
         @foreach($pagoExpedientes as $pagoExpediente)
             <tr>
-                <td style="display:none;" class="id_pago">{{ $pagoExpediente->id_expediente }}</td>
-                <td class="concepto">{{ $pagoExpediente->concepto }}</td>
-            <td class="monto">{{number_format ($pagoExpediente->monto) }}</td>
-            <td class="fecha">{{ $pagoExpediente->fecha }}</td>
-            <td class="numero">{{ $pagoExpediente->expediente->numero }}</td>
-            <td class="img"><img src="{{ asset('storage').'/'.$pagoExpediente->archivo}}" width="50" height="50"></td>
+                <td style="display:none;">{{ $pagoExpediente->id_expediente }}</td>
+                <td >{{ $pagoExpediente->concepto }}</td>
+            <td >{{number_format ($pagoExpediente->monto) }}</td>
+            <td >{{ $pagoExpediente->fecha }}</td>
+            <td>{{ $pagoExpediente->expediente->numero }}</td>
+            <td 
+            ><img src="{{ asset('storage').'/'.$pagoExpediente->archivo}}" width="50" height="50"></td>
                 <td width="120">
                     {!! Form::open(['route' => ['pagoExpedientes.destroy', $pagoExpediente->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -55,97 +56,4 @@
 
 
 
-<div class="modal fade" id="editarPago" tabindex="-1" role="dialog" aria-labelledby="editarPagoLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editarPagoLabel">Cargar un nuevo pago</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-   
-  <div class="content px-3">
 
-        @include('adminlte-templates::common.errors')
-
-        <div class="card">
-
-           <form>
-            
-
-            <div class="card-body">
-
-                <div class="row">
-                    @include('pago_expedientes.fields')
-                </div>
-
-            </div>
-
-            <div class="card-footer">
-              
-               
-            </div>
-
-           
-
-        </div>
-    </div>
-      <div class="modal-footer">
-        
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          {!! Form::submit('Guardar', ['class' => 'btn btn-primary', 'id' => 'editarPagoBoton']) !!}
-           </form>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-    $('.btn.editarPagoA').click(function(){
-
-   var row = $(this).closest("tr");   // Find the row
-    var concepto = row.find(".concepto").text();// Find the text
-    var fecha = row.find(".fecha").text();
-    var monto = row.find(".monto").text();
-    var numero = row.find(".numero").text();
-    var id = row.find(".id_pago").text();
-    var archivo = row.find(".archivo").text();
-   
-
-     console.log(id);
-    $('#concepto').val(concepto);
-    $('#fecha').val(fecha);
-    $('#monto').val(monto);
-    $('#numero').val(numero);
-    $('#id_expediente').val(id);
-     $('#archivo').val(archivo);
-
-
-
-    $('#editarPago').modal('toggle');
-    });
-
-    
-    $('#editarPagoBoton').click(function(){
-            var id_expediente = $('#id_expediente').val();
-            var concepto_gasto = $('#concepto_gasto').val(); 
-            var monto_gasto = $('#monto_gasto').val();
-            var fecha_gasto = $('#fecha_gasto').val();
-            var archivo_gasto = $('#archivo_gasto').val();
-         
-     $.ajax({
-               type:'PATCH',
-               url:'/pagoExpedientes',
-               data:{  "_token": "{{ csrf_token() }}", concepto: concepto, monto: monto, fecha: fecha, id_expediente: id_expediente},
-               success:function(data) {
-                  $('#editarPago').modal('hide');
-               }
-            });
-
-            });   
-   
-    // Let's test it out
-
-
-   
-   </script>
