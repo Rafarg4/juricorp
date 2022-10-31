@@ -133,17 +133,17 @@
      $('#pago_expediente_modal').submit(function(e) {
         let formData = new FormData(this);
 
-
          $.ajax({
             type:'POST',
             url: "/pagoExpedientes",
             data: formData,
             contentType: false,
             processData: false,
+             cache: false,
             success: (response) => {
-                if (response) {
+                window.location.href = './'+formData.get("id_expediente");
                     this.reset();
-                }
+                
             },
             error: function(response){
                 $('#file-input-error').text(response.responseJSON.message);
@@ -223,9 +223,9 @@
             contentType: false,
             processData: false,
             success: (response) => {
-                if (response) {
+               window.location.href = './'+formData.get("id_expediente");
                     this.reset();
-                }
+                
             },
             error: function(response){
                 $('#file-input-error').text(response.responseJSON.message);

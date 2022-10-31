@@ -64,8 +64,6 @@ class Pago_expedienteController extends AppBaseController
         $pagoExpediente = $this->pagoExpedienteRepository->create($input);
 
         Flash::success('Pago Expediente saved successfully.');
-
-        return redirect(route('pagoExpedientes.index'));
     }
 
     /**

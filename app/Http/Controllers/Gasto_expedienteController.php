@@ -64,7 +64,7 @@ class Gasto_expedienteController extends AppBaseController
 
         Flash::success('Gasto Expediente saved successfully.');
 
-        return redirect(route('gastoExpedientes.index'));
+       
     }
 
     /**
