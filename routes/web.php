@@ -49,9 +49,12 @@ Route::resource('expedienteDetalles', App\Http\Controllers\Expediente_detalleCon
 
 
 Route::resource('pagoExpedientes', App\Http\Controllers\Pago_expedienteController::class);
+Route::get('pagoExpediente/archivo', [App\Http\Controllers\Pago_expedienteController::class, 'archivo'])->name('pagoExpedientes.archivo');
+Route::get('gastoExpediente/archivo', [App\Http\Controllers\Gasto_expedienteController::class, 'archivo'])->name('gastoExpedientes.archivo');
 
 
 Route::resource('users', App\Http\Controllers\UserController::class);
+
 
 
 Route::get('audiencias', [App\Http\Controllers\AudienciasController::class, 'index'])->name('audiencias.index');

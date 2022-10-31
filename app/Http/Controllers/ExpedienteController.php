@@ -82,7 +82,7 @@ class ExpedienteController extends AppBaseController
     {
         $expediente = $this->expedienteRepository->find($id);
         $gastoExpedientes = Gasto_expediente::where('id_expediente',$id)->get();
-        $pagoExpedientes = Pago_expediente::where('id_expediente',$id)->get();;
+        $pagoExpedientes = Pago_expediente::where('id_expediente',$id)->get();
         $pago_total = Pago_expediente::where('id_expediente',$id)->sum('monto'); 
         $gasto_total = Gasto_expediente::where('id_expediente',$id)->sum('monto_gasto');
         if (empty($expediente)) {

@@ -55,8 +55,8 @@ class Gasto_expedienteController extends AppBaseController
      */
     public function store(CreateGasto_expedienteRequest $request)
     {
-        $input = $request->all();
-         if($request->hasFile('archivo_gasto')){
+         $input = $request->all();
+        if($request->hasFile('archivo_gasto')){
             $input['archivo_gasto']=$request->file('archivo_gasto')->store('uploads','public');   
         }
 
@@ -85,6 +85,13 @@ class Gasto_expedienteController extends AppBaseController
         }
 
         return view('gasto_expedientes.show')->with('gastoExpediente', $gastoExpediente);
+    }
+
+public function archivo(Request $request)
+    {
+        
+        $gastoExpediente = $this->gastoExpedienteRepository->find($request->id);
+        return response()->json(['archivo' => $gastoExpediente->archivo_gasto], 201);        
     }
 
     /**
@@ -141,7 +148,7 @@ class Gasto_expedienteController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id,Request $request)
     {
         $gastoExpediente = $this->gastoExpedienteRepository->find($id);
 
@@ -155,6 +162,6 @@ class Gasto_expedienteController extends AppBaseController
 
         Flash::success('Gasto Expediente deleted successfully.');
 
-        return redirect(route('gastoExpedientes.index'));
+        return redirect(route('expedientes.show',$request->id_expediente));
     }
 }

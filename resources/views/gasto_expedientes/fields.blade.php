@@ -20,7 +20,7 @@
 <!-- Archivo Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('archivo_gasto', 'Archivo:') !!}
-    {!! Form::text('archivo_gasto', null, ['class' => 'form-control']) !!}
+    {!! Form::file('archivo_gasto', null, ['class' => 'form-control archivo','id'=>'archivo_gasto']) !!}
 </div>
 
 <div class="form-group col-sm-6">

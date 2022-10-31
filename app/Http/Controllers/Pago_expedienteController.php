@@ -88,6 +88,12 @@ class Pago_expedienteController extends AppBaseController
         return view('pago_expedientes.show')->with('pagoExpediente', $pagoExpediente);
     }
 
+   public function archivo(Request $request)
+    {
+        $pagoExpediente = $this->pagoExpedienteRepository->find($request->id);
+
+        return response()->json(['archivo' => $pagoExpediente->archivo], 201);        
+    }
     /**
      * Show the form for editing the specified Pago_expediente.
      *
@@ -143,7 +149,7 @@ class Pago_expedienteController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id,Request $request)
     {
         $pagoExpediente = $this->pagoExpedienteRepository->find($id);
 
@@ -155,8 +161,8 @@ class Pago_expedienteController extends AppBaseController
 
         $this->pagoExpedienteRepository->delete($id);
 
-        Flash::success('Pago Expediente deleted successfully.');
+        
 
-        return redirect(route('pagoExpedientes.index'));
+        return redirect(route('expedientes.show',$request->id_expediente));
     }
 }

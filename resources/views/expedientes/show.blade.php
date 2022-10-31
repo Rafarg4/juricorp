@@ -92,7 +92,7 @@
         <div class="card">
 
            <form id="pago_expediente_modal" enctype="multipart/form-data">
-                @csrf>
+                @csrf
             
 
             <div class="card-body">
@@ -173,7 +173,8 @@
 
         <div class="card">
 
-           <form>
+        <form id="gasto_expediente_modal" enctype="multipart/form-data">
+            @csrf
             
 
             <div class="card-body">
@@ -206,24 +207,32 @@
 
 <script type="text/javascript">
    
-        $('#submit1').click(function(){
-            var id_expediente = $('#id_expediente').val();
-            var concepto_gasto = $('#concepto_gasto').val(); 
-            var monto_gasto = $('#monto_gasto').val();
-            var fecha_gasto = $('#fecha_gasto').val();
-            var archivo_gasto = $('#archivo_gasto').val();
-         
-                     $.ajax({
-               type:'POST',
-               url:'/gastoExpedientes',
-               data:{  "_token": "{{ csrf_token() }}", concepto_gasto: concepto_gasto, monto_gasto: monto_gasto, fecha_gasto: fecha_gasto, id_expediente: id_expediente, archivo_gasto: archivo_gasto},
-               success:function(data) {
-                  $('#exampleModal1').modal('hide');
-               }
-            });
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
+     $('#gasto_expediente_modal').submit(function(e) {
+        let formData = new FormData(this);
 
-            });
+         $.ajax({
+            type:'POST',
+            url: "/gastoExpedientes",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: (response) => {
+                if (response) {
+                    this.reset();
+                }
+            },
+            error: function(response){
+                $('#file-input-error').text(response.responseJSON.message);
+            }
+       });
+    });
+   
    
    </script>
 <!-- MODAL PARA GASTO -->
