@@ -91,7 +91,7 @@
 
         <div class="card">
 
-           <form id="pago_expediente_modal" enctype="multipart/form-data">
+           <form id="pago_expediente_modal" action="javascript:;" method="post" enctype="multipart/form-data">
                 @csrf
             
 
@@ -132,21 +132,22 @@
 
      $('#pago_expediente_modal').submit(function(e) {
         let formData = new FormData(this);
-
+        
+        console.log(formData.get('id_expediente'));
          $.ajax({
             type:'POST',
             url: "/pagoExpedientes",
             data: formData,
             contentType: false,
             processData: false,
-             cache: false,
+            cache: false,
             success: (response) => {
-                window.location.href = './'+formData.get("id_expediente");
+                location.reload(true);
                     this.reset();
                 
             },
             error: function(response){
-                $('#file-input-error').text(response.responseJSON.message);
+               console.log(response.responseJSON.message);
             }
        });
     });
@@ -173,7 +174,7 @@
 
         <div class="card">
 
-        <form id="gasto_expediente_modal" enctype="multipart/form-data">
+        <form id="gasto_expediente_modal" action="javascript:;" method="post" enctype="multipart/form-data">
             @csrf
             
 
@@ -223,12 +224,12 @@
             contentType: false,
             processData: false,
             success: (response) => {
-               window.location.href = './'+formData.get("id_expediente");
+                location.reload(true);
                     this.reset();
                 
             },
             error: function(response){
-                $('#file-input-error').text(response.responseJSON.message);
+                console.log(response.responseJSON.message);
             }
        });
     });

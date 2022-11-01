@@ -63,6 +63,7 @@ class Gasto_expedienteController extends AppBaseController
         $gastoExpediente = $this->gastoExpedienteRepository->create($input);
 
         Flash::success('Gasto Expediente saved successfully.');
+    
 
        
     }
