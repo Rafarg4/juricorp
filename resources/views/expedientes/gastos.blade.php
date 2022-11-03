@@ -23,7 +23,7 @@
                 <td width="120">
                     {!! Form::open(['route' => ['gastoExpedientes.destroy', ['gastoExpediente'=>$gastoExpediente->id,'id_expediente'=>$gastoExpediente->id_expediente]], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <button type="button" class="btn btn-default btn-xs editarGastoA"><i class="far fa-eye"></i></button>
+                        <button type="button" class="btn btn-default btn-xs editarGastoA"><i class="fa fas-solid fa-image fa-lg"></i></button>
                         <a href="{{ route('gastoExpedientes.edit', [$gastoExpediente->id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>

@@ -2,39 +2,31 @@
 
         <div class="card">
             <div class="card-body">
-                
-                  <!-- Numero Field -->
-<div class="col-sm-6">
-    {!! Form::label('numero', 'Numero:') !!}
-    <p>{{ $expediente->numero }}</p>
-</div>
-
-<!-- Anho Field -->
-<div class="col-sm-6">
-    {!! Form::label('anho', 'Año:') !!}
-    <p>{{ $expediente->anho }}</p>
-</div>
-
-<!-- Caratula Field -->
-<div class="col-sm-6">
-    {!! Form::label('caratula', 'Caratula:') !!}
-    <p>{{ $expediente->caratula }}</p>
-</div>
-
-<!-- Id Circunscripcion Field -->
-<div class="col-sm-6">
-    {!! Form::label('id_circunscripcion', 'Circunscripcion:') !!}
-    <p>{{ $expediente->circunscripcion->nombrecir }}</p>
-</div>
-
-<!-- Id Juzgado Field -->
-<div class="col-sm-6">
-    {!! Form::label('id_juzgado', 'Juzgado:') !!}
-    <p>{{ $expediente->juzgado->nombrejuz }}</p>
-</div>
-<div class="col-sm-6">
-    {!! Form::label('estado', 'Estado:') !!}
-    <p>     @switch(true)
+<h4>Expediente</h4>       
+<div class="table-responsive" style="padding:15px;">
+    <table class="table" id="myTable" >
+        <thead>
+        <tr>
+        <th>Numero</th>
+        <th>Año</th>
+        <th>Caratula</th>
+        <th>Circunscripcion</th>
+        <th>Juzgado</th>
+        <th>Cliente</th>
+         <th>Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>{{ $expediente->numero }}</td>
+            <td>{{ $expediente->anho }}</td>
+            <td>{{ $expediente->caratula }}</td>
+            <td>{{ $expediente->circunscripcion->nombrecir }}</td>
+            <td>{{ $expediente->juzgado->nombrejuz}}</td>
+           <td> @foreach($expediente->clientes as $e)
+            {{ $e->nombre}}
+            @endforeach </td>
+            <td>@switch(true)
             @case($expediente->estado == 'Activo')
             <span class="badge badge-primary"> {{ $expediente->estado }} </span>
             @break
@@ -44,23 +36,16 @@
             @case($expediente->estado == 'Finalizado' )
             <span class="badge badge-danger"> {{ $expediente->estado }} </span>
             @break
-            @endswitch</p>
-</div>
-<div class="col-sm-6">
-    {!! Form::label('clientes', 'Clientes:', ['class'=>'lb-lg']) !!}
-    <p>@foreach($expediente->clientes as $expediente)
-            {{ $expediente->nombre}}
-            @endforeach</p>
-</div>
-<!-- Created At Field -->
-<div class="col-sm-6">
-    {!! Form::label('created_at', 'Registrado en fecha:') !!}
-    <p>{{ $expediente->created_at }}</p>
+            @endswitch</td>
+        
+        </tbody>
+    </table>
 </div>  
-         
     </div>
-    <h4>Detalles de gastos</h4>
-    <div class="table-responsive">
+    <div class="card">
+            <div class="card-body">
+    <h4>Gastos</h4>
+    <div class="table-responsive" style="padding:15px;">
     <table class="table" id="gastoExpedientes-table">
         <thead>
         <tr>
@@ -94,7 +79,7 @@
   </tfoot>
     </table>
 </div>
-<H4>Detalles de pagos</H4>
+<H4>Pagos</H4>
 <div class="table-responsive" style="padding:15px;">
     <table class="table" id="pagoExpedientes-table">
         <thead>
@@ -102,7 +87,7 @@
         <th>Concepto</th>
         <th>Monto</th>
         <th>Fecha</th>
-        <th>Expediente</th>
+        <th>Nro expediente</th>
         </tr>
         </thead>
         <tbody>

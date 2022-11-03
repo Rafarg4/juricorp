@@ -48,8 +48,7 @@ class Circunscripcion extends Model
      * @var array
      */
     public static $rules = [
-        'nombrecir' => 'required',
-        'departamento' => 'required'
+        
     ];
     public function expediente (){
      return $this->belongsToMany(Expediente::class,'circunscripcion_juzgados','id','id');

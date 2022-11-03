@@ -61,7 +61,26 @@
 </p>
 </a>
 </li>
- @can('ver-pago')
+ 
+     @can('ver-pago')
+<li class="nav-item">
+<a href="{{ route('reporte.index') }}" 
+  class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
+<i class="fa fas-regular fa-money-bill"></i>
+<p>Pagos y gastos</p>
+</a>
+</li>
+    @endcan
+
+<li class="nav-item">
+<a href="{{route('graficos')}}" class="nav-link"
+    class="nav-link {{ Request::is('graficos*') ? 'active' : '' }}">
+<i class="fa fas-solid fa fa-chart-bar"></i>
+<p>Estado Expedientes
+</p>
+</a>
+</li>
+@can('ver-pago')
 
 <li class="nav-item">
     <a href="{{ route('users.index') }}"
@@ -71,35 +90,7 @@
     </a>
 </li>
 @endcan
-<li class="nav-item">
-<a href="" 
-  class="nav-link">
-<i class="fa fas-solid fa-chart-pie"></i>
-<p>
-      Reportes
-<i class="right fas fa-angle-left"></i>
-</p>
-</a>
-<ul class="nav nav-treeview">
-     @can('ver-pago')
-<li class="nav-item">
-<a href="{{ route('reporte.index') }}" 
-  class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
-<i class="fa fas-regular fa-money-bill"></i>
-<p>Pagos y gastos por expediente</p>
-</a>
-</li>
-    @endcan
 
-<li class="nav-item">
-<a href="{{route('graficos')}}" class="nav-link"
-    class="nav-link {{ Request::is('graficos*') ? 'active' : '' }}">
-<i class="fa fas-solid fa-wallet"></i>
-<p>Estado Expedientes
-</p>
-</a>
-</li>
-</ul>
 
 
 

@@ -3,19 +3,19 @@
 <!-- Concepto Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('concepto_gasto', 'Concepto:') !!}
-    {!! Form::text('concepto_gasto', null, ['class' => 'form-control']) !!}
+    {!! Form::text('concepto_gasto', null, ['class' => 'form-control','required']) !!}
 </div>
 
 <!-- Monto Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('monto_gasto', 'Monto:') !!}
-    {!! Form::number('monto_gasto', null, ['class' => 'form-control']) !!}
+    {!! Form::number('monto_gasto', null, ['class' => 'form-control','required']) !!}
 </div>
 
 <!-- Fecha Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha_gasto', 'Fecha:') !!}
-    {!! Form::date('fecha_gasto', null, ['class' => 'form-control','id'=>'fecha_gasto']) !!}
+    {!! Form::date('fecha_gasto', null, ['class' => 'form-control','id'=>'fecha_gasto','required']) !!}
 </div>
 <!-- Archivo Field -->
 <div class="form-group col-sm-6">

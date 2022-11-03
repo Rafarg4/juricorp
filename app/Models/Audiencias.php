@@ -52,9 +52,7 @@ class Audiencias extends Model
      * @var array
      */
     public static $rules = [
-        'inicio_audiencia' => 'required',
-        'id_expediente' => 'required',
-        'descripcion_audiencia' => 'required'
+        
     ];
 
         public function expediente (){

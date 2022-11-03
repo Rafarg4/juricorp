@@ -1,19 +1,19 @@
 <!-- Concepto Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('concepto', 'Concepto:') !!}
-    {!! Form::text('concepto', null, ['class' => 'form-control']) !!}
+    {!! Form::text('concepto', null, ['class' => 'form-control','required']) !!}
 </div>
 
 <!-- Monto Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('monto', 'Monto:') !!}
-    {!! Form::number('monto', null, ['class' => 'form-control monto']) !!}
+    {!! Form::number('monto', null, ['class' => 'form-control monto','required']) !!}
 </div>
 
 <!-- Fecha Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha', 'Fecha:') !!}
-    {!! Form::date('fecha', null, ['class' => 'form-control fecha','id'=>'fecha']) !!}
+    {!! Form::date('fecha', null, ['class' => 'form-control fecha','id'=>'fecha','required']) !!}
 </div>
 
 <!-- Fecha Field -->

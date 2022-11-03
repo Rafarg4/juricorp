@@ -19,7 +19,7 @@ class CreatePagoExpedientesTable extends Migration
             $table->text('concepto');
             $table->text('monto');
             $table->text('fecha');
-            $table->text('archivo');
+            $table->text('archivo')->nullable();
              $table->unsignedBigInteger('id_expediente');
             $table->timestamps();
             $table->softDeletes();

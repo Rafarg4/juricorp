@@ -57,11 +57,7 @@ class Gasto_expediente extends Model
      * @var array
      */
     public static $rules = [
-        'concepto_gasto' => 'required',
-        'monto_gasto' => 'required',
-        'fecha_gasto' => 'required',
-        'id_expediente' => 'required',
-        'archivo_gasto' => 'required'
+        
     ];
 
      public function expediente (){

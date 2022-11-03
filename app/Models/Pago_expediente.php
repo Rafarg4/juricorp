@@ -56,10 +56,7 @@ class Pago_expediente extends Model
      * @var array
      */
     public static $rules = [
-        'concepto' => 'required',
-        'monto' => 'required',
-        'fecha' => 'required',
-        'id_expediente' => 'required'
+       
     ];
 public function expediente (){
         return $this-> belongsTo('App\Models\Expediente','id_expediente');

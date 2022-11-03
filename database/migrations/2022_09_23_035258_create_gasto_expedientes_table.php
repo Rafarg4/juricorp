@@ -20,7 +20,7 @@ class CreateGastoExpedientesTable extends Migration
             $table->text('monto_gasto');
             $table->text('fecha_gasto');
              $table->unsignedBigInteger('id_expediente');
-            $table->text('archivo_gasto');
+            $table->text('archivo_gasto')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('id_expediente')->references('id')->on('expedientes');

@@ -59,11 +59,7 @@ class Expediente extends Model
      * @var array
      */
     public static $rules = [
-        'numero' => 'required',
-        'anho' => 'required',
-        'caratula' => 'required',
-        'id_circunscripcion' => 'required',
-        'id_juzgado' => 'required'
+        
     ];
  public function juzgado (){
      return $this->belongsTo(Juzgado::class,'id_juzgado');

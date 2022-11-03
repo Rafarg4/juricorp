@@ -39,7 +39,7 @@ class ClienteFactory extends Factory
         'ci_coyuge' => $this->faker->text,
         'empresa_otro' => $this->faker->text,
         'direccion' => $this->faker->text,
-        'numero_casa' => $this->faker->text,
+        'numero_casa_laboral' => $this->faker->text,
         'telefono_fijo' => $this->faker->text,
         'telefono_laboral' => $this->faker->text,
         'email_laboral' => $this->faker->text,

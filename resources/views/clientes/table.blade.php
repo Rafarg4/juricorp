@@ -13,16 +13,7 @@
         <th>Barrio</th>
         <th>Ciudad</th>
         <th>Numero Telefono</th>
-        <th>Email</th>
-        <th>Rede Social</th>
-        <th>Nombre Apellido Coyuge</th>
-        <th>Ci Coyuge</th>
-        <th>Empresa Otro</th>
-        <th>Direccion</th>
-        <th>Numero Casa</th>
-        <th>Telefono Fijo</th>
-        <th>Telefono Laboral</th>
-        <th>Email Laboral</th>
+        
             <th>Accion</th>
         </tr>
         </thead>
@@ -40,16 +31,7 @@
             <td>{{ $cliente->barrio }}</td>
             <td>{{ $cliente->ciudad }}</td>
             <td>{{ $cliente->numero_telefono }}</td>
-            <td>{{ $cliente->email }}</td>
-            <td>{{ $cliente->rede_social }}</td>
-            <td>{{ $cliente->nombre_apellido_coyuge }}</td>
-            <td>{{ $cliente->ci_coyuge }}</td>
-            <td>{{ $cliente->empresa_otro }}</td>
-            <td>{{ $cliente->direccion }}</td>
-            <td>{{ $cliente->numero_casa }}</td>
-            <td>{{ $cliente->telefono_fijo }}</td>
-            <td>{{ $cliente->telefono_laboral }}</td>
-            <td>{{ $cliente->email_laboral }}</td>
+           
                 <td width="120">
                     {!! Form::open(['route' => ['clientes.destroy', $cliente->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

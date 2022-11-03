@@ -105,27 +105,7 @@ class Cliente extends Model
      * @var array
      */
     public static $rules = [
-        'nombre' => 'required',
-        'apellido' => 'required',
-        'ci' => 'required',
-        'fecha_nacimiento' => 'required',
-        'nacionalidad' => 'required',
-        'distrito_origen' => 'required',
-        'domicilio_particular' => 'required',
-        'numero_casa' => 'required',
-        'barrio' => 'required',
-        'ciudad' => 'required',
-        'numero_telefono' => 'required',
-        'email' => 'required',
-        'rede_social' => 'required',
-        'nombre_apellido_coyuge' => 'required',
-        'ci_coyuge' => 'required',
-        'empresa_otro' => 'required',
-        'direccion' => 'required',
-        'numero_casa_laboral' => 'required',
-        'telefono_fijo' => 'required',
-        'telefono_laboral' => 'required',
-        'email_laboral' => 'required'
+        
     ];
 public function expedientes (){
      return $this->belongsToMany(Expediente::class);

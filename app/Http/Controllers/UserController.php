@@ -94,7 +94,6 @@ class UserController extends AppBaseController
     public function edit($id)
     {
         $user = $this->userRepository->find($id);
-        $laboratorio =Laboratorio::pluck('nombre_laboratorio','id');  
       
         if (empty($user)) {
             Flash::error('Usuario no encontrado');
@@ -102,7 +101,7 @@ class UserController extends AppBaseController
             return redirect(route('users.index'));
         }
 
-        return view('users.edit',compact('user','laboratorio'));
+        return view('users.edit',compact('user'));
     }
 
     /**

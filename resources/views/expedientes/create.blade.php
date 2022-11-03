@@ -130,12 +130,18 @@
                type:'POST',
                url:'/clientes/crear',
                data:{  "_token": "{{ csrf_token() }}", nombre: nombre, apellido: apellido, ci: ci, fecha_nacimiento: fecha_nacimiento, nacionalidad: nacionalidad, distrito_origen: distrito_origen, domicilio_particular: domicilio_particular, numero_casa: numero_casa, barrio: barrio, ciudad: ciudad, numero_telefono: numero_telefono, email: email, rede_social: rede_social, nombre_apellido_coyuge: nombre_apellido_coyuge, ci_coyuge: ci_coyuge, empresa_otro: empresa_otro, direccion: direccion, numero_casa_laboral: numero_casa_laboral, telefono_fijo: telefono_fijo, telefono_laboral: telefono_laboral, email_laboral: email_laboral},
+
                success:function(data) {
                   $('#exampleModal').modal('hide');
+
                }
             });
 
-
+          if(data.mensaje = "error"){
+                    alert("Faltan campos");
+                    }else{
+                    alert("Correcto");
+                    }
             
             var id = $('#cliente :last').val();
             id++;
@@ -204,7 +210,11 @@
                   $('#exampleModalj').modal('hide');
                }
             });
-
+            if(data.mensaje = "error"){
+                    alert("Faltan campos");
+                    }else{
+                    alert("Correcto");
+                    }
 
             
             var id = $('#juzgado :last').val();
@@ -272,7 +282,11 @@
                }
             });
 
-
+            if(data.mensaje = "error"){
+                    alert("Faltan campos");
+                    }else{
+                    alert("Correcto");
+                    }
             
             var id = $('#circunscripcion :last').val();
             id++;
