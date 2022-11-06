@@ -46,12 +46,25 @@
         <p>Expedientes</p>
     </a>
 </li>
+
+
+
+
 <li class="nav-item">
     <a href="{{ route('audiencias.index') }}"
        class="nav-link {{ Request::is('audiencias*') ? 'active' : '' }}">
        <i class="fa fas-solid fa-calendar"></i>        
-       <p>Audiencias</p>
+       <p>Audiencias
+       <i class="right fas fa-angle-left"></i></p>
     </a>
+<ul class="nav nav-treeview">
+    <li class="nav-item">
+<a href="{{ route('audiencias.index') }}" class="nav-link"
+    class="nav-link {{ Request::is('audiencias*') ? 'active' : '' }}">
+<i class="fa fas-solid fa-calendar"></i>
+<p>Calendario Audiencias
+</p>
+</a>
 </li>
 <li class="nav-item">
 <a href="{{route('consultas')}}" class="nav-link"
@@ -61,7 +74,6 @@
 </p>
 </a>
 </li>
- 
      @can('ver-pago')
 <li class="nav-item">
 <a href="{{ route('reporte.index') }}" 
