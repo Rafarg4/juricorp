@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Models\Gasto_expediente;
+use App\Models\Pago_expediente;
 class GraficoController extends Controller
 {
     public function grafico (){
@@ -19,7 +21,17 @@ class GraficoController extends Controller
     ->where('estado','Paralizado')
     ->where('expedientes.deleted_at',null)
     ->count();
+     $egreso = Gasto_expediente::sum('monto_gasto');
 
-    	return view('graficos.index',compact('activo','paralizado','finalizado'));
+
+      $ingreso = Pago_expediente::select(
+              DB::raw("MONTHNAME(created_at) as mes"),
+              DB::raw("SUM(monto) as monto"),
+        )->groupBy('mes')->get();
+        
+    
+  
+    	return view('graficos.index',compact('activo','paralizado','finalizado','ingreso','egreso'));
     }
+
 }

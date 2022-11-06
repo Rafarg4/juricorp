@@ -59,7 +59,7 @@
             @break
             @endswitch</td>
              <td>{{ $r->concepto_gasto }}</td>
-            <td>{{ $r->monto_gasto }}</td>
+            <td>{{number_format ($r->monto_gasto) }}</td>
             <td>{{ $r->fecha_gasto }}</td>
              
             </tr>

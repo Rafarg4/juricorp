@@ -76,7 +76,7 @@
 <a href="{{route('graficos')}}" class="nav-link"
     class="nav-link {{ Request::is('graficos*') ? 'active' : '' }}">
 <i class="fa fas-solid fa fa-chart-bar"></i>
-<p>Estado Expedientes
+<p>Graficos
 </p>
 </a>
 </li>
