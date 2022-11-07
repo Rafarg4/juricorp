@@ -134,7 +134,9 @@
       
 </script>
 <script>
-   
+    var egreso= {!! json_encode($egreso_var); !!};
+    var ingreso= {!! json_encode($egreso_var); !!};
+    
     Highcharts.chart('container2', {
     chart: {
         type: 'column'
@@ -146,13 +148,8 @@
         text: 'Detalles: '
     },
     xAxis: {
-        categories:  [
-        @php
-foreach($ingreso as $ingreso){
-         echo "'$ingreso->mes',";
-        }
-       @endphp
-    ],
+        categories: ['Enero','Febrero','Marzo','Abril','Mayo',
+        'Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre']
     },
     yAxis: {
         title: {
@@ -176,16 +173,15 @@ foreach($ingreso as $ingreso){
     },
     series: [{
         name: 'Ingresos',
-        data: [ @php
-foreach($ingreso as $ingreso){
-         echo "'$ingreso->monto',";
-        }
-       @endphp]
+        data: [ingreso[1],ingreso[2],ingreso[3],ingreso[4],ingreso[5],ingreso[6],ingreso[7],
+        ingreso[8],ingreso[9],ingreso[10],ingreso[11],ingreso[12]]
+
 
 
     }, {
         name: 'Egresos',
-        data: [123]
+        data: [egreso[1],egreso[2],egreso[3],egreso[4],egreso[5],egreso[6],egreso[7],
+        egreso[8],egreso[9],egreso[10],egreso[11],egreso[12]]
 
     }]
 });
