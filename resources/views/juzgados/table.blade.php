@@ -5,6 +5,7 @@
             <th>Nombre</th>
         <th>Juez</th>
         <th>Secretario</th>
+          <th>Ujier</th>
           <th>Circunscripcion</th>
             <th>Accion</th>
         </tr>
@@ -15,6 +16,7 @@
                 <td>{{ $juzgado->nombrejuz }}</td>
             <td>{{ $juzgado->juez }}</td>
             <td>{{ $juzgado->secretario }}</td>
+               <td>{{ $juzgado->ujier }}</td>
              <td>{{ $juzgado->cir->nombrecir }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['juzgados.destroy', $juzgado->id], 'method' => 'delete']) !!}

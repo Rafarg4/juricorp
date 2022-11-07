@@ -32,6 +32,7 @@ class Juzgado extends Model
         'nombrejuz',
         'juez',
         'secretario',
+        'ujier',
         'id_circunscripcion'
     ];
 
@@ -43,7 +44,8 @@ class Juzgado extends Model
     protected $casts = [
         'nombrejuz' => 'string',
         'juez' => 'string',
-        'secretario' => 'string'
+        'secretario' => 'string',
+        'ujier' => 'string'
     ];
 
     /**
@@ -54,7 +56,8 @@ class Juzgado extends Model
     public static $rules = [
         'nombrejuz' => 'required',
         'juez' => 'required',
-        'secretario' => 'required'
+        'secretario' => 'required',
+        'ujier' => 'required'
     ];
 
      public function expediente (){

@@ -15,7 +15,11 @@
     {!! Form::label('secretario', 'Secretario:') !!}
     <p>{{ $juzgado->secretario }}</p>
 </div>
-
+<!-- Secretario Field -->
+<div class="col-sm-6">
+    {!! Form::label('ujier', 'Ujier:') !!}
+    <p>{{ $juzgado->ujier }}</p>
+</div>
 <!-- Created At Field -->
 <div class="col-sm-6">
     {!! Form::label('created_at', 'Creado:') !!}

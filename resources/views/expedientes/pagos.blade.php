@@ -7,7 +7,6 @@
         <th>Monto</th>
         <th>Fecha</th>
         <th>Nro Expediente</th>
-        <th>Archivo</th>
             <th>Accion</th>
         </tr>
         </thead>
@@ -19,16 +18,12 @@
             <td >{{number_format ($pagoExpediente->monto) }}</td>
             <td >{{ $pagoExpediente->fecha }}</td>
             <td>{{ $pagoExpediente->expediente->numero }}</td>
-            <td 
-            ><img src="{{ asset('storage').'/'.$pagoExpediente->archivo}}" width="50" height="50"></td>
-                <td width="120">
+            <td>
                     {!! Form::open(['route' => ['pagoExpedientes.destroy', ['pagoExpediente'=>$pagoExpediente->id,'id_expediente'=>$pagoExpediente->id_expediente]], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                        
-                        <button type="button" class="btn btn-default btn-xs editarPagoA"><i class="far fa-eye"></i></button>
-                        <a href="{{ route('pagoExpedientes.edit', [$pagoExpediente->id]) }}"
-                           class='btn btn-default btn-xs'>
-                            <i class="far fa-edit"></i>
+                        <button type="button" class="btn btn-default btn-xs editarPagoA"><i class="fa fas-solid fa-image fa-lg"></i></button>
+                        
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Desea eliminar el pago?')"]) !!}
                     </div>
@@ -40,7 +35,7 @@
         <tfoot>
         <tr>
              <td></td>
-                <td></td>
+                
                 <td></td>
                 <td></td>
                 <td><b>Total de Pagos:</b></td>

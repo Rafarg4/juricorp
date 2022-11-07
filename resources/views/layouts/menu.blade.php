@@ -46,18 +46,12 @@
         <p>Expedientes</p>
     </a>
 </li>
-
-
-
-
 <li class="nav-item">
     <a href="{{ route('audiencias.index') }}"
        class="nav-link {{ Request::is('audiencias*') ? 'active' : '' }}">
        <i class="fa fas-solid fa-calendar"></i>        
-       <p>Audiencias
-       <i class="right fas fa-angle-left"></i></p>
+       <p>Audiencias</p>
     </a>
-<ul class="nav nav-treeview">
     <li class="nav-item">
 <a href="{{ route('audiencias.index') }}" class="nav-link"
     class="nav-link {{ Request::is('audiencias*') ? 'active' : '' }}">
@@ -69,7 +63,7 @@
 <li class="nav-item">
 <a href="{{route('consultas')}}" class="nav-link"
     class="nav-link {{ Request::is('consultas*') ? 'active' : '' }}">
-<i class="fa fas-solid fa-wallet"></i>
+<i class="fa fas-solid fa-list"></i>
 <p>Consulta audiencias
 </p>
 </a>

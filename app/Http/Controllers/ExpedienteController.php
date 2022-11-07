@@ -16,7 +16,7 @@ use App\Models\Expediente;
 use App\Models\Cliente;
 use App\Models\Gasto_expediente;
 use App\Models\Pago_expediente;
-
+use DB;
 class ExpedienteController extends AppBaseController
 {
     /** @var ExpedienteRepository $expedienteRepository*/
@@ -85,12 +85,45 @@ class ExpedienteController extends AppBaseController
         $pagoExpedientes = Pago_expediente::where('id_expediente',$id)->get();
         $pago_total = Pago_expediente::where('id_expediente',$id)->sum('monto'); 
         $gasto_total = Gasto_expediente::where('id_expediente',$id)->sum('monto_gasto');
+        $ingreso = Pago_expediente::select(
+              DB::raw('MONTH(fecha) as mes'),
+              DB::raw('SUM(monto) as f'),
+        )
+      ->where('pago_expedientes.deleted_at',null)
+      ->where('id_expediente',$id)
+      ->groupBy('mes')->get();
+     $egreso = Gasto_expediente::select(
+              DB::raw('MONTH(fecha_gasto) as mes'),
+              DB::raw('SUM(monto_gasto) as monto'),
+        )
+      ->where('gasto_expedientes.deleted_at',null)
+      ->where('id_expediente',$id)
+      ->groupBy('mes')->get();
+        
+     
+      $mes = [1,2,3,4,5,6,7,8,9,10,11,12];
+      $ingreso_var = [0,0,0,0,0,0,0,0,0,0,0,0];
+      $egreso_var=[0,0,0,0,0,0,0,0,0,0,0,0];  
+      
+
+           
+
+       foreach ($egreso as $s) {
+            $egreso_var[$s->mes-1] = $s->monto;
+           }     
+           
+      foreach ($ingreso as $t) {
+            
+            $ingreso_var[$t->mes-1] = $t->f;
+             
+
+      }
         if (empty($expediente)) {
             Flash::error('Expediente no encontrado');
 
             return redirect(route('expedientes.index'));
         }
-        return view('expedientes.show')->with('expediente', $expediente)->with('gastoExpedientes', $gastoExpedientes)->with('pagoExpedientes', $pagoExpedientes)->with('pago_total', $pago_total)->with('gasto_total', $gasto_total);
+        return view('expedientes.show')->with('expediente', $expediente)->with('gastoExpedientes', $gastoExpedientes)->with('pagoExpedientes', $pagoExpedientes)->with('pago_total', $pago_total)->with('gasto_total', $gasto_total)->with('ingreso_var', $ingreso_var)->with('egreso_var', $egreso_var);
     }
 
     /**

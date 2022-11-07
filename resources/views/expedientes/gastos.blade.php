@@ -7,7 +7,7 @@
         <th>Monto</th>
         <th>Fecha</th>
         <th>Nro de expediente</th>
-        <th>Archivo</th>
+        
             <th>Accion</th>
         </tr>
         </thead>
@@ -19,14 +19,11 @@
            <td>{{number_format ($gastoExpediente->monto_gasto) }}</td>
             <td>{{ $gastoExpediente->fecha_gasto }}</td>
             <td>{{ $gastoExpediente->expediente->numero}}</td>
-            <td><img src="{{ asset('storage').'/'.$gastoExpediente->archivo_gasto}}" width="50" height="50"></td>
-                <td width="120">
+            <td>
                     {!! Form::open(['route' => ['gastoExpedientes.destroy', ['gastoExpediente'=>$gastoExpediente->id,'id_expediente'=>$gastoExpediente->id_expediente]], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         <button type="button" class="btn btn-default btn-xs editarGastoA"><i class="fa fas-solid fa-image fa-lg"></i></button>
-                        <a href="{{ route('gastoExpedientes.edit', [$gastoExpediente->id]) }}"
-                           class='btn btn-default btn-xs'>
-                            <i class="far fa-edit"></i>
+                        
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Desea eliminar el gasto?')"]) !!}
                     </div>
@@ -37,7 +34,7 @@
         </tbody>
         <tfoot>
         <tr>
-             <td></td>
+            
                 <td></td>
                 <td></td>
                 <td></td>
