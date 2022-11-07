@@ -21,49 +21,38 @@ class GraficoController extends Controller
     ->where('estado','Paralizado')
     ->where('expedientes.deleted_at',null)
     ->count();
+
+     $ingreso = Pago_expediente::select(
+              DB::raw('MONTH(fecha) as mes'),
+              DB::raw('SUM(monto) as f'),
+        )->groupBy('mes')->get();
      $egreso = Gasto_expediente::select(
-              DB::raw("MONTH(fecha_gasto) as mes"),
-              DB::raw("SUM(monto_gasto) as monto"),
+              DB::raw('MONTH(fecha_gasto) as mes'),
+              DB::raw('SUM(monto_gasto) as monto'),
         )->groupBy('mes')->get();
         
 
 
-      $ingreso = Pago_expediente::select(
-              DB::raw("MONTH(fecha) as mes"),
-              DB::raw("SUM(monto) as monto"),
-        )->groupBy('mes')->get();
+     
         
-
+     
       $mes = [1,2,3,4,5,6,7,8,9,10,11,12];
-      $ingresovar = [];
-      $egresovar=[];  
-      foreach ($ingreso as $s) {
-           foreach($mes as $m){
-              if($m == $s->mes){
-                $ingreso_var[$m] = $s->monto;
+      $ingreso_var = [0,0,0,0,0,0,0,0,0,0,0,0];
+      $egreso_var=[0,0,0,0,0,0,0,0,0,0,0,0];  
+      
 
-
-           } else  {
-                $ingreso_var[$m] = 0;
-
-           }
-      }
-           }
+           
 
        foreach ($egreso as $s) {
-           foreach($mes as $m){
-              if($m == $s->mes){
-                $egreso_var[$m] = $s->monto;
-
-
-           } else  {
-                $egreso_var[$m] = 0;
-
-           }
-      }
+            $egreso_var[$s->mes] = $s->monto;
            }     
+           
+      foreach ($ingreso as $t) {
+            
+            $ingreso_var[$t->mes] = $t->f;
+             
 
-
+      }
     
   
     	return view('graficos.index')->with('activo',$activo)->with('paralizado',$paralizado)->with('finalizado',$finalizado)->with('egreso_var',$egreso_var)->with('ingreso_var',$ingreso_var);

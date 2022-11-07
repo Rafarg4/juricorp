@@ -134,9 +134,11 @@
       
 </script>
 <script>
+    var ingreso= {!! json_encode($ingreso_var); !!};
     var egreso= {!! json_encode($egreso_var); !!};
-    var ingreso= {!! json_encode($egreso_var); !!};
     
+    console.log(egreso);
+    console.log(ingreso);
     Highcharts.chart('container2', {
     chart: {
         type: 'column'
@@ -173,15 +175,13 @@
     },
     series: [{
         name: 'Ingresos',
-        data: [ingreso[1],ingreso[2],ingreso[3],ingreso[4],ingreso[5],ingreso[6],ingreso[7],
-        ingreso[8],ingreso[9],ingreso[10],ingreso[11],ingreso[12]]
+        data: ingreso
 
 
 
     }, {
         name: 'Egresos',
-        data: [egreso[1],egreso[2],egreso[3],egreso[4],egreso[5],egreso[6],egreso[7],
-        egreso[8],egreso[9],egreso[10],egreso[11],egreso[12]]
+        data: egreso
 
     }]
 });
