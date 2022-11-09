@@ -52,14 +52,7 @@
        <i class="fa fas-solid fa-calendar"></i>        
        <p>Audiencias</p>
     </a>
-    <li class="nav-item">
-<a href="{{ route('audiencias.index') }}" class="nav-link"
-    class="nav-link {{ Request::is('audiencias*') ? 'active' : '' }}">
-<i class="fa fas-solid fa-calendar"></i>
-<p>Calendario Audiencias
-</p>
-</a>
-</li>
+  </li>
 <li class="nav-item">
 <a href="{{route('consultas')}}" class="nav-link"
     class="nav-link {{ Request::is('consultas*') ? 'active' : '' }}">

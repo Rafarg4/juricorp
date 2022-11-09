@@ -1,11 +1,12 @@
 <div class="table-responsive" style="padding:15px;">
-    <table class="table" id="myTable">
+    <table class="table" id="myTable2">
         <thead>
         <tr>
             <th>Nombre</th>
         <th>Juez</th>
         <th>Secretario</th>
           <th>Ujier</th>
+          <th>telefono</th>
           <th>Circunscripcion</th>
             <th>Accion</th>
         </tr>
@@ -17,6 +18,7 @@
             <td>{{ $juzgado->juez }}</td>
             <td>{{ $juzgado->secretario }}</td>
                <td>{{ $juzgado->ujier }}</td>
+                <td>{{ $juzgado->telefono }}</td>
              <td>{{ $juzgado->cir->nombrecir }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['juzgados.destroy', $juzgado->id], 'method' => 'delete']) !!}

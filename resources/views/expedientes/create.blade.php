@@ -202,11 +202,12 @@
             var juez = $('#juez').val();
             var secretario = $('#secretario').val();
              var ujier = $('#ujier').val();
+              var telefono = $('#telefono').val();
             var id_circunscripcion = $('#id_circunscripcion :selected').val();
             $.ajax({
                type:'POST',
                url:'/juzgados/crear',
-               data:{  "_token": "{{ csrf_token() }}", nombrejuz: nombre, juez: juez, secretario: secretario,ujier: ujier, id_circunscripcion: id_circunscripcion},
+               data:{  "_token": "{{ csrf_token() }}", nombrejuz: nombre, juez: juez, secretario: secretario,ujier: ujier,telefono: telefono, id_circunscripcion: id_circunscripcion},
                success:function(data) {
                   $('#exampleModalj').modal('hide');
                }

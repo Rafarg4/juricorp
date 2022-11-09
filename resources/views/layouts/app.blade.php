@@ -8,6 +8,7 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
    
     <!-- Font Awesome -->
+     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -99,14 +100,18 @@ https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.js"></script>
    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 
+
+<!-- highcharts -->  
+ <link href="{{ asset('css/higcharts-estilos.css') }}"  rel="stylesheet">
+ <script type="text/javascript" src="{{ asset('js/highcharts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/exporting.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/export-data.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/accessibility.js') }}"></script>
+<!-- highcharts -->   
 <script type="text/javascript">
     $(document).ready(function () {
     $('#audiencias-consulta').DataTable({

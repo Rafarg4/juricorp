@@ -33,6 +33,7 @@ class Juzgado extends Model
         'juez',
         'secretario',
         'ujier',
+        'telefono',
         'id_circunscripcion'
     ];
 
@@ -45,7 +46,8 @@ class Juzgado extends Model
         'nombrejuz' => 'string',
         'juez' => 'string',
         'secretario' => 'string',
-        'ujier' => 'string'
+        'ujier' => 'string',
+        'telefono' => 'string'
     ];
 
     /**
@@ -57,7 +59,8 @@ class Juzgado extends Model
         'nombrejuz' => 'required',
         'juez' => 'required',
         'secretario' => 'required',
-        'ujier' => 'required'
+        'ujier' => 'required',
+        'telefono' => 'required'
     ];
 
      public function expediente (){

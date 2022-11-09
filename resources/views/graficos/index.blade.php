@@ -71,7 +71,7 @@
 
 
 <script type="text/javascript">
-    var activo = <?php echo json_encode($activo)?>;
+  var activo = <?php echo json_encode($activo)?>;
   var paralizado = <?php echo json_encode($paralizado)?>;
   var finalizado = <?php echo json_encode($finalizado)?>;
       Highcharts.chart('container', {

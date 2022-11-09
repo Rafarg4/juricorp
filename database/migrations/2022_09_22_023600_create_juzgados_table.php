@@ -20,6 +20,7 @@ class CreateJuzgadosTable extends Migration
             $table->text('juez')->nullable();
             $table->text('secretario')->nullable();
              $table->text('ujier')->nullable();
+              $table->text('telefono')->nullable();
             $table->unsignedBigInteger('id_circunscripcion');
             $table->foreign('id_circunscripcion')->references('id')->on('circunscripcions');
             $table->timestamps();
