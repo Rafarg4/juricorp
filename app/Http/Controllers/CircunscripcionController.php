@@ -9,7 +9,8 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-
+use App\Models\Circunscripcion;
+use DB;
 class CircunscripcionController extends AppBaseController
 {
     /** @var CircunscripcionRepository $circunscripcionRepository*/
@@ -29,8 +30,7 @@ class CircunscripcionController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $circunscripcions = $this->circunscripcionRepository->all();
-
+     $circunscripcions=DB::select("select circunscripcions.*, (select count(*) from juzgados where circunscripcions.id = juzgados.id_circunscripcion and juzgados.deleted_at is null) as juz_count from circunscripcions where deleted_at is null and circunscripcions.deleted_at is null");
         return view('circunscripcions.index')
             ->with('circunscripcions', $circunscripcions);
     }
@@ -151,7 +151,7 @@ class CircunscripcionController extends AppBaseController
 
             return redirect(route('circunscripcions.index'));
         }
-
+        
         $this->circunscripcionRepository->delete($id);
 
         Flash::error('Circunscripcion eliminado correctamente.');

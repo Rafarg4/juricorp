@@ -24,7 +24,9 @@
                             <i class="far fa-edit"></i>
                         </a>
                         @can('ver-pago')
+                        @if ($circunscripcion->juz_count==0)
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro?')"]) !!}
+                        @endif
                         @endcan
                     </div>
                     {!! Form::close() !!}

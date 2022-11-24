@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use App\Models\Circunscripcion;
+use App\Models\Juzgado;
+use DB;
 class JuzgadoController extends AppBaseController
 {
     /** @var JuzgadoRepository $juzgadoRepository*/
@@ -29,19 +31,10 @@ class JuzgadoController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $juzgados = $this->juzgadoRepository->all();
+       $juzgados= Juzgado::all();
+       $contador = DB::select(" select juzgados.*, (select count(*) from expedientes where juzgados.id = expedientes.id_juzgado and expedientes.deleted_at is null) as expedientes_count from juzgados where deleted_at is null and juzgados.deleted_at is null");
+       return view('juzgados.index',compact('juzgados','contador'));
 
-
-
-        if ($request->input('Content-Type') == 'json') {
-              response()->json($juzgados);
-        
-        } else {
-
-        return view('juzgados.index')
-            ->with('juzgados', $juzgados);
-
-            }
     }
 
     public function crear(Request $request)

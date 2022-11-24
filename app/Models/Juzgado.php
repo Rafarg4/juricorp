@@ -47,7 +47,8 @@ class Juzgado extends Model
         'juez' => 'string',
         'secretario' => 'string',
         'ujier' => 'string',
-        'telefono' => 'string'
+        'telefono' => 'string',
+        'id_circunscripcion' => 'string'
     ];
 
     /**
@@ -55,7 +56,7 @@ class Juzgado extends Model
      *
      * @var array
      */
-    public static $rules = [
+       public static $rules = [
         'nombrejuz' => 'required',
         'juez' => 'required',
         'secretario' => 'required',
@@ -63,12 +64,17 @@ class Juzgado extends Model
         'telefono' => 'required'
     ];
 
+
      public function expediente (){
      return $this->belongsToMany(Expediente::class,'circunscripcion_juzgados','id','id');
 
     }
      public function cir (){
      return $this-> belongsTo('App\Models\Circunscripcion','id_circunscripcion');
+
+    }
+     public function expedientes (){
+     return $this-> belongsTo('App\Models\Expediente');
 
     }
 }

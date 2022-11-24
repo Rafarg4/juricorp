@@ -19,7 +19,7 @@
             <td>{{ $juzgado->secretario }}</td>
                <td>{{ $juzgado->ujier }}</td>
                 <td>{{ $juzgado->telefono }}</td>
-             <td>{{ $juzgado->cir->nombrecir }}</td>
+             <td>{{ $juzgado->id_circunscripcion }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['juzgados.destroy', $juzgado->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -31,8 +31,10 @@
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>@can('ver-pago')
-
+                    
+                        @if ($contador->expedientes_count ==0)
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro?')"]) !!}
+                        @endif
                         @endcan
                     </div>
                     {!! Form::close() !!}
