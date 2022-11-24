@@ -32,7 +32,7 @@
                             <i class="far fa-edit"></i>
                         </a>@can('ver-pago')
                     
-                        @if ($contador->expedientes_count ==0)
+                       @if ($juzgado->expedientes_count ==  0)
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro?')"]) !!}
                         @endif
                         @endcan

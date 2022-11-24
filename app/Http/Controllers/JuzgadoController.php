@@ -31,9 +31,8 @@ class JuzgadoController extends AppBaseController
      */
     public function index(Request $request)
     {
-       $juzgados= Juzgado::all();
-       $contador = DB::select(" select juzgados.*, (select count(*) from expedientes where juzgados.id = expedientes.id_juzgado and expedientes.deleted_at is null) as expedientes_count from juzgados where deleted_at is null and juzgados.deleted_at is null");
-       return view('juzgados.index',compact('juzgados','contador'));
+       $juzgados = DB::select("select juzgados.*, (select count(*) from expedientes where juzgados.id = expedientes.id_juzgado and expedientes.deleted_at is null) as expedientes_count from juzgados where deleted_at is null and juzgados.deleted_at is null");
+       return view('juzgados.index',compact('juzgados'));
 
     }
 
