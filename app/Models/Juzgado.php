@@ -69,10 +69,11 @@ class Juzgado extends Model
      return $this->belongsToMany(Expediente::class,'circunscripcion_juzgados','id','id');
 
     }
-     public function cir (){
+
+    public function circunscripcion (){
      return $this-> belongsTo('App\Models\Circunscripcion','id_circunscripcion');
 
-    }
+    }   
      public function expedientes (){
      return $this-> belongsTo('App\Models\Expediente');
 

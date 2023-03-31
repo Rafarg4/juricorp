@@ -30,7 +30,7 @@ class CircunscripcionController extends AppBaseController
      */
     public function index(Request $request)
     {
-     $circunscripcions=DB::select("select circunscripcions.*, (select count(*) from juzgados where circunscripcions.id = juzgados.id_circunscripcion and juzgados.deleted_at is null) as juz_count from circunscripcions where deleted_at is null and circunscripcions.deleted_at is null");
+     $circunscripcions=Circunscripcion::all();
         return view('circunscripcions.index')
             ->with('circunscripcions', $circunscripcions);
     }

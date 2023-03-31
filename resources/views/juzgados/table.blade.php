@@ -19,7 +19,7 @@
             <td>{{ $juzgado->secretario }}</td>
                <td>{{ $juzgado->ujier }}</td>
                 <td>{{ $juzgado->telefono }}</td>
-             <td>{{ $juzgado->id_circunscripcion }}</td>
+             <td>{{ $juzgado->circunscripcion->nombrecir }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['juzgados.destroy', $juzgado->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

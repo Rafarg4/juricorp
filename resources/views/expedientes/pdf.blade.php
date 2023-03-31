@@ -112,4 +112,46 @@
     </table>
 </div>
 </div>
+      <div class="col-lg-12">
+                      
+                          
+                                <h3>Detalles de cuenta</h3>
+                    
+                             <div class="card-body">
+                               <table class="table" id="myTabl">
+                              <thead>
+                              <tr>
+                                  <th>Debe </th>
+                              <th>Haberes</th>
+                              <th>Saldo</th>
+                             
+                              </tr>
+                              </thead>
+                              <tbody>
+                          
+                                  <tr>
+                                      <td>{{number_format ($gasto_total) }} Gs</td>
+                                      <td>{{number_format ($pago_total) }} Gs</td>
+                                       <td>@switch(true)
+                                      @case($gasto_total <$pago_total)
+                                      <span class="badge badge-success">Disponible {{number_format ($resultado=$pago_total-$gasto_total)}} Gs </span>
+                                      @break
+                                      @case($gasto_total>$pago_total)
+                                      <span class="badge badge-danger">A pagar {{number_format ($resultado=$pago_total-$gasto_total)}} Gs</span>
+                                      @break
+                                      @case($gasto_total>$pago_total==0)
+                                       <span class="badge badge-primary"> {{number_format ($resultado=$pago_total-$gasto_total)}} Gs</span>
+                                      @break
+                                      @endswitch</td>
+                                 
+                                </tr>
+                              
+                              </tbody>
+                          </table>
+                                
+                            </div>
+                      </div>
+                
+              </div> 
+              </div>
 

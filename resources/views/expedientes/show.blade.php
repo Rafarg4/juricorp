@@ -63,41 +63,72 @@
                                 
                             </div>
                       </div>
-                  </div>  
+                  </div> 
+                   <div class="col-lg-12">
+                      <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Detalles de cuenta</h3>
+                            </div>
+                             <div class="card-body">
+                               <table class="table" id="myTabl">
+                              <thead>
+                              <tr>
+                                  <th>Debe </th>
+                              <th>Haberes</th>
+                              <th>Saldo</th>
+                             
+                              </tr>
+                              </thead>
+                              <tbody>
+                          
+                                  <tr>
+                                      <td>{{number_format ($gasto_total) }} Gs</td>
+                                      <td>{{number_format ($pago_total) }} Gs</td>
+                                       <td>@switch(true)
+                                      @case($gasto_total <$pago_total)
+                                      <span class="badge badge-success">Disponible {{number_format ($resultado=$pago_total-$gasto_total)}} Gs </span>
+                                      @break
+                                      @case($gasto_total>$pago_total)
+                                      <span class="badge badge-danger">A pagar {{number_format ($resultado=$pago_total-$gasto_total)}} Gs</span>
+                                      @break
+                                      @case($gasto_total>$pago_total==0)
+                                       <span class="badge badge-primary"> {{number_format ($resultado=$pago_total-$gasto_total)}} Gs</span>
+                                      @break
+                                      @endswitch</td>
+                                 
+                                </tr>
+                              
+                              </tbody>
+                          </table>
+                                
+                            </div>
+                      </div>
+                  </div>
+              </div> 
               </div>
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Ingresos e egresos</h1>
-                </div>
-                <div class="col-sm-6">
-                
-                </div>
-            </div>
-        </div>
-         <div class="content px-3">
-
-        <div class="clearfix"></div>
-
-        <div class="card">
-            <div class="card-body p-0">
-
-
-        <figure class="highcharts-figure">
-            <div id="container2"></div>
+    <div class="col-lg-18">
+                      <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Seguimientos</h3>
+                                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal2"><i class="fas fa-plus"></i>Añadir Seguimiento</button>
+                            </div>
+                             <div class="card-body">
+                              @include('expedientes.seguimiento')
+                                
+                            </div>
+                      </div>
+                      <div class="col-lg-12">
+                      <div class="card">
+                            <div class="card-header">
+                                 <h1>Ingresos e egresos</h1>
+                            </div>
+                             <div class="card-body">
+                              <div id="container2"></div>
+                            </div>
+                      </div>
+                  </div> 
+        </section>
     
-                <div class="card-footer clearfix">
-                    <div class="float-right">
-                        
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    
-    </section>
 
 <script>
     var ingreso= {!! json_encode($ingreso_var); !!};
@@ -163,7 +194,7 @@
 
 <!-- MODAL PARA PAGOS -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+ <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Cargar un nuevo pago</h5>
@@ -246,7 +277,7 @@
 
 <!-- MODAL PARA GASTOS-->
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel1">Cargar un nuevo gasto</h5>
@@ -323,5 +354,84 @@
    
    
    </script>
-<!-- MODAL PARA GASTO -->
+<!-- MODAL PARA SEGUIMIENTO -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">Cargar nuevo seguimiento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+   
+  <div class="content px-3">
+
+        @include('adminlte-templates::common.errors')
+
+        <div class="card">
+
+        <form id="seguimiento_expediente_modal" action="javascript:;" method="post" enctype="multipart/form-data">
+            @csrf
+            
+
+            <div class="card-body">
+
+                <div class="row">
+                    @include('seguimientos.fields')
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+              
+               
+            </div>
+
+           
+
+        </div>
+    </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary" id="prueba" data-dismiss="modal">Cerrar</button>
+          {!! Form::submit('Guardar', ['class' => 'btn btn-primary', 'id' => 'submit2']) !!}
+           </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+   
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+     $('#seguimiento_expediente_modal').submit(function(e) {
+        let formData = new FormData(this);
+
+         $.ajax({
+            type:'POST',
+            url: "/seguimientos",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: (response) => {
+                location.reload(true);
+                    this.reset();
+                
+            },
+            error: function(response){
+                console.log(response.responseJSON.message);
+            }
+       });
+    });
+   
+   
+   </script>
+
 @endsection

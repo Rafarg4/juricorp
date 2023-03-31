@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table" id="gastoExpedientes-table">
+    <table class="table" id="mytable">
         <thead>
         <tr>
             <th style="display:none;">id</th>
@@ -39,7 +39,7 @@
                 <td></td>
                 <td></td>
                 <td><b>Total de Gastos:</b></td>
-                <td><b>{{number_format ($gasto_total) }}</b></td>
+                <td><b>{{number_format ($gasto_total)}} Gs</b></td>
     </tr>
   </tfoot>
     </table>

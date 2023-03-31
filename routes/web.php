@@ -29,6 +29,7 @@ Route::get('/symlink', function () {
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::resource('audits', App\Http\Controllers\AuditController::class);
 
 Route::resource('juzgados', App\Http\Controllers\JuzgadoController::class);
 
@@ -79,3 +80,9 @@ Route::resource('pdf', App\Http\Controllers\PdfController::class);
 
 Route::get('graficos/index', [App\Http\Controllers\GraficoController::class, 'grafico'])->name('graficos');
 Route::get('audiencias/consulta', [App\Http\Controllers\Consulta_audiencaController::class, 'consulta'])->name('consultas');
+
+Route::resource('seguimientos', App\Http\Controllers\SeguimientoController::class);
+Route::get('download_escrito/{id}', [App\Http\Controllers\PdfController::class, 'download_escrito'])->name('seguimiento.download_escrito')->middleware('auth');
+
+
+

@@ -7,6 +7,8 @@ use App\Repositories\ExpedienteRepository;
 use App\Models\Gasto_expediente;
 use App\Models\Pago_expediente;
 use PDF;
+use App\Models\Seguimiento;
+use Illuminate\Support\Facades\Storage;
 class PdfController extends Controller
 {
 	 /** @var ExpedienteRepository $expedienteRepository*/
@@ -24,5 +26,12 @@ class PdfController extends Controller
         $gasto_total = Gasto_expediente::where('id_expediente',$id)->sum('monto_gasto');
           $pdf = PDF::loadView('expedientes.pdf', compact('expediente','gastoExpedientes','pagoExpedientes','pago_total','gasto_total'));
               return $pdf->download('Detalle-expediente.pdf');
-    }    //
+    }  
+      public function download_escrito($id)
+    {
+      $seguimiento = Seguimiento::where('id', $id)->first()->escrito;
+      return Storage::download('public/' . $seguimiento);
+
+    }
+
 }

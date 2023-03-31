@@ -5,7 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use OwenIt\Auditing\Contracts\Auditable;
 /**
  * Class Gasto_expediente
  * @package App\Models
@@ -17,12 +17,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $id_expediente
  * @property string $archivo
  */
-class Gasto_expediente extends Model
+class Gasto_expediente extends Model implements Auditable
 {
     use SoftDeletes;
 
     use HasFactory;
-
+     use \OwenIt\Auditing\Auditable;
     public $table = 'gasto_expedientes';
     
 

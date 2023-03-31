@@ -55,6 +55,6 @@ class Circunscripcion extends Model
 
     }
      public function juz (){
-        return $this-> hasMany('App\Models\Juzgado');
+        return $this-> hasMany('App\Models\Juzgado','id_juzgado');
     }
 }

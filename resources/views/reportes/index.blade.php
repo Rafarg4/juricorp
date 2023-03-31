@@ -29,11 +29,10 @@
          <th>Numero</th>
         <th>Año</th>
         <th>Caratula</th>
-        <th>Circunscripcion</th>
         <th>Juzgado</th>
         <th>Cliente</th>
-         <th>Estado</th>
-            <th>Concepto</th>
+        <th>Estado</th>
+        <th>Concepto</th>
         <th>Monto</th>
         <th>Fecha</th>
         </tr>
@@ -45,7 +44,6 @@
             <td>{{ $r->anho }}</td>
             <td>{{ $r->caratula }}</td>
             <td>{{ $r->nombrecir }}</td>
-            <td>{{ $r->nombrejuz}}</td>
            <td>{{ $r->cliente_nombre}}</td>
             <td>@switch(true)
             @case($r->estado == 'Activo')

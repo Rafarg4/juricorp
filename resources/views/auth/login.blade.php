@@ -33,7 +33,7 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-     <center> <img src="/98.png" width="200" height="200" class="img-circle" alt="User Image"/></center>
+     <center> <img src="/logoj.png" width="200" height="200" class="img-circle" alt="User Image"/></center>
     <div class="login-logo">
         <a href="{{ url('/home') }}"><b></b></a>
     </div>
