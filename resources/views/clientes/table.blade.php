@@ -26,11 +26,11 @@
             <td>{{ $cliente->fecha_nacimiento }}</td>
             <td>{{ $cliente->nacionalidad }}</td>
             <td>{{ $cliente->distrito_origen }}</td>
-            <td>{{ $cliente->domicilio_particular }}</td>
-            <td>{{ $cliente->numero_casa }}</td>
-            <td>{{ $cliente->barrio }}</td>
-            <td>{{ $cliente->ciudad }}</td>
-            <td>{{ $cliente->numero_telefono }}</td>
+            <td>{{ $cliente->domicilio_particular ??'Sin asignar' }}</td>
+            <td>{{ $cliente->numero_casa ??'Sin asignar' }}</td>
+            <td>{{ $cliente->barrio ??'Sin asignar'}}</td>
+            <td>{{ $cliente->ciudad ??'Sin asignar'}}</td>
+            <td>{{ $cliente->numero_telefono ??'Sin asignar' }}</td>
            
                 <td width="120">
                     {!! Form::open(['route' => ['clientes.destroy', $cliente->id], 'method' => 'delete']) !!}

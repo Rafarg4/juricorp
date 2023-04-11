@@ -2,6 +2,7 @@
 
 @section('content')
 <br>
+@if(Auth::user()->hasRole('super_admin'))
 <div class="container-fluid">
 <div class="row">
 <div class="col-12 col-sm-6 col-md-3">
@@ -93,5 +94,12 @@
 
 </div>
 @endcan
+@else
+<div class="card">
+  <div class="card-body">
+    Bienvenido/a {{ Auth::user()->name }} al sistema de seguimientos de expedientes para clientes.
+  </div>
+</div> 
+@endif
 </div>
 @endsection

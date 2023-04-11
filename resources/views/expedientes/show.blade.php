@@ -7,12 +7,21 @@
                 <div class="col-sm-6">
                     <h1>Expediente detalles</h1>
                 </div>
+                @if(Auth::user()->hasRole('super_admin'))
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"
                        href="{{ route('expedientes.index') }}">
                         Volver
                     </a>
                 </div>
+                @else
+                 <div class="col-sm-6">
+                    <a class="btn btn-default float-right"
+                       href="{{ url('cliente') }}">
+                        Volver
+                    </a>
+                </div>
+                @endif
             </div>
         </div>
     </section>
@@ -33,7 +42,7 @@
 </div>
         </div>
     </div>
-  @can('ver-pago')
+
    
 
            <section class="content-header">
@@ -44,7 +53,7 @@
                       <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Pagos</h3>
-                                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>Añadir Pago</button>
+                                  @can('ver-pago')<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>Añadir Pago</button>@endcan
                             </div>
                              <div class="card-body">
                                 @include('expedientes.pagos')
@@ -56,7 +65,7 @@
                       <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Gastos</h3>
-                                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal1"><i class="fas fa-plus"></i>Añadir Gasto</button>
+                                @can('ver-pago')  <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal1"><i class="fas fa-plus"></i>Añadir Gasto</button>@endcan
                             </div>
                              <div class="card-body">
                               @include('expedientes.gastos')
@@ -110,7 +119,7 @@
                       <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Seguimientos</h3>
-                                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal2"><i class="fas fa-plus"></i>Añadir Seguimiento</button>
+                                 @can('ver-pago') <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal2"><i class="fas fa-plus"></i>Añadir Seguimiento</button>@endcan
                             </div>
                              <div class="card-body">
                               @include('expedientes.seguimiento')
@@ -187,7 +196,6 @@
     </section>
    
 
-@endcan
 
   
 

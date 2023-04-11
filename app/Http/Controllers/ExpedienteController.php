@@ -18,6 +18,8 @@ use App\Models\Gasto_expediente;
 use App\Models\Pago_expediente;
 use App\Models\Seguimiento;
 use DB;
+use Auth;
+use App\Models\User;
 class ExpedienteController extends AppBaseController
 {
     /** @var ExpedienteRepository $expedienteRepository*/
@@ -35,6 +37,19 @@ class ExpedienteController extends AppBaseController
      *
      * @return Response
      */
+
+    public function cliente()
+    {
+      if(Auth::user()->hasRole('super_admin')) {
+        $expedientes = Expediente::with(['clientes'])->get();
+        return view('expedientes.cliente',compact('expedientes'));
+        }else{
+         $users = User::join('expedientes', 'expedientes.id', '=', 'users.id_expediente')
+         ->where('users.id', auth()->user()->id)
+         ->get(['users.*', 'expedientes.numero','expedientes.id_circunscripcion','expedientes.id_juzgado','expedientes.anho','expedientes.caratula','expedientes.estado']);
+        return view('expedientes.cliente',compact('users'));
+           } 
+    }
     public function index(Request $request)
     {
         $expedientes = Expediente::with(['clientes'])->get();
@@ -52,7 +67,7 @@ class ExpedienteController extends AppBaseController
     {   
           $circunscripcions = Circunscripcion::pluck('nombrecir','id');
           $juzgados = Juzgado::pluck('nombrejuz','id');
-          $clientes = Cliente::pluck('nombre','id');
+          $clientes = Cliente::pluck('ci','id');
           return view('expedientes.create',compact('circunscripcions','juzgados','clientes'));
     }
 

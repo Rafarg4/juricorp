@@ -14,6 +14,8 @@
         <p>Dashboard</p>
     </a>
 </li>
+ @if(Auth::user()->hasRole('super_admin'))
+ @can('ver-pago')
 <li class="nav-item">
     <a href="{{ route('juzgados.index') }}"
        class="nav-link {{ Request::is('juzgados*') ? 'active' : '' }}">
@@ -61,7 +63,7 @@
 </p>
 </a>
 </li>
-     @can('ver-pago')
+   
 <li class="nav-item">
 <a href="{{ route('reporte.index') }}" 
   class="nav-link {{ Request::is('reporte*') ? 'active' : '' }}">
@@ -69,7 +71,7 @@
 <p>Pagos y gastos</p>
 </a>
 </li>
-    @endcan
+    
 
 <li class="nav-item">
 <a href="{{route('graficos')}}" class="nav-link"
@@ -79,7 +81,6 @@
 </p>
 </a>
 </li>
-@can('ver-pago')
 <li class="nav-item {{ Request::is('audits*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('audits.index') }}">
           <i class="fa fas-solid fa-table"></i>
@@ -102,6 +103,22 @@
     </a>
 </li>
 @endcan
+@else
+<li class="nav-item">
+    <a href="{{ url('cliente') }}"
+       class="nav-link {{ Request::is('cliente*') ? 'active' : '' }}">
+       <i class="fa fas-solid fa-folder"></i>
+        <p>Mi Expediente</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="" 
+       class="nav-link " onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+      <i class="fas fa-sign-out-alt"></i>
+        <p>Salir</p>
 
+    </a>
+</li>
+@endif
 
 

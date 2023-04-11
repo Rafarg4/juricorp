@@ -7,7 +7,7 @@
         <th>Monto</th>
         <th>Fecha</th>
         <th>Nro Expediente</th>
-            <th>Accion</th>
+             @can('ver-pago') <th>Accion</th>@endcan
         </tr>
         </thead>
         <tbody>
@@ -19,6 +19,7 @@
             <td >{{ $pagoExpediente->fecha }}</td>
             <td>{{ $pagoExpediente->expediente->numero }}</td>
             <td>
+                  @can('ver-pago')
                     {!! Form::open(['route' => ['pagoExpedientes.destroy', ['pagoExpediente'=>$pagoExpediente->id,'id_expediente'=>$pagoExpediente->id_expediente]], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                        
@@ -29,6 +30,7 @@
                     </div>
                     {!! Form::close() !!}
                 </td>
+                @endcan
             </tr>
         @endforeach
         </tbody>

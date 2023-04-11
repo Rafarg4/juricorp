@@ -8,7 +8,7 @@
         <th>Fecha</th>
         <th>Nro de expediente</th>
         
-            <th>Accion</th>
+            @can('ver-pago')<th>Accion</th>@endcan
         </tr>
         </thead>
         <tbody>
@@ -19,7 +19,7 @@
            <td>{{number_format ($gastoExpediente->monto_gasto) }}</td>
             <td>{{ $gastoExpediente->fecha_gasto }}</td>
             <td>{{ $gastoExpediente->expediente->numero}}</td>
-            <td>
+              @can('ver-pago')<td>
                     {!! Form::open(['route' => ['gastoExpedientes.destroy', ['gastoExpediente'=>$gastoExpediente->id,'id_expediente'=>$gastoExpediente->id_expediente]], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         <button type="button" class="btn btn-default btn-xs editarGastoA"><i class="fa fas-solid fa-image fa-lg"></i></button>
@@ -28,7 +28,7 @@
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Desea eliminar el gasto?')"]) !!}
                     </div>
                     {!! Form::close() !!}
-                </td>
+                </td>@endcan
             </tr>
         @endforeach
         </tbody>

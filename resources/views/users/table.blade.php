@@ -4,6 +4,8 @@
         <tr>
             <th>Usuario</th>
         <th>Email</th>
+        <th>Rol</th>
+        <th>Nro expediente</th>
         <th>Creado</th>
             <th>Accion</th>
         </tr>
@@ -13,6 +15,8 @@
             <tr>
                 <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
+              <td>{{implode(" ",$user->getRoleNames()->toArray())}}</td>
+              <td>{{ $user->expediente->numero ??'Sin asignar'}}</td>
             <td>{{ $user->created_at }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
@@ -25,7 +29,7 @@
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>

@@ -5,7 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 class RoleAndPermissionSeeder extends Seeder
 {
     /**
@@ -17,57 +18,58 @@ class RoleAndPermissionSeeder extends Seeder
 
 
     {
-        Permission::create(['name' => 'crear-expediente']);
-        Permission::create(['name' => 'editar-expediente']);
-        Permission::create(['name' => 'borrar-expediente']);
-        Permission::create(['name' => 'ver-expediente']);
-        Permission::create(['name' => 'crear-audiencia']);
-        Permission::create(['name' => 'editar-audiencia']);
-        Permission::create(['name' => 'borrar-audiencia']);
-        Permission::create(['name' => 'ver-audiencia']);
-        Permission::create(['name' => 'crear-pago']);
-        Permission::create(['name' => 'editar-pago']);
-        Permission::create(['name' => 'borrar-pago']);
-        Permission::create(['name' => 'ver-pago']);
-        Permission::create(['name' => 'crear-gasto']);
-        Permission::create(['name' => 'editar-gasto']);
-        Permission::create(['name' => 'borrar-gasto']);
-        Permission::create(['name' => 'ver-gasto']);
-         Permission::create(['name' => 'ver-reporte']);
+        $permission_array =[];
+        array_push($permission_array,Permission::create(['name' => 'crear-expediente']));
+        array_push($permission_array,Permission::create(['name' => 'editar-expediente']));
+        array_push($permission_array,Permission::create(['name' => 'borrar-expediente']));
+        array_push($permission_array,Permission::create(['name' => 'ver-expediente']));
+        array_push($permission_array,Permission::create(['name' => 'crear-audiencia']));
+        array_push($permission_array,Permission::create(['name' => 'editar-audiencia']));
+        array_push($permission_array,Permission::create(['name' => 'borrar-audiencia']));
+        array_push($permission_array,Permission::create(['name' => 'ver-audiencia']));
+        array_push($permission_array,Permission::create(['name' => 'crear-pago']));
+        array_push($permission_array,Permission::create(['name' => 'editar-pago']));
+        array_push($permission_array,Permission::create(['name' => 'borrar-pago']));
+        array_push($permission_array,Permission::create(['name' => 'ver-pago']));
+        array_push($permission_array,Permission::create(['name' => 'crear-gasto']));
+        array_push($permission_array,Permission::create(['name' => 'editar-gasto']));
+        array_push($permission_array,Permission::create(['name' => 'borrar-gasto']));
+        array_push($permission_array,Permission::create(['name' => 'ver-gasto']));
+        array_push($permission_array,Permission::create(['name' => 'ver-reporte']));
 
-        $adminRole = Role::create(['name' => 'Admin']);
-        $secretarioRole = Role::create(['name' => 'Secretario']);
+        $ClienetePermission= Permission::create(['name' => 'cliente']);
 
-        $adminRole->givePermissionTo([
-            'crear-expediente',
-            'editar-expediente',
-            'borrar-expediente',
-            'ver-expediente',
-            'crear-audiencia',
-            'editar-audiencia',
-            'borrar-audiencia',
-            'ver-audiencia',
-            'crear-pago',
-            'editar-pago',
-            'borrar-pago',
-            'ver-pago',
-            'crear-gasto',
-            'editar-gasto',
-            'borrar-gasto',
-            'ver-gasto',
-            'ver-reporte'
+        array_push($permission_array,  $ClienetePermission);
+
+       $SuperAdminRole = Role::create(['name' => 'super_admin']);
+       $SuperAdminRole->syncPermissions($permission_array);
+    
+       $AdminRole = Role::create(['name' => 'admin']);
+       $AdminRole->syncPermissions($permission_array);
+
+
+       $ClienteRole = Role::create(['name' => 'cliente']);
+       $ClienteRole->syncPermissions($ClienetePermission);
+
+         $userSuperAdmin=User::create([
+                'name' => 'admin',
+                'email' => 'superadmin@gmail.com',
+                'password' => Hash::make('Admin21141998'),
+                
+            ]);
+     $userSuperAdmin->assignRole('super_admin');
+
+     $ClienteView=User::create([
+            'name' => 'cliente',
+            'email' => 'cliente@gmail.com',
+            'password' => Hash::make('123456789'),
+            
         ]);
+     $ClienteView->assignRole('cliente');
 
-        $secretarioRole->givePermissionTo([
-            'crear-expediente',
-            'editar-expediente',
-            'ver-expediente',
-            'crear-audiencia',
-            'editar-audiencia',
-            'ver-audiencia',
-            'crear-pago',
-            'crear-gasto'
-        ]);
+
     }
+
+
    
 }

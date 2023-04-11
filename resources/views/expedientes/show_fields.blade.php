@@ -44,9 +44,12 @@
 <div class="col-sm-3 ">
     {!! Form::label('clientes', 'Clientes:', ['class'=>'lb-lg']) !!}
     <p>@foreach($expediente->clientes as $expediente)
+       Ci: {{ $expediente->ci}},
             {{ $expediente->nombre}}
+            {{ $expediente->apellido}}
             @endforeach</p>
 </div>
+
 <!-- Created At Field -->
 <div class="col-sm-3">
     {!! Form::label('created_at', 'Registrado en fecha:') !!}

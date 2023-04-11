@@ -1,30 +1,22 @@
-<!-- Name Field -->
-<div class="col-sm-12">
-    {!! Form::label('name', 'Name:') !!}
-    <p>{{ $user->name }}</p>
+<div class="table-responsive" style="padding:15px;">
+    <table class="table" id="myTabla">
+        <thead>
+        <tr>
+            <th>Usuario</th>
+        <th>Email</th>
+        <th>Rol</th>
+        <th>Nro expediente</th>
+        <th>Creado</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+              <td>{{implode(" ",$user->getRoleNames()->toArray())}}</td>
+              <td>{{ $user->expediente->numero ??'Sin asignar'}}</td>
+            <td>{{ $user->created_at }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
-<!-- Email Field -->
-<div class="col-sm-12">
-    {!! Form::label('email', 'Email:') !!}
-    <p>{{ $user->email }}</p>
-</div>
-
-<!-- Password Field -->
-<div class="col-sm-12">
-    {!! Form::label('password', 'Password:') !!}
-    <p>{{ $user->password }}</p>
-</div>
-
-<!-- Created At Field -->
-<div class="col-sm-12">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{{ $user->created_at }}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="col-sm-12">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{{ $user->updated_at }}</p>
-</div>
-

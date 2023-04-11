@@ -9,6 +9,9 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Spatie\Permission\Models\Role;
+use App\Models\Expediente;
+use App\Models\User;
 
 class UserController extends AppBaseController
 {
@@ -42,7 +45,8 @@ class UserController extends AppBaseController
      */
     public function create()
     {
-        return view('users.create');
+       $expediente = Expediente::pluck('numero','id');
+        return view('users.create',compact('expediente'));
     }
 
     /**
@@ -57,7 +61,8 @@ class UserController extends AppBaseController
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
 
-        $user = $this->userRepository->create($input);
+        $user = User::create($input);
+        $user->assignRole($request->role);
 
         Flash::success('Usuario Guardado correctamente.');
 
@@ -127,6 +132,8 @@ class UserController extends AppBaseController
        unset($request['password']);
        }
         $user = $this->userRepository->update($request->all(), $id);
+        $user->roles()->detach();
+        $user->assignRole($request->role);
 
         Flash::success('Usuario actualizado correctamente.');
 

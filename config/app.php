@@ -161,7 +161,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-         Barryvdh\DomPDF\ServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+        
 
         /*
          * Package Service Providers...
@@ -177,6 +179,8 @@ return [
         App\Providers\EventServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+         Illuminate\View\ViewServiceProvider::class,
+        \App\Providers\ViewServiceProvider::class,
 
     ],
 

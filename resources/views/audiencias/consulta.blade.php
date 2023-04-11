@@ -26,7 +26,7 @@
         <tbody>
          @foreach($audiencias as $audiencias)
             <tr>
-              <td>{{ $audiencias->expediente->numero }}</td>
+              <td>{{ $audiencias->expediente->numero ?? 'Sin asignar'}}</td>
                 <td>{{ $audiencias->descripcion_audiencia }}</td>
             <td>{{ $audiencias->inicio_audiencia }}</td>
           
