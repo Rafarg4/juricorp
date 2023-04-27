@@ -126,6 +126,7 @@
                                 
                             </div>
                       </div>
+                       @can('ver-pago') 
                       <div class="col-lg-12">
                       <div class="card">
                             <div class="card-header">
@@ -136,7 +137,7 @@
                             </div>
                       </div>
                   </div> 
-        </section>
+        </section>@endcan
     
 
 <script>

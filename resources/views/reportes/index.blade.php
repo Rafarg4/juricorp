@@ -1,6 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+<script>
+    
+   $(document).ready( function () {
+    $('#myTable3').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            },
+            "dom": "Bftrip",
+            
+            buttons: [
+  {
+    extend: 'pdf',
+    text: 'PDF',
+    orientation: 'landscape'
+
+  }
+]
+        } );
+} );
+
+</script>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -23,7 +44,7 @@
         <div class="card">
             <div class="card-body p-0">
                <div class="table-responsive" style="padding:15px;">
-    <table class="table" id="myTable2">
+    <table class="table" id="myTable3">
         <thead>
         <tr>
          <th>Numero</th>

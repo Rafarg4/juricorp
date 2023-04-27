@@ -100,6 +100,16 @@
     Bienvenido/a {{ Auth::user()->name }} al sistema de seguimientos de expedientes para clientes.
   </div>
 </div> 
+<div class="col-12 col-sm-6 col-md-3">
+<div class="info-box">
+<span class="info-box-icon bg-warning elevation-1"><i class="fa fas-solid fa-folder"></i></span>
+<div class="info-box-content">
+<span class="info-box-text">Mi Expedientes</span>
+<span class="info-box-number"><a href="{{ url('cliente') }}" class="small-box-footer">Ir a <i class="fas fa-arrow-circle-right"></i></a></span>
+</div>
+
+</div>
+</div>
 @endif
 </div>
 @endsection
